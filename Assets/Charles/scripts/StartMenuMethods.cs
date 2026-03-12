@@ -28,6 +28,6 @@ public class StartMenuMethods : MonoBehaviour
     }
    public void pause()
     {
-        SceneManager.LoadScene("MainMenu");
+        gameObject p =
     }
 }
