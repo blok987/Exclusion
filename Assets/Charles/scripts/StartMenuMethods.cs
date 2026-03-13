@@ -28,6 +28,6 @@ public class StartMenuMethods : MonoBehaviour
     }
    public void pause()
     {
-        gameObject p =
+        //gameObject p =
     }
 }
