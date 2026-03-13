@@ -26,8 +26,5 @@ public class StartMenuMethods : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-   public void pause()
-    {
-        //gameObject p =
-    }
+   
 }
