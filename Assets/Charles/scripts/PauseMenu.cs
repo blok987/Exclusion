@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused;
 
     [SerializeField] private GameObject pauseMenu;
-    public void Pause(InputAction.CallbackContext ctx)
+    public void Pause()
     {
         isPaused = true;
         pauseMenu.SetActive(true); 
