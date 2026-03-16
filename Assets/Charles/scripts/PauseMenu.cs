@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true); 
         Time.timeScale = 0f; 
     }
-    public void Resume(InputAction.CallbackContext ctx)
+    public void Resume()
     {   
         isPaused = false;
         pauseMenu.SetActive(false);
@@ -29,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     
     public void back()
     {
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f; // Resume the game by setting time scale back to 1
     }   
 }
