@@ -893,7 +893,7 @@ MonoBehaviour:
   Stamina: 100
   MaxStamina: 100
   RunCost: 25
-  regenRate: 30
+  regenRate: 100
 --- !u!50 &1969493080
 Rigidbody2D:
   serializedVersion: 5
@@ -1128,6 +1128,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b85d0239-e2a3-4b9e-a4a3-28fd9cb59ca0
+    m_ActionName: 'UI/PauseToggle[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
