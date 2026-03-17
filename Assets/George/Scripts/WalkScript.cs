@@ -3,7 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
 {
-    [SerializeField] float WalkSpeed = 10;
+    [SerializeField] float Acceleration = 10;
+    [SerializeField] float Deceleration = 5;
+    [SerializeField] float MaxSpeed = 10;
     [SerializeField] float AirSpeed = 5;
     [SerializeField] float JumpStrength = 5;
     
@@ -26,34 +28,48 @@ public class WalkScript : MonoBehaviour
         
         //Player Gravity
         PlayerDirection.y = GetComponent<Rigidbody2D>().linearVelocity.y;
-        
 
-        //+X Move
-        if (Input.GetKey(KeyCode.D) && isGrounded()) 
+
+        
+        if (Input.GetKey(KeyCode.D))//+X Move
         {
-            PlayerDirection.x += WalkSpeed * Time.deltaTime;
+            if (isGrounded())
+            {
+                PlayerDirection.x += Acceleration * Time.deltaTime;
+            }
+            else
+            {
+                PlayerDirection.x += AirSpeed * Time.deltaTime;
+
+            }
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))//-X Move
         {
-            PlayerDirection.x -= AirSpeed * Time.deltaTime;
+            if (isGrounded())
+            {
+                PlayerDirection.x -= Acceleration * Time.deltaTime;
+            }
+            else
+            {
+                PlayerDirection.x -= AirSpeed * Time.deltaTime;
+            }
+        }
+        else //No X Input
+        {
+            if (isGrounded())
+            {
+                PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration) ;
+            }
         }
 
-        //-X Move
-        if (Input.GetKeyDown(KeyCode.A) && isGrounded())
-        {
-            PlayerDirection.x -= WalkSpeed * Time.deltaTime;
-        }
-        //-X Air Move
-        else if (Input.GetKey(KeyCode.D))
-        {
-            PlayerDirection.x += AirSpeed * Time.deltaTime;
-        }
-        
+
         //Jump Move        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
         }
+        
+       PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
 
         GetComponent <Rigidbody2D>().linearVelocity = PlayerDirection;
         #endregion
