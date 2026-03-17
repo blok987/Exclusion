@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 1308682617}
   - component: {fileID: 1308682616}
   - component: {fileID: 1308682618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Benedryl '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkSpeed: 10
+  AirSpeed: 1
+  JumpStrength: 5
   PlayerDirection: {x: 0, y: 0}
+  Ground:
+    serializedVersion: 2
+    m_Bits: 8
+  rayDistance: 1.1
 --- !u!50 &1308682617
 Rigidbody2D:
   serializedVersion: 5
@@ -521,7 +527,7 @@ GameObject:
   - component: {fileID: 1457463939}
   - component: {fileID: 1457463938}
   - component: {fileID: 1457463941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +544,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7e6411d10ca04e541b2069673da9002d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -660,7 +666,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7e6411d10ca04e541b2069673da9002d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
