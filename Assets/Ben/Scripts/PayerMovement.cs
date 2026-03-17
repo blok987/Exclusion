@@ -25,7 +25,8 @@ public class PayerMovement : MonoBehaviour
     public float Stamina, MaxStamina;
 
     public float RunCost;
-    public float regenRate;
+    public float regenRate = 0.5f;
+    
 
     private Coroutine staminaRegen;
 
@@ -33,6 +34,8 @@ public class PayerMovement : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         rb2d = GetComponent<Rigidbody2D>();
+        
+
     }
 
     void Update()
@@ -94,17 +97,17 @@ public class PayerMovement : MonoBehaviour
    
     private IEnumerator StaminaRegen()
     {
-        yield return new WaitForSeconds(1f);
-
+        yield return new WaitForSeconds(0.75f);
+        
         while(Stamina < MaxStamina)
         {
-            Stamina += regenRate / 100f;
+            Stamina += regenRate * Time.deltaTime;
             if(Stamina > MaxStamina)
             {
                 Stamina = MaxStamina;
             }
             StaminaBar.fillAmount = Stamina / MaxStamina;
-            yield return new WaitForSeconds(0.1f);
+            yield return null;
         }
     }
 
