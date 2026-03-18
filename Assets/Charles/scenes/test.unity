@@ -486,7 +486,6 @@ GameObject:
   - component: {fileID: 727064060}
   - component: {fileID: 727064059}
   - component: {fileID: 727064058}
-  - component: {fileID: 727064061}
   m_Layer: 5
   m_Name: Grid Panel
   m_TagString: Untagged
@@ -583,18 +582,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727064056}
   m_CullTransparentMesh: 1
---- !u!114 &727064061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727064056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf501f9b1a1c744c8e5467f2ac3319b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &744249533
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +715,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventory: {fileID: 564519682}
+  s1: {fileID: 0}
+  s2: {fileID: 0}
+  s3: {fileID: 0}
+  s4: {fileID: 0}
+  s5: {fileID: 0}
+  s6: {fileID: 0}
+  s7: {fileID: 0}
+  s8: {fileID: 0}
+  ol1: {fileID: 0}
+  ol2: {fileID: 0}
+  ol3: {fileID: 0}
+  ol4: {fileID: 0}
+  ol5: {fileID: 0}
+  ol6: {fileID: 0}
+  ol7: {fileID: 0}
+  ol8: {fileID: 0}
+  selectedslot: 
+  III: {fileID: 0}
+  sc: {fileID: 0}
+  ss: {fileID: 0}
 --- !u!1 &761136563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3133,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727064057}
     m_Modifications:
+    - target: {fileID: 2278142831764629901, guid: e2f9fdcb2484fe54b9c9c8d4f7254342, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278142831764629901, guid: e2f9fdcb2484fe54b9c9c8d4f7254342, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278142831764629901, guid: e2f9fdcb2484fe54b9c9c8d4f7254342, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3298181448753205381, guid: e2f9fdcb2484fe54b9c9c8d4f7254342, type: 3}
       propertyPath: m_Name
       value: slot (1)
