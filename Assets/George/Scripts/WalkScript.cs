@@ -29,8 +29,7 @@ public class WalkScript : MonoBehaviour
         //Player Gravity
         PlayerDirection.y = GetComponent<Rigidbody2D>().linearVelocity.y;
 
-
-        
+        #region Player X-Axis Movement
         if (Input.GetKey(KeyCode.D))//+X Move
         {
             if (isGrounded())
@@ -54,25 +53,32 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x -= AirSpeed * Time.deltaTime;
             }
         }
-        else //No X Input
+        else //Handles no X-axis Input
         {
             if (isGrounded())
             {
+                //Handles the Deceleration of the Player when no input is given
                 PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration) ;
             }
         }
+        //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
+        PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
+        #endregion
 
-
+        #region Player Y-Axis Movement
         //Jump Move        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
         }
-        
-       PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
 
-        GetComponent <Rigidbody2D>().linearVelocity = PlayerDirection;
-        #endregion
+        //Climbing Movement 
+
+        #endregion //ends y-axis movement handling
+
+
+        GetComponent<Rigidbody2D>().linearVelocity = PlayerDirection;
+        #endregion //ends player movement handling
     }
     private bool isGrounded()
     {
