@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthLeg : MonoBehaviour
 {
     public float health;
     public float maxHealth = 10;
-    public HealthBarBodyTest healthBar;
+    public HealthBarLegTest1 healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

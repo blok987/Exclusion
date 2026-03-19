@@ -4,6 +4,7 @@ public class Damage : MonoBehaviour
 {
     public float damage = 2;
     public Health playerHealth;
+    public HealthLeg playerHealthLeg;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +23,10 @@ public class Damage : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
            playerHealth.TakeDamage(damage);
+        }
+        if (collision.gameObject.tag == "PlayerLeg1")
+        {
+            playerHealthLeg.TakeDamage(damage);
         }
     }
 }
