@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class HealthBar : MonoBehaviour
+public class HealthBarLegTest1 : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    private Health health;
+    private HealthLeg health;
     [SerializeField] private Image healthFill;
     [SerializeField] private float fillSpeed;
 
