@@ -1,23 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HealthBar : MonoBehaviour
 {
-    Slider _healthSlider;
+    public float maxHealth;
+    public float currentHealth;
+    private Health health;
+    [SerializeField] private Image healthFill;
+    [SerializeField] private float fillSpeed;
 
-    private void Awake()
+    void Start()
     {
-        _healthSlider = GetComponent<Slider>();
+        maxHealth = health.maxHealth;
+        currentHealth = maxHealth;
     }
 
-    public void setMaxHealth(int maxHealth)
+    public void UpdateHealth(float amount)
     {
-        _healthSlider.maxValue = maxHealth;
-        _healthSlider.value = maxHealth;
+        currentHealth -= amount;
+        UpdateHealthBar();
     }
-    public void setHealth(int health)
+
+    private void UpdateHealthBar()
     {
-        
-        _healthSlider.value = health;
+        float targetFillAmount = currentHealth / maxHealth;
+        //healthFill.fillAmount = targetFillAmount;
+        healthFill.DOFillAmount(targetFillAmount, fillSpeed);
     }
 }
