@@ -5,13 +5,19 @@ public class WalkScript : MonoBehaviour
 {
     [SerializeField] float Acceleration = 10;
     [SerializeField] float Deceleration = 5;
+
     [SerializeField] float MaxSpeed = 10;
     [SerializeField] float AirSpeed = 5;
+
     [SerializeField] float JumpStrength = 5;
-    
+    [SerializeField] float ClimbSpeed = 3;
+
+    [SerializeField] bool LContact;
+    [SerializeField] bool RContact;
+
     public Vector2 PlayerDirection;
     public LayerMask Ground;
-
+    
     public float rayDistance = 1.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,7 +79,19 @@ public class WalkScript : MonoBehaviour
         }
 
         //Climbing Movement 
+        if (Input.GetKey(KeyCode.F))
+        {
+            if (LContact = true)
+            {
+                PlayerDirection.y += ClimbSpeed;
 
+            }
+            else if (RContact = true)
+            {
+
+            }
+            PlayerDirection.y += ClimbSpeed;
+        }
         #endregion //ends y-axis movement handling
 
 

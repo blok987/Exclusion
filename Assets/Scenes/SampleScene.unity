@@ -772,10 +772,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 10
-  Deceleration: 3.5
+  Deceleration: 5.5
   MaxSpeed: 5
   AirSpeed: 1
   JumpStrength: 5
+  ClimbSpeed: 3
+  LContact: 0
+  RContact: 0
   PlayerDirection: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
