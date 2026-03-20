@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    
     public float damage = 2;
     public Health playerHealth;
     public HealthLeg playerHealthLeg;
@@ -9,23 +10,27 @@ public class Damage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
+    }   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+
+        if (collision.gameObject.CompareTag("Player"))
         {
-           playerHealth.TakeDamage(damage);
+            Debug.Log("Player Body Hit");
+            playerHealth.TakeDamage(damage);
         }
-        if (collision.gameObject.tag == "PlayerLeg1")
+
+         if (collision.gameObject.CompareTag("PlayerLeg1"))
         {
+            Debug.Log("Player Leg Hit");
             playerHealthLeg.TakeDamage(damage);
         }
     }
