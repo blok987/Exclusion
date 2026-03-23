@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac6cd76cb57fa4381104038c84b952, type: 3}
   m_Name: L leg
   m_EditorClassIdentifier: 
+  description: 
+  itenprice: $5
+  itemSprite: {fileID: 0}
+  itemQuality: 2
+  itemBehavior:
+    m_PersistentCalls:
+      m_Calls: []

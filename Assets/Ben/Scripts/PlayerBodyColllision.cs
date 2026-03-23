@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class PlayerBodyCollision : MonoBehaviour
 {
     
     public float damage = 2;
     public Health playerHealth;
-    public HealthLeg playerHealthLeg;
+    public GameObject playerLeg;
+
+    Collider2D parentCollider;
+    Collider2D childCollider;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        parentCollider = GetComponent<Collider2D>();
+        childCollider = GetComponentInChildren<Collider2D>();
+
+        
     }
 
     // Update is called once per frame
@@ -21,11 +28,11 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerLeg1"))
+        Physics2D.IgnoreCollision(parentCollider, childCollider);
+        if (collision.gameObject.CompareTag("hurt"))
         {
             Debug.Log("Player Body Hit");
-            playerHealthLeg.TakeDamage(damage);
+            
             playerHealth.TakeDamage(damage);
         }
 

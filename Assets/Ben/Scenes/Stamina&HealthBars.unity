@@ -146,6 +146,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
   m_PrefabInstance: {fileID: 6503991103109629078}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &507878243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7788283079949490990, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
+  m_PrefabInstance: {fileID: 615703119}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &615703119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,9 +269,10 @@ GameObject:
   - component: {fileID: 978553844}
   - component: {fileID: 978553847}
   - component: {fileID: 978553851}
+  - component: {fileID: 978553854}
   - component: {fileID: 978553853}
   - component: {fileID: 978553852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leg
   m_TagString: PlayerLeg1
   m_Icon: {fileID: 0}
@@ -402,7 +414,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  healthBar: {fileID: 1315421217}
+  healthBar1: {fileID: 1315421217}
+--- !u!114 &978553854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978553843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabe095934a7e624dbcc642df10328f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  playerLegHealth: {fileID: 978553853}
 --- !u!1 &1059670119
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,10 +583,9 @@ GameObject:
   - component: {fileID: 1286304869}
   - component: {fileID: 1286304872}
   - component: {fileID: 1286304866}
-  - component: {fileID: 1286304871}
   m_Layer: 0
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: hurt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,21 +687,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1286304871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286304865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902164525ebc90e469613c24cfef6902, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1.5
-  playerHealth: {fileID: 1969493086}
-  playerHealthLeg: {fileID: 978553853}
 --- !u!58 &1286304872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -849,7 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
-  healthFill2: {fileID: 0}
+  healthFill2: {fileID: 507878243}
   fillSpeed: 0.4
 --- !u!224 &1392539343 stripped
 RectTransform:
@@ -1002,10 +1012,11 @@ GameObject:
   - component: {fileID: 1969493082}
   - component: {fileID: 1969493088}
   - component: {fileID: 1969493080}
+  - component: {fileID: 1969493089}
   - component: {fileID: 1969493086}
   - component: {fileID: 1969493084}
   - component: {fileID: 1969493087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1316,6 +1327,21 @@ MonoBehaviour:
   MaxStamina: 100
   RunCost: 25
   regenRate: 15
+--- !u!114 &1969493089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969493078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902164525ebc90e469613c24cfef6902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  playerHealth: {fileID: 1969493086}
+  playerLeg: {fileID: 0}
 --- !u!1 &2007058990
 GameObject:
   m_ObjectHideFlags: 0

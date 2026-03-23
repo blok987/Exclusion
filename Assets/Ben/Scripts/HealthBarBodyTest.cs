@@ -6,7 +6,7 @@ public class HealthBarBodyTest : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    private Health health;
+   
     [SerializeField] private Image healthFill;
     [SerializeField] private float fillSpeed;
 
