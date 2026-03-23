@@ -12,18 +12,21 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 3;
 
-    [SerializeField] bool LContact;
-    [SerializeField] bool RContact;
+    
 
     public Vector2 PlayerDirection;
     public LayerMask Ground;
+    public LayerMask Climbable;
     
-    public float rayDistance = 1.1f;
+    public float HalfBodyDistance = 1.1f;
+    public float LArmlength = -1f;
+    public float RArmlength = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        print("This sensation! We need more!");
+        print("Unity Engine. 500 hundered Monobehaviour Errors");     
     }
 
     // Update is called once per frame
@@ -81,25 +84,37 @@ public class WalkScript : MonoBehaviour
         //Climbing Movement 
         if (Input.GetKey(KeyCode.F))
         {
-            if (LContact = true)
+            if (isClimbingRight())
             {
                 PlayerDirection.y += ClimbSpeed;
-
             }
-            else if (RContact = true)
+            else if (isClimbingLeft())
             {
-
+                PlayerDirection.y += ClimbSpeed;
             }
-            PlayerDirection.y += ClimbSpeed;
+            
         }
         #endregion //ends y-axis movement handling
 
 
         GetComponent<Rigidbody2D>().linearVelocity = PlayerDirection;
-        #endregion //ends player movement handling
+        #endregion
     }
+    
+
+
+    //Methods for ground/Wall check
     private bool isGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, rayDistance, Ground);
+        return Physics2D.Raycast(transform.position, Vector2.down, HalfBodyDistance, Ground);
+    }
+    
+    private bool isClimbingLeft()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.left, LArmlength, Climbable);
+    }
+    private bool isClimbingRight()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.right, RArmlength, Climbable);
     }
 }
