@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,4 +10,9 @@ public class ItemData : ScriptableObject
     public Sprite itemSprite;
     public string itemQuality;
     public UnityEvent itemBehavior;
+
+    internal Sprite itemSprite()
+    {
+        throw new NotImplementedException();
+    }
 }

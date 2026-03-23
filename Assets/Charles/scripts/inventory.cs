@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;   
+using System;
+using UnityEngine.InputSystem;
 
 
 public class inventory : MonoBehaviour
@@ -29,8 +30,12 @@ public class inventory : MonoBehaviour
     public InventoryItemInstance III;
     public GameObject sc;
     public GameObject ss;
+    private GameObject player;
+    private PlayerInput pi;
     public void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        pi = player.GetComponent<PlayerInput>();
         slots = GetComponentsInChildren<inventoryslot>(true);
         if (slots.Length > 0) s1 = slots[0]?.gameObject;
         if (slots.Length > 1) s2 = slots[1]?.gameObject;
@@ -151,6 +156,7 @@ public class inventory : MonoBehaviour
     }
     public void Update()
     {
+        EvaluateInventory();
         if (selectedslot == "s1")
             ss = s1;
         else if (selectedslot == "s2")
@@ -178,7 +184,7 @@ public class inventory : MonoBehaviour
         }
         if (Input.mouseScrollDelta.y > 0)
         {
-           Debug.Log("scrolling up");
+          
             selectedslot = selectedslot switch
             {
                 "s8" => "s1",
@@ -213,8 +219,10 @@ public class inventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("using item");
             if (sc.GetComponent<InventoryItemInstance>().data != null)
             {
+                Debug.Log("used item");
                 sc.GetComponent<InventoryItemInstance>().Use();
             }
         }
@@ -225,7 +233,8 @@ public class inventory : MonoBehaviour
     { 
         for (int i = 0; i < slots.Length; ++i)
         {
-            slots[i].SetItem(i <= items.Count ? items[i] : null);
+           
+            slots[i].SetItem(i < items.Count ? items[i] : null);
         }
     }
 
