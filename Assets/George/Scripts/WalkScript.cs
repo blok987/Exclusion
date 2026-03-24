@@ -10,7 +10,7 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float AirSpeed = 5;
 
     [SerializeField] float JumpStrength = 5;
-    [SerializeField] float ClimbSpeed = 3;
+    [SerializeField] float ClimbSpeed = 1;
 
     
 
@@ -25,8 +25,8 @@ public class WalkScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("This sensation! We need more!");
-        print("Unity Engine. 500 hundered Monobehaviour Errors");     
+        print("The tingles! do you feel them? We must have more!");
+        print("Indeed. 500 hundered Compiler Errors");     
     }
 
     // Update is called once per frame
@@ -82,7 +82,7 @@ public class WalkScript : MonoBehaviour
         }
 
         //Climbing Movement 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (isClimbingRight())
             {
