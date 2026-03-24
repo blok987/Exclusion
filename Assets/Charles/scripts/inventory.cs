@@ -53,6 +53,7 @@ public class inventory : MonoBehaviour
         ol6 = s6.GetComponent<Outline>();
         ol7 = s7.GetComponent<Outline>();
         ol8 = s8.GetComponent<Outline>();
+       
     }
     public void Start()
     {
@@ -152,11 +153,11 @@ public class inventory : MonoBehaviour
             ((Outline)ol8).enabled = true;
         }
 
-        EvaluateInventory();
+        
     }
     public void Update()
     {
-        EvaluateInventory();
+        
         if (selectedslot == "s1")
             ss = s1;
         else if (selectedslot == "s2")
@@ -219,15 +220,23 @@ public class inventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("using item");
+            
             if (sc.GetComponent<InventoryItemInstance>().data != null)
             {
-                Debug.Log("used item");
+                
                 sc.GetComponent<InventoryItemInstance>().Use();
             }
         }
         
     }
+    public void AddItem()
+    {
+       
+        EvaluateInventory();
+    }
+
+
+
 
     public void EvaluateInventory() 
     { 
@@ -236,6 +245,7 @@ public class inventory : MonoBehaviour
            
             slots[i].SetItem(i < items.Count ? items[i] : null);
         }
+        
     }
 
 }

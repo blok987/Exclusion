@@ -11,8 +11,5 @@ public class ItemData : ScriptableObject
     public string itemQuality;
     public UnityEvent itemBehavior;
 
-    //internal Sprite itemSprite()
-    //{
-    //    throw new NotImplementedException();
-    //}
+    
 }

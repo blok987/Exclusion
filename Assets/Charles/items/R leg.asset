@@ -12,3 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac6cd76cb57fa4381104038c84b952, type: 3}
   m_Name: R leg
   m_EditorClassIdentifier: 
+  description: 
+  itenprice: $5
+  itemSprite: {fileID: 0}
+  itemQuality: 2
+  itemBehavior:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
