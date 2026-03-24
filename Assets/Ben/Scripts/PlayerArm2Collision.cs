@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlayerLeg2Collision : MonoBehaviour
+public class PlayerArm2Collision : MonoBehaviour
 {
     
     public float damage = 2;
 
-    public HealthLeg2 playerLegHealth2;
+    public HealthArm2 playerArm2Health;
     public PlayerBodyCollision playerBodyCollision;
 
     Collider2D parentCollider;
@@ -27,10 +27,10 @@ public class PlayerLeg2Collision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("hurt"))
         {
-            playerBodyCollision.isLeg2Colliding = true;
-            Debug.Log("Player Leg2Hit");
+            playerBodyCollision.isArm2Colliding = true;
+            Debug.Log("Player Leg Hit");
             
-            playerLegHealth2.TakeDamage(damage);
+            playerArm2Health.TakeDamage(damage);
         }
 
     }     
