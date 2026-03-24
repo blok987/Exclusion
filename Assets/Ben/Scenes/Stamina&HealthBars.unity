@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   playerHealth: {fileID: 1969493086}
-  playerLeg: {fileID: 0}
+  playerLeg: {fileID: 978553843}
 --- !u!1 &2007058990
 GameObject:
   m_ObjectHideFlags: 0

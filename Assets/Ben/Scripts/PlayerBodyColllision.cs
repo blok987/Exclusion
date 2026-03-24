@@ -7,6 +7,8 @@ public class PlayerBodyCollision : MonoBehaviour
     public Health playerHealth;
     public GameObject playerLeg;
 
+
+
     Collider2D parentCollider;
     Collider2D childCollider;
 
@@ -15,20 +17,23 @@ public class PlayerBodyCollision : MonoBehaviour
     void Start()
     {
         parentCollider = GetComponent<Collider2D>();
-        childCollider = GetComponentInChildren<Collider2D>();
+        childCollider = playerLeg.GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(childCollider, parentCollider);
 
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Physics2D.GetIgnoreCollision(parentCollider, childCollider) == true)
+        {
+            Debug.Log("Collisions Ignored");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Physics2D.IgnoreCollision(parentCollider, childCollider);
+        
         if (collision.gameObject.CompareTag("hurt"))
         {
             Debug.Log("Player Body Hit");
