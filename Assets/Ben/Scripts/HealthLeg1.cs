@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthLeg : MonoBehaviour
+public class HealthLeg1 : MonoBehaviour
 {
     public float health;
     public float maxHealth = 10;
