@@ -12,7 +12,7 @@ public class PlayerLeg1Collision : MonoBehaviour
     {
         parentCollider = gameObject.transform.parent.GetComponent<Collider2D>();
         childCollider = GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(parentCollider, childCollider);
+        Physics2D.IgnoreCollision(childCollider, parentCollider);
         
     }
 

@@ -1,4 +1,4 @@
-using Unity.Android.Gradle.Manifest;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +12,7 @@ public class InventoryItemInstance : MonoBehaviour
     private void OnEnable()
     {
         itemImage = GetComponent<Image>();
-        itemImage.sprite = data.itemSprite;
+        //itemImage.sprite = data.itemSprite;
     }
 
     public void Use()
