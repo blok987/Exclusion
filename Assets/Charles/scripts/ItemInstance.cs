@@ -5,6 +5,13 @@ public class ItemInstance : MonoBehaviour
 {
     public ItemData itemData;
     private SpriteRenderer sr;
+    private inventory i;
+    private Canvas c;
+    public void Start()
+    {
+        c = FindAnyObjectByType<Canvas>();
+        i = FindFirstObjectByType<inventory>();
+    }
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>(); 
@@ -15,6 +22,7 @@ public class ItemInstance : MonoBehaviour
     {
         
         inventory.items.Add(itemData);
+        i.AddItem();
         Destroy(gameObject);
        
     }
