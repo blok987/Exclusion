@@ -273,7 +273,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5855718684004540744, guid: f85504bff3ae93146b66949b08c8518e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 983779773}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4723054222252063019, guid: f85504bff3ae93146b66949b08c8518e, type: 3}
       insertIndex: -1
@@ -305,13 +308,16 @@ MonoBehaviour:
   AirSpeed: 5
   JumpStrength: 5
   ClimbSpeed: 3
-  LContact: 0
-  RContact: 0
   PlayerDirection: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
+    m_Bits: 8
+  Climbable:
+    serializedVersion: 2
     m_Bits: 0
-  rayDistance: 1.1
+  HalfBodyDistance: 1.1
+  LArmlength: -1
+  RArmlength: 1
 --- !u!50 &119721647
 Rigidbody2D:
   serializedVersion: 5
@@ -338,7 +344,12 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!4 &119721650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5855718684004540744, guid: f85504bff3ae93146b66949b08c8518e, type: 3}
+  m_PrefabInstance: {fileID: 119721644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &983779769
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,12 +480,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983779769}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6280663, y: 1.8988295, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 119721650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728911777
 GameObject:
@@ -573,7 +584,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728911777}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -642,6 +653,5 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 983779773}
   - {fileID: 119721644}
   - {fileID: 1728911779}
