@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14ac6cd76cb57fa4381104038c84b952, type: 3}
-  m_Name: L leg
+  m_Name: torso
   m_EditorClassIdentifier: 
   description: 
   itenprice: $5
-  itemSprite: {fileID: 7933156269937592607, guid: c9cbfd206a53f474cadaae2dc4e04182, type: 3}
+  itemSprite: {fileID: 2791978669845541274, guid: d46577ffc3e311e4c84f63c31f1b54d0, type: 3}
   itemQuality: 2
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
         m_MethodName: 
         m_Mode: 0
         m_Arguments:
