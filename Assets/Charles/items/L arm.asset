@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: this is a leftleg
   itenprice: $5
-  itemSprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  itemSprite: {fileID: 5526423409634887342, guid: 1273ccd897741d847b674e144434d8e6, type: 3}
   itemQuality: -1
   itemBehavior:
     m_PersistentCalls:

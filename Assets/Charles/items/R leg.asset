@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   itenprice: $5
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 6705241643837673635, guid: e9153887192c6f54eb4168cbbe9a48e7, type: 3}
   itemQuality: 2
   itemBehavior:
     m_PersistentCalls:
