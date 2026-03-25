@@ -10,7 +10,7 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float AirSpeed = 5;
 
     [SerializeField] float JumpStrength = 5;
-    [SerializeField] float ClimbSpeed = 3;
+    [SerializeField] float ClimbSpeed = 1;
 
     
 
@@ -22,17 +22,11 @@ public class WalkScript : MonoBehaviour
     public float LArmlength = -1f;
     public float RArmlength = 1f;
 
-    Animator dollAnim;
-    SpriteRenderer dollRender;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        print("This sensation! We need more!");
-        print("Unity Engine. 500 hundered Monobehaviour Errors");
-
-        dollAnim = GetComponent<Animator>();
-        dollRender = GetComponent<SpriteRenderer>();
+        print("The tingles! do you feel them? We must have more!");
+        print("Indeed. 500 hundered Compiler Errors");     
     }
 
     // Update is called once per frame
@@ -50,13 +44,10 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
-                dollAnim.SetBool("isRunning", true);
             }
             else
             {
                 PlayerDirection.x += AirSpeed * Time.deltaTime;
-                dollAnim.SetBool("isRunning", false);
-                dollAnim.SetBool("isJumping", true);
 
             }
         }
@@ -65,13 +56,10 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
-                dollAnim.SetBool("isRunning", true);
             }
             else
             {
                 PlayerDirection.x -= AirSpeed * Time.deltaTime;
-                dollAnim.SetBool("isRunning", false);
-                dollAnim.SetBool("isJumping", true);
             }
         }
         else //Handles no X-axis Input
@@ -91,11 +79,10 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
-            dollAnim.SetBool("isJumping", true);
         }
 
         //Climbing Movement 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (isClimbingRight())
             {
