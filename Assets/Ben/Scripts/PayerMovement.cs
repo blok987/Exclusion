@@ -58,7 +58,7 @@ public class PayerMovement : MonoBehaviour
 
         if (isRunning && (direction.x != 0 ))
         {
-            rb2d.linearVelocityX = speed * direction.x * 1.5f;
+            rb2d.linearVelocityX = speed * direction.x * 2f;
             Stamina -= RunCost * Time.deltaTime;
             if(Stamina < 0)
             {
@@ -97,7 +97,7 @@ public class PayerMovement : MonoBehaviour
    
     private IEnumerator StaminaRegen()
     {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         
         while(Stamina < MaxStamina)
         {
