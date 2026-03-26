@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
+  offset: {x: 1.2, y: 0, z: 0}
 --- !u!114 &4509576224131396446
 MonoBehaviour:
   m_ObjectHideFlags: 0

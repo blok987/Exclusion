@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ public class ItemData : ScriptableObject
     public string itenprice;
     public Sprite itemSprite;
     public string itemQuality;
+    public GameObject ip;
     public UnityEvent itemBehavior;
 
     
