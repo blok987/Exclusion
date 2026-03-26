@@ -227,7 +227,15 @@ public class inventory : MonoBehaviour
                 sc.GetComponent<InventoryItemInstance>().Use();
             }
         }
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (sc.GetComponent<InventoryItemInstance>().data != null)
+            {
+                sc.GetComponent<InventoryItemInstance>().Drop();
+            }
+        }
+
+
     }
     public void AddItem()
     {

@@ -16,6 +16,7 @@ MonoBehaviour:
   itenprice: $5
   itemSprite: {fileID: 2791978669845541274, guid: d46577ffc3e311e4c84f63c31f1b54d0, type: 3}
   itemQuality: 2
+  ip: {fileID: 1684552899222180964, guid: 8d8363961e935c4459ed9a6c38036d94, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
