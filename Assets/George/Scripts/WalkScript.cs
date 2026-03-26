@@ -82,17 +82,41 @@ public class WalkScript : MonoBehaviour
         }
 
         //Climbing Movement 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
             if (isClimbingRight())
             {
-                PlayerDirection.y += ClimbSpeed;
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    PlayerDirection.y += ClimbSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    PlayerDirection.y = 0;
+                }
+
             }
             else if (isClimbingLeft())
             {
-                PlayerDirection.y += ClimbSpeed;
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    PlayerDirection.y += ClimbSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    PlayerDirection.y = 0;
+                }
             }
-            
+            else
+            {
+                GetComponent<Rigidbody2D>().gravityScale = 1;
+            }
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 1;
         }
         #endregion //ends y-axis movement handling
 
@@ -116,5 +140,12 @@ public class WalkScript : MonoBehaviour
     private bool isClimbingRight()
     {
         return Physics2D.Raycast(transform.position, Vector2.right, RArmlength, Climbable);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * HalfBodyDistance);  
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * LArmlength);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * RArmlength);
     }
 }

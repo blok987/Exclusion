@@ -15,16 +15,13 @@ public class PlayerBodyCollision : MonoBehaviour
 
 
 
-    Collider2D parentCollider;
-    Collider2D childCollider;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        parentCollider = GetComponent<Collider2D>();
-        childCollider = playerLeg.GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(childCollider, parentCollider);
+        
 
     }
 
