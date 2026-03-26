@@ -69,7 +69,7 @@ public class RandomLegDamage : MonoBehaviour
     {
         if (gameObject.transform.childCount <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

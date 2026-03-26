@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -15,16 +16,36 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.transform.childCount <= 0)
+        {
+            health -= health;
+            healthBar.UpdateHealth(health);
+            
+            
+        }
+
+
+        if (health <= 0)
+        {
+            
+            StartCoroutine(Wait());
+            
+        }
+
     }
 
     public void TakeDamage(float amount)
     {
         health -= amount;
         healthBar.UpdateHealth(amount);
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        
+    }
+
+
+    private IEnumerator Wait()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
 }
