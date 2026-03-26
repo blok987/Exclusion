@@ -16,11 +16,12 @@ MonoBehaviour:
   itenprice: $5
   itemSprite: {fileID: -1569007172240175902, guid: 1ad89f35d8e79bd4981b5fd15ab75289, type: 3}
   itemQuality: 2
+  ip: {fileID: 7158266133397514087, guid: 081ce409b3a60ae4789dc948d93c0388, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
         m_MethodName: 
         m_Mode: 0
         m_Arguments:
