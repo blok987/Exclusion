@@ -565,6 +565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerArm1Health: {fileID: 92115319}
   playerArm2Health: {fileID: 603669740}
+  playerArm1: {fileID: 92115311}
+  playerArm2: {fileID: 603669737}
   playerBodyCollision: {fileID: 1969493089}
 --- !u!1001 &709133450
 PrefabInstance:
@@ -986,9 +988,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85fe3388a5434f43962d5fd7416359e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLeg1Health: {fileID: 0}
-  playerLeg2Health: {fileID: 0}
-  playerBodyCollision: {fileID: 0}
+  playerLeg1Health: {fileID: 978553853}
+  playerLeg2Health: {fileID: 1323420006}
+  playerLeg1: {fileID: 978553843}
+  playerLeg2: {fileID: 1323419999}
+  playerBodyCollision: {fileID: 1969493089}
 --- !u!60 &1084257585
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1037,7 +1041,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.006465912, y: -0.2737615}
       - {x: -0.5307799, y: -0.48627564}
-      - {x: -0.85288256, y: -1.0676489}
+      - {x: -1.0909832, y: -1.1205602}
+      - {x: -0.029549122, y: -1.0233495}
+      - {x: 1.0164533, y: -1.070759}
       - {x: 0.9304725, y: -0.931867}
       - {x: 0.5437114, y: -0.43454915}
   m_UseDelaunayMesh: 0
@@ -1490,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130c27c471f632f49a17d53712d151f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 10
   maxHealth: 10
   healthBar2: {fileID: 1315421218}
 --- !u!224 &1392539343 stripped
