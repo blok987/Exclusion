@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: da9a525abb47ba74893fa1a259c826f8, type: 2}
-  p: {fileID: 0}
 --- !u!212 &2345373886037886444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,7 +147,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &-4413874479798202773
 Rigidbody2D:
