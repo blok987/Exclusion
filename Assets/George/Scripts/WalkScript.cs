@@ -15,9 +15,16 @@ public class WalkScript : MonoBehaviour
     
 
     public Vector2 PlayerDirection;
+    //Offsets for the raycasts to check for ground and climbable walls
+    public Vector2 GroundOffset;
+    public Vector2 LOffset;
+    public Vector2 ROffset;
+
+    //Layermasks for Player Ground and Climbable Wall checks
     public LayerMask Ground;
     public LayerMask Climbable;
-    
+
+    //Raycasts lengths for ground and wall checks
     public float HalfBodyDistance = 1.1f;
     public float LArmlength = -1f;
     public float RArmlength = 1f;
@@ -130,22 +137,22 @@ public class WalkScript : MonoBehaviour
     //Methods for ground/Wall check
     private bool isGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, HalfBodyDistance, Ground);
+        return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
     
     private bool isClimbingLeft()
     {
-        return Physics2D.Raycast(transform.position, Vector2.left, LArmlength, Climbable);
+        return Physics2D.Raycast(transform.position + (Vector3)LOffset, Vector2.left, LArmlength, Climbable);
     }
     private bool isClimbingRight()
     {
-        return Physics2D.Raycast(transform.position, Vector2.right, RArmlength, Climbable);
+        return Physics2D.Raycast(transform.position + (Vector3)ROffset, Vector2.right, RArmlength, Climbable);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * HalfBodyDistance);  
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * LArmlength);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * RArmlength);
+        Gizmos.DrawLine(transform.position + (Vector3)GroundOffset, transform.position + (Vector3)GroundOffset + Vector3.down * HalfBodyDistance);  
+        Gizmos.DrawLine(transform.position + (Vector3)LOffset, transform.position + (Vector3)LOffset + Vector3.left * LArmlength);
+        Gizmos.DrawLine(transform.position + (Vector3)ROffset, transform.position + (Vector3)ROffset + Vector3.right * RArmlength);
     }
 }
