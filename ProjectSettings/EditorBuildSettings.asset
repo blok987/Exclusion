@@ -11,6 +11,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main menu.unity
     guid: 8db5d0360aa73f646831a3c92c0cac13
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/ben.unity
+    guid: 5052623f482ba2e4ebdf36c6cf5dece6
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/charles.unity
+    guid: 73b22c9c442a5784fbd2e4109511f97d
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/credits.unity
+    guid: de6bd728a8a8d4a479dd2496260ff81d
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/G.unity
+    guid: b1f19ecfbdfbb4f4180e8e9c02e2b140
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/george.unity
+    guid: d053721873ddcd14b80d8cefd07a50ce
+  - enabled: 1
+    path: Assets/Charles/scenes/credits/toby.unity
+    guid: 3c98fb5b6eb0d354389dc5a931c0fa3a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a3a19435718dd6747b5d8ff10e38bb74, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
