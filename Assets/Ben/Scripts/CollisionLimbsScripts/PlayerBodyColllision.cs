@@ -5,7 +5,7 @@ public class PlayerBodyCollision : MonoBehaviour
     
     public float damage = 2;
     public Health playerHealth;
-    public GameObject playerLeg;
+    
     
     public bool isLeg1Colliding;
     public bool isLeg2Colliding;
