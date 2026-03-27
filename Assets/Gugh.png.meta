@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 97e3cea2ea172ba45844e7257ddd3857
+guid: fb6cdcd043ed07b46a8207c04bb8384a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1443646776598804539
-    second: Doll Shop Booth_0
+      213: -5807177289896418319
+    second: Gugh_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doll Shop Booth_0
+      name: Gugh_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 111
-        height: 115
+        width: 474
+        height: 669
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c7c0bbc7e227fbe0800000000000000
-      internalID: -1443646776598804539
+      spriteID: 1f32208c503c86fa0800000000000000
+      internalID: -5807177289896418319
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Doll Shop Booth_0: -1443646776598804539
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
