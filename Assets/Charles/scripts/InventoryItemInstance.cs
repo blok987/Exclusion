@@ -55,7 +55,7 @@ public class InventoryItemInstance : MonoBehaviour
         inventory.AddItem();
         FindFirstObjectByType<inventory>().EvaluateInventory();
         isdroped = true;
-         StartCoroutine(wait());
+        StartCoroutine(wait());
     }
 
     
@@ -69,7 +69,7 @@ public class InventoryItemInstance : MonoBehaviour
     }
     public IEnumerator wait()
     {
-        yield return new WaitForSeconds(3f);
-
+        yield return new WaitForSeconds(5f);
+        isdroped = false;
     }
 }

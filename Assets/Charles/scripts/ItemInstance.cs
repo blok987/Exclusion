@@ -30,11 +30,11 @@ public class ItemInstance : MonoBehaviour
             p = GameObject.FindWithTag("Player");
             p = GameObject.Find("Player");
         }
-
+       
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player")  )
+        if (other.gameObject.CompareTag("Player") & III.isdroped == false )
         {
             inventory.items.Add(itemData);
             i.AddItem();
