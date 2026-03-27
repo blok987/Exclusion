@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
     public float health;
     public float maxHealth = 10;
+    private float damageForDeath;
     public HealthBarBodyTest healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,8 +19,9 @@ public class Health : MonoBehaviour
     {
         if (gameObject.transform.childCount <= 0)
         {
-            health -= health;
-            healthBar.UpdateHealth(health);
+            damageForDeath = health;
+            health -= damageForDeath;
+            healthBar.UpdateHealth(damageForDeath);
             
             
         }
@@ -45,7 +47,7 @@ public class Health : MonoBehaviour
     private IEnumerator Wait()
     {
         
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
     }
 }
