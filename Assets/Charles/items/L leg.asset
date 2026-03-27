@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   itenprice: $5
-  itemSprite: {fileID: 7933156269937592607, guid: c9cbfd206a53f474cadaae2dc4e04182, type: 3}
+  itemSprite: {fileID: 3954330747236880760, guid: e23c826fda0ef2944b968bfb7be88c84, type: 3}
   itemQuality: 2
+  ip: {fileID: 1069952089090714574, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
         m_MethodName: 
         m_Mode: 0
         m_Arguments:

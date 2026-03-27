@@ -7,24 +7,39 @@ public class ItemInstance : MonoBehaviour
     private SpriteRenderer sr;
     private inventory i;
     private Canvas c;
+    private GameObject p;
+    private InventoryItemInstance III;
     public void Start()
     {
+        //III= FindAnyObjectByType(type: typeof(InventoryItemInstance));    
+        p = GameObject.FindWithTag("Player");
         c = FindAnyObjectByType<Canvas>();
         i = FindFirstObjectByType<inventory>();
     }
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>(); 
-          sr.sprite =itemData.itemSprite;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = itemData.itemSprite;
+        GetComponent<BoxCollider2D>().isTrigger = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        
-        inventory.items.Add(itemData);
-        i.AddItem();
-        Destroy(gameObject);
-       
+        if (p == null)
+        {
+            p = GameObject.FindWithTag("Player");
+            p = GameObject.Find("Player");
+        }
+
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player")  )
+        {
+            inventory.items.Add(itemData);
+            i.AddItem();
+            Destroy(gameObject);
+        }
     }
 }
 
