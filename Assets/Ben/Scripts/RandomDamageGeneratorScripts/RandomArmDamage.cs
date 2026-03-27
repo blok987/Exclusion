@@ -64,11 +64,5 @@ public class RandomArmDamage : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (gameObject.transform.childCount <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 }
