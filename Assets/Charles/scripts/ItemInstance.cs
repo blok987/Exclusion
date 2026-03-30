@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(PolygonCollider2D))]
 public class ItemInstance : MonoBehaviour
 {
     public ItemData itemData;
@@ -8,10 +9,12 @@ public class ItemInstance : MonoBehaviour
     private inventory i;
     private Canvas c;
     private GameObject p;
-    private InventoryItemInstance III;
+   
+    
     public void Start()
     {
-        //III= FindAnyObjectByType(type: typeof(InventoryItemInstance));    
+  
+       
         p = GameObject.FindWithTag("Player");
         c = FindAnyObjectByType<Canvas>();
         i = FindFirstObjectByType<inventory>();
@@ -21,10 +24,13 @@ public class ItemInstance : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = itemData.itemSprite;
-        GetComponent<BoxCollider2D>().isTrigger = false;
+        GetComponent<PolygonCollider2D>().isTrigger = false;
     }
     private void Update()
     {
+       
+       
+        
         if (p == null)
         {
             p = GameObject.FindWithTag("Player");
@@ -34,12 +40,13 @@ public class ItemInstance : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") & III.isdroped == false )
-        {
+        if (other.gameObject.CompareTag("Player"))
+        {   
             inventory.items.Add(itemData);
             i.AddItem();
             Destroy(gameObject);
         }
     }
+    
 }
 
