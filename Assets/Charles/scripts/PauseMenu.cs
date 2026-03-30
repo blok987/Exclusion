@@ -7,9 +7,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
-    
+    public GameObject inv;
 
     [SerializeField] private GameObject pauseMenu;
+    public void Start()
+    {
+        inv = GameObject.Find("stuff background");
+
+    }
     public void Pause()
     {
         isPaused = true;
@@ -35,14 +40,22 @@ public class PauseMenu : MonoBehaviour
     
     public void back()
     {
-        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f; // Resume the game by setting time scale back to 1
+        SceneManager.LoadScene("main menu");
     }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             toggle();
+        }
+        if (isPaused == true)
+        {
+            inv.SetActive(false);
+        }
+        else
+        {
+            inv.SetActive(true);
         }
     }
 }
