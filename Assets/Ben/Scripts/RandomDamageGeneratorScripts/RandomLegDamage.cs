@@ -8,12 +8,19 @@ public class RandomLegDamage : MonoBehaviour
     public GameObject playerLeg1;
     public GameObject playerLeg2;
 
+    private BoxCollider2D RandomLegCollider;
+
     private bool isLeg1Dead = false;
     private bool isLeg2Dead = false;
 
     public PlayerBodyCollision playerBodyCollision;
     private int rd;
 
+
+    private void Start()
+    {
+       RandomLegCollider = GetComponent<BoxCollider2D>();
+    }
     private void FixedUpdate()
     {
         if (playerLeg1 == null)
@@ -24,6 +31,11 @@ public class RandomLegDamage : MonoBehaviour
         if (playerLeg2 == null)
         {
             isLeg2Dead = true;
+        }
+
+        if (playerLeg1 == null && playerLeg2 == null)
+        {
+            RandomLegCollider.enabled = false;
         }
     }
 
@@ -65,12 +77,6 @@ public class RandomLegDamage : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (gameObject.transform.childCount <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 }
 
