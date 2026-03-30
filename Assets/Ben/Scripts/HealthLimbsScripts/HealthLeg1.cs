@@ -1,10 +1,16 @@
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class HealthLeg1 : MonoBehaviour
 {
     public float health;
     public float maxHealth = 10;
-    public HealthBarLegTest1 healthBar1;
+    public HealthBarLegTest1 healthBarLeg1;
+
+    public GameObject DollLegL;
+    public GameObject DollLegThighL;
+
+    public Sprite DollLegBD;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,16 +21,25 @@ public class HealthLeg1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (health <= 5)
+        //{
+        //    DollLegL.GetComponent<SpriteRenderer>().sprite = DollLegBD;
+        //}
         
     }
 
     public void TakeDamage(float amount)
     {
         health -= amount;
-        healthBar1.UpdateHealth(amount);
+        healthBarLeg1.UpdateHealth(amount);
+        if (health <= 5)
+        {
+            DollLegL.GetComponent<SpriteRenderer>().sprite = DollLegBD;
+        }
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(DollLegL);
+            Destroy(DollLegThighL);
         }
     }
 }

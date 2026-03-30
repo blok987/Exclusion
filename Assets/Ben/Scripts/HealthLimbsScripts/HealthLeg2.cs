@@ -4,7 +4,10 @@ public class HealthLeg2 : MonoBehaviour
 {
     public float health;
     public float maxHealth = 10;
-    public HealthBarLegTest2 healthBar2;
+    public HealthBarLegTest2 healthBarLeg2;
+
+    public GameObject DollLegR;
+    public GameObject DollLegThighR;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,10 +24,11 @@ public class HealthLeg2 : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        healthBar2.UpdateHealth(amount);
+        healthBarLeg2.UpdateHealth(amount);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(DollLegR);
+            Destroy(DollLegThighR);
         }
     }
 }

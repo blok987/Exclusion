@@ -29,6 +29,7 @@ public class HealthArm2 : MonoBehaviour
         {
             Destroy(DollUpperArmR);
             Destroy(DollForermR);
+            
         }
     }
 }
