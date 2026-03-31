@@ -29,11 +29,16 @@ public class WalkScript : MonoBehaviour
     public float LArmlength = -1f;
     public float RArmlength = 1f;
 
+    //Player Animator for handling animations
+    private Animator PlayerAnim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         print("The tingles! do you feel them? We must have more!");
         print("Indeed. 500 hundered Compiler Errors");     
+
+       PlayerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,7 +56,8 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
-                
+                PlayerAnim.SetBool("isRunning", true);
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
             else
             {
@@ -64,10 +70,13 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
+                PlayerAnim.SetBool("isRunning", true);
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
             }
             else
             {
                 PlayerDirection.x -= AirSpeed * Time.deltaTime;
+                
             }
         }
         else //Handles no X-axis Input
@@ -75,7 +84,16 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 //Handles the Deceleration of the Player when no input is given
-                PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration) ;
+                PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration);
+                if (Mathf.Abs(PlayerDirection.x) < 0.1f)
+                {
+                    PlayerDirection.x = 0;
+                }
+            }
+
+        if (PlayerDirection.x == 0)
+            {
+                PlayerAnim.SetBool("isRunning", false);
             }
         }
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
