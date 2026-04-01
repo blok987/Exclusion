@@ -13,7 +13,7 @@ public class InventoryItemInstance : MonoBehaviour
     private GameObject p;
     private Rigidbody2D prb;
     public Vector3 offset;
-    public bool isdroped = false;
+ 
     public void Start()
     {
         c = FindAnyObjectByType<Canvas>();
@@ -54,8 +54,8 @@ public class InventoryItemInstance : MonoBehaviour
         inventory.items.Remove(data);
         inventory.AddItem();
         FindFirstObjectByType<inventory>().EvaluateInventory();
-        isdroped = true;
-        StartCoroutine(wait());
+   
+       
     }
 
     
@@ -67,9 +67,5 @@ public class InventoryItemInstance : MonoBehaviour
         FindFirstObjectByType<inventory>().EvaluateInventory();
         //FindFirstObjectByType<shop>().SellItem(data);
     }
-    public IEnumerator wait()
-    {
-        yield return new WaitForSeconds(5f);
-        isdroped = false;
-    }
+   
 }

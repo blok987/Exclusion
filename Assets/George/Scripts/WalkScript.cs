@@ -12,7 +12,9 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
 
-    
+    [SerializeField] bool isJumping = false;
+
+
 
     public Vector2 PlayerDirection;
     //Offsets for the raycasts to check for ground and climbable walls
@@ -29,11 +31,16 @@ public class WalkScript : MonoBehaviour
     public float LArmlength = -1f;
     public float RArmlength = 1f;
 
+    //Player Animator for handling animations
+    private Animator PlayerAnim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         print("The tingles! do you feel them? We must have more!");
         print("Indeed. 500 hundered Compiler Errors");     
+
+       PlayerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,6 +58,7 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
             else
             {
@@ -63,10 +71,12 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
+                gameObject.transform.localScale = new Vector3(-1, 1, 1);
             }
             else
             {
                 PlayerDirection.x -= AirSpeed * Time.deltaTime;
+
             }
         }
         else //Handles no X-axis Input
@@ -74,9 +84,27 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 //Handles the Deceleration of the Player when no input is given
-                PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration) ;
+                PlayerDirection.x = Mathf.Lerp(PlayerDirection.x, 0, Time.deltaTime * Deceleration);
+                if (Mathf.Abs(PlayerDirection.x) <= 0.5f)
+                {
+                    PlayerDirection.x = 0;
+                }
+
             }
         }
+
+        //Starts the Running Anim if moving on the X-Axis
+        if (PlayerDirection.x != 0)
+        {
+            PlayerAnim.SetBool("isRunning", true);
+        }
+
+        //Stops the Running Anim if not moving on the X-Axis
+        if (PlayerDirection.x == 0)
+        {
+            PlayerAnim.SetBool("isRunning", false);
+        }
+        
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
         PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         #endregion
@@ -86,10 +114,21 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
+            
         }
 
-        //Climbing Movement 
-        if (Input.GetKey(KeyCode.F))
+        if (!isGrounded())
+        {
+           PlayerAnim.SetBool("isJumping", true);
+        }
+        else if (isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", false);
+        }
+
+
+            //Climbing Movement 
+            if (Input.GetKey(KeyCode.F))
         {
             if (isClimbingRight())
             {

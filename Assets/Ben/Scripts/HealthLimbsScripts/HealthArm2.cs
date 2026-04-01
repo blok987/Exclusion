@@ -6,6 +6,9 @@ public class HealthArm2 : MonoBehaviour
     public float maxHealth = 10;
     public HealthBarArm2 healthBarArm2;
 
+    public GameObject DollForermR;
+    public GameObject DollUpperArmR;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +27,9 @@ public class HealthArm2 : MonoBehaviour
         healthBarArm2.UpdateHealth(amount);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(DollUpperArmR);
+            Destroy(DollForermR);
+            
         }
     }
 }
