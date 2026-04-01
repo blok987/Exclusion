@@ -958,6 +958,7 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 0}
   DollLegL: {fileID: 0}
   DollLegThighL: {fileID: 0}
+  canTakeDamage: 1
   DollLegBD: {fileID: 0}
 --- !u!1 &1058769696 stripped
 GameObject:
@@ -1821,6 +1822,7 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 0}
   DollLegR: {fileID: 0}
   DollLegThighR: {fileID: 0}
+  canTakeDamage: 1
 --- !u!224 &1392539343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3050527161722303996, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
@@ -2050,6 +2052,7 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 1315421218}
   DollLegR: {fileID: 1058769696}
   DollLegThighR: {fileID: 236770146}
+  canTakeDamage: 1
 --- !u!114 &1762086735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,6 +2070,7 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 1315421217}
   DollLegL: {fileID: 134117295}
   DollLegThighL: {fileID: 1767728814}
+  canTakeDamage: 1
   DollLegBD: {fileID: 2999422177354063160, guid: b59c96ff32e16bf4c98a5df01ca37fa9, type: 3}
 --- !u!114 &1762086736
 MonoBehaviour:
@@ -2218,8 +2222,8 @@ Transform:
   m_GameObject: {fileID: 1952511062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1653, y: -9.1512, z: 0}
-  m_LocalScale: {x: 19.402214, y: 15.242247, z: 1}
+  m_LocalPosition: {x: -4.8214, y: -9.1512, z: 0}
+  m_LocalScale: {x: 28.715277, y: 15.242247, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3019,9 +3023,10 @@ MonoBehaviour:
   StaminaBar: {fileID: 58695256}
   Stamina: 100
   MaxStamina: 100
-  WalkCost: 10
+  WalkCost: 5
   regenRate: 10
   isJumping: 0
+  canMove: 1
   PlayerDirection: {x: 0, y: 0}
   GroundOffset: {x: 0, y: 0}
   LOffset: {x: 0, y: 0}

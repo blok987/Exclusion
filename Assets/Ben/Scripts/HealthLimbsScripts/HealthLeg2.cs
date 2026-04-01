@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class HealthLeg2 : MonoBehaviour
 {
@@ -9,16 +10,27 @@ public class HealthLeg2 : MonoBehaviour
     public GameObject DollLegR;
     public GameObject DollLegThighR;
 
+    public bool canTakeDamage = true;
+
+    private WalkScript walkScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
+        walkScript = transform.parent.GetComponent<WalkScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (canTakeDamage == true && walkScript.canMove)
+        {
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            {
+                StartCoroutine(WaitForDamage());
+            }
+        }
     }
 
     public void TakeDamage(float amount)
@@ -30,5 +42,14 @@ public class HealthLeg2 : MonoBehaviour
             Destroy(DollLegR);
             Destroy(DollLegThighR);
         }
+    }
+    private IEnumerator WaitForDamage()
+    {
+        canTakeDamage = false;
+        health -= 0.3f;
+        healthBarLeg2.UpdateHealth(0.3f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+
     }
 }

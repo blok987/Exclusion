@@ -25,6 +25,7 @@ public class WalkScript : MonoBehaviour
     private Coroutine staminaRegen;
 
     [SerializeField] bool isJumping = false;
+    public bool canMove = true;
 
 
 
@@ -64,8 +65,18 @@ public class WalkScript : MonoBehaviour
         //Player Gravity
         PlayerDirection.y = GetComponent<Rigidbody2D>().linearVelocity.y;
 
+        if (Stamina <= 0)
+           
+        {
+            canMove = false;
+        }
+        else if (Stamina > 0)
+        {
+            canMove = true;
+        }
+
         #region Player X-Axis Movement
-        if (Input.GetKey(KeyCode.D))//+X Move
+        if (Input.GetKey(KeyCode.D) && canMove)//+X Move
         {
             if (isGrounded())
             {
@@ -82,7 +93,7 @@ public class WalkScript : MonoBehaviour
                 {
                     StopCoroutine(staminaRegen);
                 }
-                staminaRegen = StartCoroutine(StaminaRegen());
+               // staminaRegen = StartCoroutine(StaminaRegen());
             }
             else
             {
@@ -90,7 +101,7 @@ public class WalkScript : MonoBehaviour
 
             }
         }
-        else if (Input.GetKey(KeyCode.A))//-X Move
+        else if (Input.GetKey(KeyCode.A) && canMove)//-X Move
         {
             if (isGrounded())
             {
@@ -107,7 +118,7 @@ public class WalkScript : MonoBehaviour
                 {
                     StopCoroutine(staminaRegen);
                 }
-                staminaRegen = StartCoroutine(StaminaRegen());
+               // staminaRegen = StartCoroutine(StaminaRegen());
             }
             else
             {
