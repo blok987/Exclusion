@@ -3015,7 +3015,12 @@ MonoBehaviour:
   MaxSpeed: 10
   AirSpeed: 5
   JumpStrength: 5
-  ClimbSpeed: 1
+  ClimbSpeed: 2
+  StaminaBar: {fileID: 58695256}
+  Stamina: 100
+  MaxStamina: 100
+  WalkCost: 10
+  regenRate: 10
   isJumping: 0
   PlayerDirection: {x: 0, y: 0}
   GroundOffset: {x: 0, y: 0}
@@ -3027,9 +3032,9 @@ MonoBehaviour:
   Climbable:
     serializedVersion: 2
     m_Bits: 128
-  HalfBodyDistance: 1.1
-  LArmlength: -1
-  RArmlength: 1
+  HalfBodyDistance: 0.15
+  LArmlength: 0.5
+  RArmlength: 0.5
 --- !u!1001 &8912340352027240684
 PrefabInstance:
   m_ObjectHideFlags: 0
