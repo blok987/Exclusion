@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
@@ -11,6 +13,16 @@ public class WalkScript : MonoBehaviour
 
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
+
+    public Image StaminaBar;
+
+    public float Stamina, MaxStamina;
+
+    public float WalkCost;
+    public float regenRate = 0.5f;
+
+
+    private Coroutine staminaRegen;
 
     [SerializeField] bool isJumping = false;
 
@@ -59,6 +71,18 @@ public class WalkScript : MonoBehaviour
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
+                Stamina -= WalkCost * Time.deltaTime;
+                if (Stamina < 0)
+                {
+                    Stamina = 0;
+                }
+                StaminaBar.fillAmount = Stamina / MaxStamina;
+                
+                if (staminaRegen != null)
+                {
+                    StopCoroutine(staminaRegen);
+                }
+                staminaRegen = StartCoroutine(StaminaRegen());
             }
             else
             {
@@ -72,6 +96,18 @@ public class WalkScript : MonoBehaviour
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                Stamina -= WalkCost * Time.deltaTime;
+                if (Stamina < 0)
+                {
+                    Stamina = 0;
+                }
+                StaminaBar.fillAmount = Stamina / MaxStamina;
+
+                if (staminaRegen != null)
+                {
+                    StopCoroutine(staminaRegen);
+                }
+                staminaRegen = StartCoroutine(StaminaRegen());
             }
             else
             {
@@ -193,5 +229,21 @@ public class WalkScript : MonoBehaviour
         Gizmos.DrawLine(transform.position + (Vector3)GroundOffset, transform.position + (Vector3)GroundOffset + Vector3.down * HalfBodyDistance);  
         Gizmos.DrawLine(transform.position + (Vector3)LOffset, transform.position + (Vector3)LOffset + Vector3.left * LArmlength);
         Gizmos.DrawLine(transform.position + (Vector3)ROffset, transform.position + (Vector3)ROffset + Vector3.right * RArmlength);
+    }
+
+    private IEnumerator StaminaRegen()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        while (Stamina < MaxStamina)
+        {
+            Stamina += regenRate * Time.deltaTime;
+            if (Stamina > MaxStamina)
+            {
+                Stamina = MaxStamina;
+            }
+            StaminaBar.fillAmount = Stamina / MaxStamina;
+            yield return null;
+        }
     }
 }
