@@ -81,6 +81,7 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
+                //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
                 Stamina -= WalkCost * Time.deltaTime;
                 if (Stamina < 0)
@@ -106,8 +107,10 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
+                //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
                 Stamina -= WalkCost * Time.deltaTime;
+                
                 if (Stamina < 0)
                 {
                     Stamina = 0;
