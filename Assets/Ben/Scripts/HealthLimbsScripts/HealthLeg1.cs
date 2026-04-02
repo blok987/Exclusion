@@ -59,8 +59,8 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator WaitForDamage()
     {
         canTakeDamage = false;
-        health -= 0.3f;
-        healthBarLeg1.UpdateHealth(0.3f);
+        health -= 0.2f;
+        healthBarLeg1.UpdateHealth(0.2f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
 
