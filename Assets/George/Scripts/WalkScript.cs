@@ -14,15 +14,9 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
 
-    public Image StaminaBar;
-
-    public float Stamina, MaxStamina;
-
-    public float WalkCost;
-    public float regenRate = 0.5f;
 
 
-    private Coroutine staminaRegen;
+
 
     [SerializeField] bool isJumping = false;
     public bool canMove = true;
@@ -51,9 +45,9 @@ public class WalkScript : MonoBehaviour
     void Start()
     {
         print("The tingles! do you feel them? We must have more!");
-        print("Indeed. 500 hundered Compiler Errors");     
+        print("Indeed. 500 hundered Compiler Errors");
 
-       PlayerAnim = GetComponent<Animator>();
+        PlayerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -61,19 +55,11 @@ public class WalkScript : MonoBehaviour
     {
 
         #region Player Movement Handling
-        
+
         //Player Gravity
         PlayerDirection.y = GetComponent<Rigidbody2D>().linearVelocity.y;
 
-        if (Stamina <= 0)
-           
-        {
-            canMove = false;
-        }
-        else if (Stamina > 0)
-        {
-            canMove = true;
-        }
+
 
         #region Player X-Axis Movement
         if (Input.GetKey(KeyCode.D) && canMove)//+X Move
@@ -83,18 +69,7 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x += Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
-                Stamina -= WalkCost * Time.deltaTime;
-                if (Stamina < 0)
-                {
-                    Stamina = 0;
-                }
-                StaminaBar.fillAmount = Stamina / MaxStamina;
-                
-                if (staminaRegen != null)
-                {
-                    StopCoroutine(staminaRegen);
-                }
-               // staminaRegen = StartCoroutine(StaminaRegen());
+
             }
             else
             {
@@ -109,6 +84,7 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
+<<<<<<< HEAD
                 Stamina -= WalkCost * Time.deltaTime;
                 
                 if (Stamina < 0)
@@ -116,12 +92,9 @@ public class WalkScript : MonoBehaviour
                     Stamina = 0;
                 }
                 StaminaBar.fillAmount = Stamina / MaxStamina;
+=======
+>>>>>>> e55075411da9e0cce8e0bb9d213e309cb93e292b
 
-                if (staminaRegen != null)
-                {
-                    StopCoroutine(staminaRegen);
-                }
-               // staminaRegen = StartCoroutine(StaminaRegen());
             }
             else
             {
@@ -154,7 +127,7 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("isRunning", false);
         }
-        
+
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
         PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         #endregion
@@ -164,12 +137,12 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
-            
+
         }
 
         if (!isGrounded())
         {
-           PlayerAnim.SetBool("isJumping", true);
+            PlayerAnim.SetBool("isJumping", true);
         }
         else if (isGrounded())
         {
@@ -177,8 +150,8 @@ public class WalkScript : MonoBehaviour
         }
 
 
-            //Climbing Movement 
-            if (Input.GetKey(KeyCode.F))
+        //Climbing Movement 
+        if (Input.GetKey(KeyCode.F))
         {
             if (isClimbingRight())
             {
@@ -220,7 +193,7 @@ public class WalkScript : MonoBehaviour
         GetComponent<Rigidbody2D>().linearVelocity = PlayerDirection;
         #endregion
     }
-    
+
 
 
     //Methods for ground/Wall check
@@ -228,7 +201,7 @@ public class WalkScript : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
-    
+
     private bool isClimbingLeft()
     {
         return Physics2D.Raycast(transform.position + (Vector3)LOffset, Vector2.left, LArmlength, Climbable);
@@ -240,24 +213,9 @@ public class WalkScript : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position + (Vector3)GroundOffset, transform.position + (Vector3)GroundOffset + Vector3.down * HalfBodyDistance);  
+        Gizmos.DrawLine(transform.position + (Vector3)GroundOffset, transform.position + (Vector3)GroundOffset + Vector3.down * HalfBodyDistance);
         Gizmos.DrawLine(transform.position + (Vector3)LOffset, transform.position + (Vector3)LOffset + Vector3.left * LArmlength);
         Gizmos.DrawLine(transform.position + (Vector3)ROffset, transform.position + (Vector3)ROffset + Vector3.right * RArmlength);
     }
 
-    private IEnumerator StaminaRegen()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        while (Stamina < MaxStamina)
-        {
-            Stamina += regenRate * Time.deltaTime;
-            if (Stamina > MaxStamina)
-            {
-                Stamina = MaxStamina;
-            }
-            StaminaBar.fillAmount = Stamina / MaxStamina;
-            yield return null;
-        }
-    }
-}
+}   
