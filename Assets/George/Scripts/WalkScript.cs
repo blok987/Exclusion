@@ -136,8 +136,10 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("isJumping", false);
         }
-
-
+        if (isClimbingLeft() || isClimbingRight())
+        {
+            PlayerDirection.x = 0;
+        }
         //Climbing Movement 
         if (Input.GetKey(KeyCode.F))
         {
