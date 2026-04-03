@@ -209,7 +209,12 @@ public class WalkScript : MonoBehaviour
             { 
                 StartCoroutine(WaitToClimb());
             }
-            
+
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+
         }
         #endregion //ends y-axis movement handling
 
