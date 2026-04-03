@@ -84,16 +84,7 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
-<<<<<<< HEAD
-                Stamina -= WalkCost * Time.deltaTime;
-                
-                if (Stamina < 0)
-                {
-                    Stamina = 0;
-                }
-                StaminaBar.fillAmount = Stamina / MaxStamina;
-=======
->>>>>>> e55075411da9e0cce8e0bb9d213e309cb93e292b
+
 
             }
             else
@@ -147,11 +138,11 @@ public class WalkScript : MonoBehaviour
         else if (isGrounded())
         {
             PlayerAnim.SetBool("isJumping", false);
+        
         }
-        if (isClimbingLeft() || isClimbingRight())
-        {
-            PlayerDirection.x = 0;
-        }
+        
+        
+
         //Climbing Movement 
         if (Input.GetKey(KeyCode.F))
         {
@@ -189,6 +180,37 @@ public class WalkScript : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().gravityScale = 1;
         }
+
+        //Controls Animation bools for Jumping
+        if (!isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", true);
+        }
+        else if (isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", false);
+
+        }
+        
+        if (isClimbingLeft() || isClimbingRight())
+        {
+            PlayerDirection.x = 0;
+            Debug.Log("Climbing");
+
+
+            //Allows the player to stop climbing
+            if (isClimbingLeft() && Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+
+
+            if (isClimbingRight() && Input.GetKeyDown(KeyCode.A))
+            { 
+                StartCoroutine(WaitToClimb());
+            }
+            
+        }
         #endregion //ends y-axis movement handling
 
 
@@ -219,5 +241,15 @@ public class WalkScript : MonoBehaviour
         Gizmos.DrawLine(transform.position + (Vector3)LOffset, transform.position + (Vector3)LOffset + Vector3.left * LArmlength);
         Gizmos.DrawLine(transform.position + (Vector3)ROffset, transform.position + (Vector3)ROffset + Vector3.right * RArmlength);
     }
+
+    private IEnumerator WaitToClimb()
+    {
+        LArmlength = 0;
+        RArmlength = 0;
+        yield return new WaitForSeconds(1f);
+        LArmlength = 0.5f;
+        RArmlength = 0.5f;
+    }
+    
 
 }   
