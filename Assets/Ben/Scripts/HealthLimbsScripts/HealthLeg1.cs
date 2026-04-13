@@ -33,12 +33,19 @@ public class HealthLeg1 : MonoBehaviour
         //    DollLegL.GetComponent<SpriteRenderer>().sprite = DollLegBD;
         //}
         
+        //Takes steady damage when Walking
         if (canTakeDamage == true && walkScript.canMove)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            if (walkScript.PlayerDirection.x > 0 && walkScript.isGrounded() || walkScript.PlayerDirection.x < 0 && walkScript.isGrounded())
             {
-                StartCoroutine(WaitForDamage());
+                StartCoroutine(WalkDamage());
             }
+        }
+
+        //Takes damage when Jumping
+        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded())
+        {
+            StartCoroutine(JumpDegredation());
         }
     }
 
@@ -56,13 +63,21 @@ public class HealthLeg1 : MonoBehaviour
             Destroy(DollLegThighL);
         }
     }
-    private IEnumerator WaitForDamage()
+    private IEnumerator WalkDamage()
     {
         canTakeDamage = false;
         health -= 0.2f;
         healthBarLeg1.UpdateHealth(0.2f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
+    }
 
+    private IEnumerator JumpDegredation()
+    {
+        canTakeDamage = false;
+        health -= 0.5f;
+        healthBarLeg1.UpdateHealth(0.5f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
     }
 }

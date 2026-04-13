@@ -24,12 +24,20 @@ public class HealthLeg2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Takes steady damage when Walking
         if (canTakeDamage == true && walkScript.canMove)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            if (walkScript.PlayerDirection.x > 0 && walkScript.isGrounded() || walkScript.PlayerDirection.x < 0 && walkScript.isGrounded())
             {
                 StartCoroutine(WaitForDamage());
             }
+        }
+
+        //Takes damage when Jumping
+        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded())
+        {
+            StartCoroutine(JumpDegredation());
         }
     }
 
@@ -49,7 +57,16 @@ public class HealthLeg2 : MonoBehaviour
         health -= 0.2f;
         healthBarLeg2.UpdateHealth(0.2f);
         yield return new WaitForSeconds(0.6f);
-        canTakeDamage = true;
+        canTakeDamage = true; 
 
     }
+    private IEnumerator JumpDegredation()
+    {
+        canTakeDamage = false;
+        health -= 0.5f;
+        healthBarLeg2.UpdateHealth(0.5f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+    }
+
 }

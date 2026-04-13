@@ -239,16 +239,16 @@ public class WalkScript : MonoBehaviour
 
 
     //Methods for ground/Wall check
-    private bool isGrounded()
+     [HideInInspector] public bool isGrounded()
     {
         return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
 
-    private bool isClimbingLeft()
+    [HideInInspector] public bool isClimbingLeft()
     {
         return Physics2D.Raycast(transform.position + (Vector3)LOffset, Vector2.left, LArmlength, Climbable);
     }
-    private bool isClimbingRight()
+     [HideInInspector] public bool isClimbingRight()
     {
         return Physics2D.Raycast(transform.position + (Vector3)ROffset, Vector2.right, RArmlength, Climbable);
     }

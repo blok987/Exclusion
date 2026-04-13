@@ -224,6 +224,7 @@ MonoBehaviour:
   healthBarArm1: {fileID: 1315421220}
   DollForermL: {fileID: 0}
   DollUpperArmL: {fileID: 0}
+  canTakeDamage: 1
 --- !u!1 &134117295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2382809722269744742, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -316,6 +317,7 @@ MonoBehaviour:
   healthBarArm2: {fileID: 1315421219}
   DollForermR: {fileID: 0}
   DollUpperArmR: {fileID: 0}
+  canTakeDamage: 1
 --- !u!212 &603669743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -798,6 +800,7 @@ MonoBehaviour:
   healthBarArm2: {fileID: 1315421219}
   DollForermR: {fileID: 518291597}
   DollUpperArmR: {fileID: 856124072}
+  canTakeDamage: 1
 --- !u!114 &777100073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,6 +818,7 @@ MonoBehaviour:
   healthBarArm1: {fileID: 1315421220}
   DollForermL: {fileID: 2063338836}
   DollUpperArmL: {fileID: 428948808}
+  canTakeDamage: 1
 --- !u!114 &777100074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4061177786725629741, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
       propertyPath: m_Name
-      value: HealthLegBar3
+      value: HealthArmBar1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2735,7 +2739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4061177786725629741, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
       propertyPath: m_Name
-      value: HealthLegBar4
+      value: HealthArmBar2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788283079949490990, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
