@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &58695256 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1987043485845131480, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-  m_PrefabInstance: {fileID: 6503991103109629078}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &92115311
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,11 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &201540202 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-  m_PrefabInstance: {fileID: 6503991103109629078}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &236770146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1711965367973721238, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -1624,7 +1608,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 201540202}
   - {fileID: 1392539343}
   - {fileID: 1251601403}
   - {fileID: 709133451}
@@ -2105,7 +2088,7 @@ GameObject:
   - component: {fileID: 1952511065}
   - component: {fileID: 1952511063}
   - component: {fileID: 1952511064}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2551,7 +2534,7 @@ MonoBehaviour:
   moveSpeed: 0
   jumpHeight: 4
   speed: 3
-  StaminaBar: {fileID: 58695256}
+  StaminaBar: {fileID: 0}
   Stamina: 100
   MaxStamina: 100
   RunCost: 25
@@ -2872,103 +2855,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
---- !u!1001 &6503991103109629078
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1315421215}
-    m_Modifications:
-    - target: {fileID: 1067804743248573992, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_Name
-      value: STAMINABAR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 481.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 90.898994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -617.06976
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 291.9502
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371103146495852841, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ab51be5faef31cb4f97977656c7e24f2, type: 3}
 --- !u!114 &6611394860610481406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,11 +2906,6 @@ MonoBehaviour:
   AirSpeed: 5
   JumpStrength: 5
   ClimbSpeed: 2
-  StaminaBar: {fileID: 58695256}
-  Stamina: 100
-  MaxStamina: 100
-  WalkCost: 5
-  regenRate: 10
   isJumping: 0
   canMove: 1
   PlayerDirection: {x: 0, y: 0}

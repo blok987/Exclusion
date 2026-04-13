@@ -67,6 +67,7 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
+                //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
 
             }
@@ -81,7 +82,9 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
+                //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
+
 
             }
             else
@@ -135,8 +138,10 @@ public class WalkScript : MonoBehaviour
         else if (isGrounded())
         {
             PlayerAnim.SetBool("isJumping", false);
+        
         }
-
+        
+        
 
         //Climbing Movement 
         if (Input.GetKey(KeyCode.F))
@@ -175,6 +180,55 @@ public class WalkScript : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().gravityScale = 1;
         }
+
+        //Controls Animation bools for Jumping
+        if (!isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", true);
+        }
+        else if (isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", false);
+
+        }
+
+        if (isClimbingLeft())
+        {
+            LArmlength = 0.5f;
+            PlayerDirection.x = 0;
+            Debug.Log("Climbing");
+
+
+            //Allows the player to stop climbing
+            if (isClimbingLeft() && Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+         
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+            
+        }
+
+        if (isClimbingRight())
+        {
+            PlayerDirection.x = 0;
+
+
+            if (isClimbingRight() && Input.GetKeyDown(KeyCode.A))
+            { 
+                StartCoroutine(WaitToClimb());
+            }
+
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+            
+
+        }
         #endregion //ends y-axis movement handling
 
 
@@ -205,5 +259,15 @@ public class WalkScript : MonoBehaviour
         Gizmos.DrawLine(transform.position + (Vector3)LOffset, transform.position + (Vector3)LOffset + Vector3.left * LArmlength);
         Gizmos.DrawLine(transform.position + (Vector3)ROffset, transform.position + (Vector3)ROffset + Vector3.right * RArmlength);
     }
+
+    private IEnumerator WaitToClimb()
+    {
+        LArmlength = 0;
+        RArmlength = 0;
+        yield return new WaitForSeconds(1f);
+        LArmlength = 0.5f;
+        RArmlength = 0.5f;
+    }
+    
 
 }   
