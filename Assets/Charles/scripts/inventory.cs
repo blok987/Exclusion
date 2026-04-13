@@ -17,8 +17,7 @@ public class inventory : MonoBehaviour
     public GameObject s6;
     public GameObject s7;
     public GameObject s8;
-    public GameObject s9;
-    public GameObject s10;
+    
     private inventoryslot[] slots;
     public Component ol1;
     public Component ol2;
@@ -28,8 +27,7 @@ public class inventory : MonoBehaviour
     public Component ol6;
     public Component ol7;
     public Component ol8;
-    public Component ol9;
-    public Component ol10;
+   
     public string selectedslot;
     public InventoryItemInstance III;
     public GameObject sc;
@@ -38,6 +36,7 @@ public class inventory : MonoBehaviour
     private PlayerInput pi;
     public void Awake()
     {
+        III = GetComponent<InventoryItemInstance>();
         player = GameObject.FindGameObjectWithTag("Player");
         pi = player.GetComponent<PlayerInput>();
         slots = GetComponentsInChildren<inventoryslot>(true);
@@ -49,8 +48,7 @@ public class inventory : MonoBehaviour
         if (slots.Length > 5) s6 = slots[5]?.gameObject;
         if (slots.Length > 6) s7 = slots[6]?.gameObject;
         if (slots.Length > 7) s8 = slots[7]?.gameObject;
-        if (slots.Length > 8) s9 = slots[8]?.gameObject;
-        if (slots.Length > 9) s10 = slots[9]?.gameObject;
+       
         ol1 = s1.GetComponent<Outline>();
         ol2 = s2.GetComponent<Outline>();
         ol3 = s3.GetComponent<Outline>();
@@ -59,8 +57,7 @@ public class inventory : MonoBehaviour
         ol6 = s6.GetComponent<Outline>();
         ol7 = s7.GetComponent<Outline>();
         ol8 = s8.GetComponent<Outline>();
-        ol9 = s9.GetComponent<Outline>();
-        ol10 = s10.GetComponent<Outline>();
+       
 
     }
     public void Start()
@@ -82,8 +79,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+           
         }
         else if (selectedslot == ("s2"))
         {
@@ -95,8 +91,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
         else if (selectedslot == "s3")
         {
@@ -108,8 +103,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
         else if (selectedslot == "s4")
         {
@@ -121,8 +115,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
         else if (selectedslot == "s5")
         {
@@ -134,8 +127,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
         else if (selectedslot == "s6")
         {
@@ -147,8 +139,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = true;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+           
         }
         else if (selectedslot == "s7")
         {
@@ -160,8 +151,7 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = true;
             ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
         else if (selectedslot == "s8")
         {
@@ -173,35 +163,9 @@ public class inventory : MonoBehaviour
             ((Outline)ol6).enabled = false;
             ((Outline)ol7).enabled = false;
             ((Outline)ol8).enabled = true;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = false;
+            
         }
-        else if (selectedslot == "s9")
-        {
-            ((Outline)ol1).enabled = false;
-            ((Outline)ol2).enabled = false;
-            ((Outline)ol3).enabled = false;
-            ((Outline)ol4).enabled = false;
-            ((Outline)ol5).enabled = false;
-            ((Outline)ol6).enabled = false;
-            ((Outline)ol7).enabled = false;
-            ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = true;
-            ((Outline)ol10).enabled = false;
-        }
-        else if (selectedslot == "s10")
-        {
-            ((Outline)ol1).enabled = false;
-            ((Outline)ol2).enabled = false;
-            ((Outline)ol3).enabled = false;
-            ((Outline)ol4).enabled = false;
-            ((Outline)ol5).enabled = false;
-            ((Outline)ol6).enabled = false;
-            ((Outline)ol7).enabled = false;
-            ((Outline)ol8).enabled = false;
-            ((Outline)ol9).enabled = false;
-            ((Outline)ol10).enabled = true;
-        }
+       
 
 
     }
@@ -224,10 +188,7 @@ public class inventory : MonoBehaviour
             ss = s7;
         else if (selectedslot == "s8")
             ss = s8;
-        else if (selectedslot == "s9")
-            ss = s9;
-        else if (selectedslot == "s10")
-            ss = s10;
+       
 
         if (ss != null && ss.transform.childCount > 0)
         {
@@ -242,7 +203,7 @@ public class inventory : MonoBehaviour
           
             selectedslot = selectedslot switch
             {
-                "s10" => "s1",
+                
                 "s1" => "s2",
                 "s2" => "s3",
                 "s3" => "s4",
@@ -250,8 +211,8 @@ public class inventory : MonoBehaviour
                 "s5" => "s6",
                 "s6" => "s7",
                 "s7" => "s8",
-                "s8" => "s9",
-                "s9" => "s10",
+                "s8" => "s1",
+                
                 _ => selectedslot
                 
             };
@@ -261,9 +222,9 @@ public class inventory : MonoBehaviour
         {
             selectedslot = selectedslot switch
             {
-                "s1" => "s10",
-                "s10" => "s9",
-                "s9" => "s8",
+               
+                
+                "s1" => "s8",
                 "s8" => "s7",
                 "s7" => "s6",
                 "s6" => "s5",
