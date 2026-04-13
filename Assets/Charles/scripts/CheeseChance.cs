@@ -4,13 +4,12 @@ using UnityEngine;
 public class CheeseChance : MonoBehaviour
 {
     public GameObject cheese;
-    public GameObject player;
-    private Rigidbody playerRb;
+    
     public int cc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerRb = player.GetComponent<Rigidbody>();
+        
         cheese.SetActive(false);
         cc = Random.Range(1, 100);
     }
