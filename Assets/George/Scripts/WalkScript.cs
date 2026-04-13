@@ -191,9 +191,10 @@ public class WalkScript : MonoBehaviour
             PlayerAnim.SetBool("isJumping", false);
 
         }
-        
-        if (isClimbingLeft() || isClimbingRight())
+
+        if (isClimbingLeft())
         {
+            LArmlength = 0.5f;
             PlayerDirection.x = 0;
             Debug.Log("Climbing");
 
@@ -203,6 +204,17 @@ public class WalkScript : MonoBehaviour
             {
                 StartCoroutine(WaitToClimb());
             }
+         
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                StartCoroutine(WaitToClimb());
+            }
+            
+        }
+
+        if (isClimbingRight())
+        {
+            PlayerDirection.x = 0;
 
 
             if (isClimbingRight() && Input.GetKeyDown(KeyCode.A))
@@ -214,6 +226,7 @@ public class WalkScript : MonoBehaviour
             {
                 StartCoroutine(WaitToClimb());
             }
+            
 
         }
         #endregion //ends y-axis movement handling
