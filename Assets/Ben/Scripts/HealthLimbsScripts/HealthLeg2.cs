@@ -14,16 +14,23 @@ public class HealthLeg2 : MonoBehaviour
 
     private WalkScript walkScript;
 
+    public Sprite RDollLegBD;
+    public Sprite RDollLegThighBD;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
         walkScript = transform.parent.GetComponent<WalkScript>();
+
+        RDollLegBD = Resources.Load<Sprite>("Limbs/Doll Leg FRONT DAMAGED");
+        RDollLegThighBD = Resources.Load<Sprite>("Limbs/Doll Thigh FRONT DAMAGED");
     }
 
     // Update is called once per frame
     void Update()
     {
+        #region Degredation Handling
 
         //Takes steady damage when Walking
         if (canTakeDamage == true && walkScript.canMove)
@@ -44,6 +51,13 @@ public class HealthLeg2 : MonoBehaviour
         if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
         {
             StartCoroutine(ClimbDamage());
+        }
+        #endregion
+
+        if (health <= 5)
+        {
+            DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegBD;
+            DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighBD;
         }
     }
 

@@ -15,10 +15,9 @@ public class HealthLeg1 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
-    public Sprite LDollLegBD;
-    public Sprite LDollLegThighBD;
+    private Sprite LDollLegBD;
+    private Sprite LDollLegThighBD;
 
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,9 +25,8 @@ public class HealthLeg1 : MonoBehaviour
         health = maxHealth;
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
-        LDollLegBD = Resources.Load<Sprite>("DollDAMAGED");
-
-
+        LDollLegBD = Resources.Load<Sprite>("Limbs/Doll Leg BACK DAMAGED");
+        LDollLegThighBD = Resources.Load<Sprite>("Limbs/Doll Thigh BACK DAMAGED");
     }
 
     // Update is called once per frame
