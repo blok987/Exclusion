@@ -39,6 +39,12 @@ public class HealthLeg2 : MonoBehaviour
         {
             StartCoroutine(JumpDegredation());
         }
+
+        //Damages Legs when climbing
+        if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
+        {
+            StartCoroutine(ClimbDamage());
+        }
     }
 
     public void TakeDamage(float amount)
@@ -72,8 +78,8 @@ public class HealthLeg2 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.05f;
-        healthBarLeg2.UpdateHealth(0.05f);
+        health -= 0.09f;
+        healthBarLeg2.UpdateHealth(0.09f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
