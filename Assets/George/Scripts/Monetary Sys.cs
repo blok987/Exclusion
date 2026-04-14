@@ -14,12 +14,8 @@ public class MonetarySys : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void ()
+    //{
         
-    }
-    private int SpallValue()
-    {
-        
-    }
+    //}
 }
