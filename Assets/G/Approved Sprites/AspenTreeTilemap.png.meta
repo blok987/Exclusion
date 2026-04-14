@@ -297,7 +297,7 @@ TextureImporter:
       name: AspenTreeTilemap_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 224
         width: 32
         height: 32
@@ -319,7 +319,7 @@ TextureImporter:
       name: AspenTreeTilemap_7
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 224
         width: 32
         height: 32
@@ -341,7 +341,7 @@ TextureImporter:
       name: AspenTreeTilemap_8
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 224
         width: 32
         height: 32
@@ -363,8 +363,8 @@ TextureImporter:
       name: AspenTreeTilemap_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 224
+        x: 96
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -385,7 +385,7 @@ TextureImporter:
       name: AspenTreeTilemap_10
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 192
         width: 32
         height: 32
@@ -407,7 +407,7 @@ TextureImporter:
       name: AspenTreeTilemap_11
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 192
         width: 32
         height: 32
@@ -429,7 +429,7 @@ TextureImporter:
       name: AspenTreeTilemap_12
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 192
         width: 32
         height: 32
@@ -451,7 +451,7 @@ TextureImporter:
       name: AspenTreeTilemap_13
       rect:
         serializedVersion: 2
-        x: 192
+        x: 224
         y: 192
         width: 32
         height: 32
@@ -463,8 +463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e3564cc3ddbe124d906e63d19345c31
-      internalID: 367869038
+      spriteID: 61f3789b9445afc4196e19d3c7690f8f
+      internalID: 396474446
       vertices: []
       indices: 
       edges: []
@@ -473,8 +473,8 @@ TextureImporter:
       name: AspenTreeTilemap_14
       rect:
         serializedVersion: 2
-        x: 224
-        y: 192
+        x: 96
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -485,8 +485,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d836ac1f3b34b7d4f90ae5b116586b80
-      internalID: 2081559176
+      spriteID: 76450a05d63350248a0aabbb23b03c5f
+      internalID: 1404075724
       vertices: []
       indices: 
       edges: []
@@ -495,7 +495,7 @@ TextureImporter:
       name: AspenTreeTilemap_15
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 160
         width: 32
         height: 32
@@ -507,8 +507,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c017e5d2d4d7a4082beb95fbe08a93
-      internalID: -212914315
+      spriteID: 662d1316d11246a4bae0c959a8e025fb
+      internalID: -561100026
       vertices: []
       indices: 
       edges: []
@@ -517,7 +517,7 @@ TextureImporter:
       name: AspenTreeTilemap_16
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 160
         width: 32
         height: 32
@@ -529,8 +529,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0dde6ba7e96c5f46bdac8b7080e5f14
-      internalID: 39105786
+      spriteID: c9586e5bc5e531a4584970b1e351c513
+      internalID: 97974351
       vertices: []
       indices: 
       edges: []
@@ -539,7 +539,7 @@ TextureImporter:
       name: AspenTreeTilemap_17
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 160
         width: 32
         height: 32
@@ -551,8 +551,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b8ffc58072ae494aae19a69d56eaa39
-      internalID: -1856418432
+      spriteID: d306d53689d30294b8b1c0d2f6e215dc
+      internalID: -1201500639
       vertices: []
       indices: 
       edges: []
@@ -561,7 +561,7 @@ TextureImporter:
       name: AspenTreeTilemap_18
       rect:
         serializedVersion: 2
-        x: 192
+        x: 224
         y: 160
         width: 32
         height: 32
@@ -573,8 +573,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61373d9d33bf45c41956fca45c3fda00
-      internalID: -381417027
+      spriteID: d2298ca422722d44b897f3d817f5980c
+      internalID: 1519875557
       vertices: []
       indices: 
       edges: []
@@ -583,8 +583,8 @@ TextureImporter:
       name: AspenTreeTilemap_19
       rect:
         serializedVersion: 2
-        x: 224
-        y: 160
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -595,8 +595,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 908ef8992343d464e888d0987198b60b
-      internalID: -1167999866
+      spriteID: 25f27d4eb9399fd43874f5d068f6faca
+      internalID: -2131026336
       vertices: []
       indices: 
       edges: []
@@ -605,7 +605,7 @@ TextureImporter:
       name: AspenTreeTilemap_20
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 128
         width: 32
         height: 32
@@ -617,8 +617,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6674dabf03a3c284ba4b9c4f1b51834c
-      internalID: 425469816
+      spriteID: ce30ec861f3bd084cb2c4e889eee6d89
+      internalID: -431735048
       vertices: []
       indices: 
       edges: []
@@ -627,7 +627,7 @@ TextureImporter:
       name: AspenTreeTilemap_21
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 128
         width: 32
         height: 32
@@ -639,8 +639,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2b306a659696dd4cb6b06086f098e5e
-      internalID: 2095754089
+      spriteID: 48bd28c8593c7ad4ea0b3a8fdf90a8ab
+      internalID: 1231672282
       vertices: []
       indices: 
       edges: []
@@ -649,7 +649,7 @@ TextureImporter:
       name: AspenTreeTilemap_22
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 128
         width: 32
         height: 32
@@ -661,8 +661,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb57dd2d066262f409441c97ae704f13
-      internalID: 50618092
+      spriteID: 1eb2f1a0e10b3bd479ca203c2d33b01b
+      internalID: -1995558510
       vertices: []
       indices: 
       edges: []
@@ -671,7 +671,7 @@ TextureImporter:
       name: AspenTreeTilemap_23
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 128
         width: 32
         height: 32
@@ -683,8 +683,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7614e9bcfa5d2c040962ced932c52e75
-      internalID: 1792000935
+      spriteID: 4eca850a49d3d3743a62674756d50c3f
+      internalID: -1854892126
       vertices: []
       indices: 
       edges: []
@@ -693,7 +693,7 @@ TextureImporter:
       name: AspenTreeTilemap_24
       rect:
         serializedVersion: 2
-        x: 192
+        x: 224
         y: 128
         width: 32
         height: 32
@@ -705,8 +705,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c819d8aaa81db0498e70e3f4963ae68
-      internalID: 1772257787
+      spriteID: 257c9b2410c4cde45baa5ccf8c406791
+      internalID: 756788890
       vertices: []
       indices: 
       edges: []
@@ -715,8 +715,8 @@ TextureImporter:
       name: AspenTreeTilemap_25
       rect:
         serializedVersion: 2
-        x: 224
-        y: 128
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -727,8 +727,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c57ee4c9e4bf71845ae6fb0df74e0d0b
-      internalID: 928760748
+      spriteID: 3212db31ed4cc4d4189f329b28765055
+      internalID: 2042555254
       vertices: []
       indices: 
       edges: []
@@ -737,7 +737,7 @@ TextureImporter:
       name: AspenTreeTilemap_26
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 96
         width: 32
         height: 32
@@ -749,8 +749,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31bd588509ebfed4f96c6567341ecd7a
-      internalID: 44199191
+      spriteID: cc222b119e45d044c939f24bdaa2ff1f
+      internalID: 666876004
       vertices: []
       indices: 
       edges: []
@@ -759,7 +759,7 @@ TextureImporter:
       name: AspenTreeTilemap_27
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 96
         width: 32
         height: 32
@@ -771,8 +771,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9d61fc9031627b4099141cafe6fb0b9
-      internalID: 42672142
+      spriteID: 39c5c62a5c93e9b498059dea39751f6a
+      internalID: -1989348300
       vertices: []
       indices: 
       edges: []
@@ -781,7 +781,7 @@ TextureImporter:
       name: AspenTreeTilemap_28
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 96
         width: 32
         height: 32
@@ -793,8 +793,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f76329a410d00554c95bf2b4b6805996
-      internalID: -1973156171
+      spriteID: 8dfa76ca35b3bf844bd3b8cd91fdbadc
+      internalID: -31755962
       vertices: []
       indices: 
       edges: []
@@ -803,7 +803,7 @@ TextureImporter:
       name: AspenTreeTilemap_29
       rect:
         serializedVersion: 2
-        x: 256
+        x: 288
         y: 96
         width: 32
         height: 32
@@ -815,8 +815,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 290a3b179e3f8c242b913f5e07fb9520
-      internalID: -696026271
+      spriteID: 77675cdabf0ce9c4b9f17352493774e3
+      internalID: 1531319611
       vertices: []
       indices: 
       edges: []
@@ -825,7 +825,7 @@ TextureImporter:
       name: AspenTreeTilemap_30
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 96
         width: 32
         height: 32
@@ -837,8 +837,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 679c9762c24ed5d458847c11618415bf
-      internalID: -1739931403
+      spriteID: 3e2b998a6e06ef24a9b30f7381473f69
+      internalID: 1628745107
       vertices: []
       indices: 
       edges: []
@@ -847,8 +847,8 @@ TextureImporter:
       name: AspenTreeTilemap_31
       rect:
         serializedVersion: 2
-        x: 320
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -859,8 +859,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255b69c79572f744aa50b180528a4c0e
-      internalID: -1498306436
+      spriteID: 71b3ca0e9fe78c64ea1b96b7aa9a94e5
+      internalID: -373311714
       vertices: []
       indices: 
       edges: []
@@ -869,7 +869,7 @@ TextureImporter:
       name: AspenTreeTilemap_32
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 64
         width: 32
         height: 32
@@ -881,8 +881,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f2be0f512b2c6441b92a750f4414d44
-      internalID: -1477487540
+      spriteID: f6c444f6e407cd644a90810e2ce09845
+      internalID: -1822246261
       vertices: []
       indices: 
       edges: []
@@ -891,7 +891,7 @@ TextureImporter:
       name: AspenTreeTilemap_33
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 64
         width: 32
         height: 32
@@ -903,8 +903,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8b1896611b04340825e90f48ded3dd
-      internalID: -363755761
+      spriteID: fed6f50a59d5e114b96009c8a460b128
+      internalID: -1241296341
       vertices: []
       indices: 
       edges: []
@@ -913,28 +913,6 @@ TextureImporter:
       name: AspenTreeTilemap_34
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed26456a04af1c840a16c9061ebd155f
-      internalID: -165643529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AspenTreeTilemap_35
-      rect:
-        serializedVersion: 2
         x: 160
         y: 64
         width: 32
@@ -947,14 +925,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e21a91c1c9697ed42a9f16b0544a59ff
-      internalID: -734512859
+      spriteID: ce940c7901c23564ab4e0adbf7ee71d1
+      internalID: 524773873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_36
+      name: AspenTreeTilemap_35
       rect:
         serializedVersion: 2
         x: 192
@@ -969,14 +947,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fee35ebd40c8424b9155c0b43c4f364
-      internalID: -1391884248
+      spriteID: 25884a500b5989d418475c167953b545
+      internalID: 374827296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_37
+      name: AspenTreeTilemap_36
       rect:
         serializedVersion: 2
         x: 224
@@ -991,14 +969,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab4270d839f2f9646b1f7f25493cf10b
-      internalID: 2138360971
+      spriteID: 25696a1f9a0d908438dc427d005f5122
+      internalID: 1162434132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_38
+      name: AspenTreeTilemap_37
       rect:
         serializedVersion: 2
         x: 256
@@ -1013,14 +991,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b66d2d368f4858c4b95590402391b43f
-      internalID: 1377460290
+      spriteID: 3b0c9abda0adb324bb3952b4bd6a8641
+      internalID: -725701887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_39
+      name: AspenTreeTilemap_38
       rect:
         serializedVersion: 2
         x: 288
@@ -1035,14 +1013,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38732c49dd66b724aa6fb03f95c10ac7
-      internalID: -1451050399
+      spriteID: 858f81a4b46a1fa48b02f6945679a4e4
+      internalID: 1698709254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_40
+      name: AspenTreeTilemap_39
       rect:
         serializedVersion: 2
         x: 320
@@ -1057,14 +1035,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4d0ed3a1c321234bb83c00b32d9848b
-      internalID: -936355020
+      spriteID: b74e05cfa3b54e24fb722b2f3e8c8b25
+      internalID: -1571695355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_41
+      name: AspenTreeTilemap_40
       rect:
         serializedVersion: 2
         x: 0
@@ -1079,14 +1057,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32a22704822d8094d857f888293b6ba2
-      internalID: -483909820
+      spriteID: 170f9aca3eab56d479902304af9dc274
+      internalID: -645354009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_42
+      name: AspenTreeTilemap_41
       rect:
         serializedVersion: 2
         x: 32
@@ -1101,14 +1079,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d542a628d1dd24f4d8136283e2e62eb6
-      internalID: -1767817941
+      spriteID: eb21f49de58260c4091260ce0c221e24
+      internalID: 1285198760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_43
+      name: AspenTreeTilemap_42
       rect:
         serializedVersion: 2
         x: 96
@@ -1123,14 +1101,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f187934becfe05148873b411e4cb1dbd
-      internalID: 19645875
+      spriteID: 9bcf460d12c76a346a77dc6ec89f5260
+      internalID: -1987704666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_44
+      name: AspenTreeTilemap_43
       rect:
         serializedVersion: 2
         x: 128
@@ -1145,14 +1123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce8c94612b38a042ab5eca9496756a0
-      internalID: 249234554
+      spriteID: f16bbeb572cff9948a18495cd7cbfa21
+      internalID: 1081093601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_45
+      name: AspenTreeTilemap_44
       rect:
         serializedVersion: 2
         x: 160
@@ -1167,14 +1145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3574f93e441d40649ab5240fd72d32c9
-      internalID: -1795038693
+      spriteID: 53237bcc51b258247ac64f82b87a9ec9
+      internalID: 336441308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_46
+      name: AspenTreeTilemap_45
       rect:
         serializedVersion: 2
         x: 192
@@ -1189,14 +1167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e892e87e581d583448af9c8f1dbd0b46
-      internalID: 1303837606
+      spriteID: 6d1c752471258194eac15ce6a54619a5
+      internalID: -395989371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_47
+      name: AspenTreeTilemap_46
       rect:
         serializedVersion: 2
         x: 224
@@ -1211,14 +1189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3e0a2a58780cf44a342a3a4dc349fc
-      internalID: -607685676
+      spriteID: 89977376c27488c4b9c4fb1861d2fb78
+      internalID: -725700347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_48
+      name: AspenTreeTilemap_47
       rect:
         serializedVersion: 2
         x: 256
@@ -1233,14 +1211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e0cd87885cd7304fba0984c1a72e604
-      internalID: -999220128
+      spriteID: b0311d47270e85943ae0506e519adbdf
+      internalID: 166539559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_49
+      name: AspenTreeTilemap_48
       rect:
         serializedVersion: 2
         x: 288
@@ -1255,14 +1233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05640d710b5a64b45a8805cbef5edc12
-      internalID: 2086068415
+      spriteID: 75e9bbcb0b7b1ac4aa43e2ca067ef74d
+      internalID: -92203055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_50
+      name: AspenTreeTilemap_49
       rect:
         serializedVersion: 2
         x: 320
@@ -1277,14 +1255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0d9a06dcf1e6fe4aab10ca4b17cd1e5
-      internalID: -481057721
+      spriteID: 1a7a78e578cb9094daf49a41ce7c56eb
+      internalID: -675509201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_51
+      name: AspenTreeTilemap_50
       rect:
         serializedVersion: 2
         x: 0
@@ -1299,14 +1277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d5b15dd2040acd4ea8d7fe09d81ed42
-      internalID: -1982902592
+      spriteID: 5584f887f699ad04f8bc9bcc5a2166f1
+      internalID: 1138388016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_52
+      name: AspenTreeTilemap_51
       rect:
         serializedVersion: 2
         x: 32
@@ -1321,14 +1299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48eca75bd1c9afe48a51f9aca9da2702
-      internalID: 128157571
+      spriteID: 478d78ced1e49de4087768ed4493382b
+      internalID: 1516370597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_53
+      name: AspenTreeTilemap_52
       rect:
         serializedVersion: 2
         x: 160
@@ -1343,14 +1321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebb8fc92bde7a524ca0ed935a5c26c18
-      internalID: 1362708779
+      spriteID: 35cf5bfe3b40d7d4da045101231170ac
+      internalID: -418114953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_54
+      name: AspenTreeTilemap_53
       rect:
         serializedVersion: 2
         x: 256
@@ -1365,14 +1343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b97202ea1dece004eb194307e9bee0ff
-      internalID: -2065504906
+      spriteID: 491e9622b59394841aac37551e66c01e
+      internalID: -1017467861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AspenTreeTilemap_55
+      name: AspenTreeTilemap_54
       rect:
         serializedVersion: 2
         x: 288
@@ -1387,8 +1365,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2854bc764db74b042a30997087677c42
-      internalID: -1789102532
+      spriteID: 2f281838cd3d3d346bd83d13f84c6672
+      internalID: -1048902265
       vertices: []
       indices: 
       edges: []
@@ -1397,7 +1375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c9805bf2f4c2218499b71d0a916efeea
+    spriteID: d6faf9ef2eed6d24e9af433d259d675f
     internalID: 0
     vertices: []
     indices: 
@@ -1412,53 +1390,52 @@ TextureImporter:
       AspenTreeTilemap_10: 6239944814131013701
       AspenTreeTilemap_11: -8866463954565588340
       AspenTreeTilemap_12: -5547896966785655782
-      AspenTreeTilemap_13: 367869038
-      AspenTreeTilemap_14: 2081559176
-      AspenTreeTilemap_15: -212914315
-      AspenTreeTilemap_16: 39105786
-      AspenTreeTilemap_17: -1856418432
-      AspenTreeTilemap_18: -381417027
-      AspenTreeTilemap_19: -1167999866
+      AspenTreeTilemap_13: 396474446
+      AspenTreeTilemap_14: 1404075724
+      AspenTreeTilemap_15: -561100026
+      AspenTreeTilemap_16: 97974351
+      AspenTreeTilemap_17: -1201500639
+      AspenTreeTilemap_18: 1519875557
+      AspenTreeTilemap_19: -2131026336
       AspenTreeTilemap_2: 8621483974493026956
-      AspenTreeTilemap_20: 425469816
-      AspenTreeTilemap_21: 2095754089
-      AspenTreeTilemap_22: 50618092
-      AspenTreeTilemap_23: 1792000935
-      AspenTreeTilemap_24: 1772257787
-      AspenTreeTilemap_25: 928760748
-      AspenTreeTilemap_26: 44199191
-      AspenTreeTilemap_27: 42672142
-      AspenTreeTilemap_28: -1973156171
-      AspenTreeTilemap_29: -696026271
+      AspenTreeTilemap_20: -431735048
+      AspenTreeTilemap_21: 1231672282
+      AspenTreeTilemap_22: -1995558510
+      AspenTreeTilemap_23: -1854892126
+      AspenTreeTilemap_24: 756788890
+      AspenTreeTilemap_25: 2042555254
+      AspenTreeTilemap_26: 666876004
+      AspenTreeTilemap_27: -1989348300
+      AspenTreeTilemap_28: -31755962
+      AspenTreeTilemap_29: 1531319611
       AspenTreeTilemap_3: -553297070461130695
-      AspenTreeTilemap_30: -1739931403
-      AspenTreeTilemap_31: -1498306436
-      AspenTreeTilemap_32: -1477487540
-      AspenTreeTilemap_33: -363755761
-      AspenTreeTilemap_34: -165643529
-      AspenTreeTilemap_35: -734512859
-      AspenTreeTilemap_36: -1391884248
-      AspenTreeTilemap_37: 2138360971
-      AspenTreeTilemap_38: 1377460290
-      AspenTreeTilemap_39: -1451050399
+      AspenTreeTilemap_30: 1628745107
+      AspenTreeTilemap_31: -373311714
+      AspenTreeTilemap_32: -1822246261
+      AspenTreeTilemap_33: -1241296341
+      AspenTreeTilemap_34: 524773873
+      AspenTreeTilemap_35: 374827296
+      AspenTreeTilemap_36: 1162434132
+      AspenTreeTilemap_37: -725701887
+      AspenTreeTilemap_38: 1698709254
+      AspenTreeTilemap_39: -1571695355
       AspenTreeTilemap_4: 7293583240947257480
-      AspenTreeTilemap_40: -936355020
-      AspenTreeTilemap_41: -483909820
-      AspenTreeTilemap_42: -1767817941
-      AspenTreeTilemap_43: 19645875
-      AspenTreeTilemap_44: 249234554
-      AspenTreeTilemap_45: -1795038693
-      AspenTreeTilemap_46: 1303837606
-      AspenTreeTilemap_47: -607685676
-      AspenTreeTilemap_48: -999220128
-      AspenTreeTilemap_49: 2086068415
+      AspenTreeTilemap_40: -645354009
+      AspenTreeTilemap_41: 1285198760
+      AspenTreeTilemap_42: -1987704666
+      AspenTreeTilemap_43: 1081093601
+      AspenTreeTilemap_44: 336441308
+      AspenTreeTilemap_45: -395989371
+      AspenTreeTilemap_46: -725700347
+      AspenTreeTilemap_47: 166539559
+      AspenTreeTilemap_48: -92203055
+      AspenTreeTilemap_49: -675509201
       AspenTreeTilemap_5: 556028273270632367
-      AspenTreeTilemap_50: -481057721
-      AspenTreeTilemap_51: -1982902592
-      AspenTreeTilemap_52: 128157571
-      AspenTreeTilemap_53: 1362708779
-      AspenTreeTilemap_54: -2065504906
-      AspenTreeTilemap_55: -1789102532
+      AspenTreeTilemap_50: 1138388016
+      AspenTreeTilemap_51: 1516370597
+      AspenTreeTilemap_52: -418114953
+      AspenTreeTilemap_53: -1017467861
+      AspenTreeTilemap_54: -1048902265
       AspenTreeTilemap_6: 3530811258948277592
       AspenTreeTilemap_7: -8978779777693735047
       AspenTreeTilemap_8: 3383612976514712472
