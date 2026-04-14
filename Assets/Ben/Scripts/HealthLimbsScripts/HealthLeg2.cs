@@ -54,8 +54,8 @@ public class HealthLeg2 : MonoBehaviour
     private IEnumerator WaitForDamage()
     {
         canTakeDamage = false;
-        health -= 0.2f;
-        healthBarLeg2.UpdateHealth(0.2f);
+        health -= 0.05f;
+        healthBarLeg2.UpdateHealth(0.05f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true; 
 
@@ -69,4 +69,12 @@ public class HealthLeg2 : MonoBehaviour
         canTakeDamage = true;
     }
 
+    private IEnumerator ClimbDamage()
+    {
+        canTakeDamage = false;
+        health -= 0.05f;
+        healthBarLeg2.UpdateHealth(0.05f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+    }
 }

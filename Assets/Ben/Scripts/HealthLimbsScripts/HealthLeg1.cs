@@ -66,8 +66,8 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator WalkDamage()
     {
         canTakeDamage = false;
-        health -= 0.2f;
-        healthBarLeg1.UpdateHealth(0.2f);
+        health -= 0.05f;
+        healthBarLeg1.UpdateHealth(0.05f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
@@ -75,8 +75,17 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator JumpDegredation()
     {
         canTakeDamage = false;
-        health -= 0.5f;
-        healthBarLeg1.UpdateHealth(0.5f);
+        health -= 0.3f;
+        healthBarLeg1.UpdateHealth(0.3f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+    }
+
+    private IEnumerator ClimbDamage()
+    {
+        canTakeDamage = false;
+        health -= 0.05f;
+        healthBarLeg1.UpdateHealth(0.05f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }

@@ -192,6 +192,17 @@ public class WalkScript : MonoBehaviour
 
         }
 
+        //Controls Animation bools for Climbing
+        if (isClimbingLeft() && PlayerDirection.y > 0 || isClimbingRight() && PlayerDirection.y > 0)
+        {
+            PlayerAnim.SetBool("IsClimbing", true);
+        }
+        else
+        {
+            PlayerAnim.SetBool("IsClimbing", false);
+        }
+
+        //Controls Left Climbing Cooldown
         if (isClimbingLeft())
         {
             LArmlength = 0.5f;
@@ -204,14 +215,15 @@ public class WalkScript : MonoBehaviour
             {
                 StartCoroutine(WaitToClimb());
             }
-         
+
             if (Input.GetKeyUp(KeyCode.F))
             {
                 StartCoroutine(WaitToClimb());
             }
-            
+
         }
 
+        //Controls Right Climbing Cooldown
         if (isClimbingRight())
         {
             PlayerDirection.x = 0;
