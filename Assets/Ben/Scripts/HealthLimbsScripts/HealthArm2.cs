@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using JetBrains.Annotations;
 
 public class HealthArm2 : MonoBehaviour
 {
@@ -9,16 +11,25 @@ public class HealthArm2 : MonoBehaviour
     public GameObject DollForermR;
     public GameObject DollUpperArmR;
 
+    private WalkScript walkScript;
+
+    public bool canTakeDamage = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
+        canTakeDamage = true;
+        walkScript = transform.parent.GetComponent<WalkScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
+        {
+            StartCoroutine(ClimbDamage());
+        }
     }
 
     public void TakeDamage(float amount)
@@ -32,4 +43,16 @@ public class HealthArm2 : MonoBehaviour
             
         }
     }
+    private IEnumerator ClimbDamage()
+    {
+        print("ClimbDamage");
+        canTakeDamage = false;
+        health -= 0.2f;
+        healthBarArm2.UpdateHealth(0.2f);
+        yield return new WaitForSeconds(0.7f);
+        canTakeDamage = true;
+    }
+
+    
+
 }
