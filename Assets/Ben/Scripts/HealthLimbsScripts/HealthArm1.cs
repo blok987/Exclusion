@@ -45,8 +45,8 @@ public class HealthArm1 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.2f;
-        healthBarArm1.UpdateHealth(0.2f);
+        health -= 0.09f;
+        healthBarArm1.UpdateHealth(0.09f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }

@@ -15,7 +15,9 @@ public class HealthLeg1 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
-    public Sprite DollLegBD;
+    private Sprite LDollLegBD;
+    private Sprite LDollLegThighBD;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,16 +25,19 @@ public class HealthLeg1 : MonoBehaviour
         health = maxHealth;
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
+        LDollLegBD = Resources.Load<Sprite>("Limbs/Doll Leg BACK DAMAGED");
+        LDollLegThighBD = Resources.Load<Sprite>("Limbs/Doll Thigh BACK DAMAGED");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (health <= 5)
-        //{
-        //    DollLegL.GetComponent<SpriteRenderer>().sprite = DollLegBD;
-        //}
-        
+        if (health <= 5)
+        {
+            DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegBD;
+            DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighBD;
+        }
+
         //Takes steady damage when Walking
         if (canTakeDamage == true && walkScript.canMove)
         {
@@ -47,16 +52,18 @@ public class HealthLeg1 : MonoBehaviour
         {
             StartCoroutine(JumpDegredation());
         }
+
+        //Damages Legs when climbing
+        if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
+        {
+            StartCoroutine(ClimbDamage());
+        }
     }
 
     public void TakeDamage(float amount)
     {
         health -= amount;
         healthBarLeg1.UpdateHealth(amount);
-        if (health <= 5)
-        {
-            DollLegL.GetComponent<SpriteRenderer>().sprite = DollLegBD;
-        }
         if (health <= 0)
         {
             Destroy(DollLegL);
@@ -66,8 +73,8 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator WalkDamage()
     {
         canTakeDamage = false;
-        health -= 0.2f;
-        healthBarLeg1.UpdateHealth(0.2f);
+        health -= 0.05f;
+        healthBarLeg1.UpdateHealth(0.05f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
@@ -75,8 +82,17 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator JumpDegredation()
     {
         canTakeDamage = false;
-        health -= 0.5f;
-        healthBarLeg1.UpdateHealth(0.5f);
+        health -= 0.3f;
+        healthBarLeg1.UpdateHealth(0.3f);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+    }
+
+    private IEnumerator ClimbDamage()
+    {
+        canTakeDamage = false;
+        health -= 0.09f;
+        healthBarLeg1.UpdateHealth(0.09f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
