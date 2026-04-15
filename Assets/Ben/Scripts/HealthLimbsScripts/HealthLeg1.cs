@@ -1,4 +1,3 @@
-using UnityEditor.VersionControl;
 using UnityEngine;
 using System.Collections;
 
@@ -18,6 +17,9 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegBD;
     private Sprite LDollLegThighBD;
 
+    private Sprite LDollLegFD;
+    private Sprite LDollLegThighFD;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,17 +27,28 @@ public class HealthLeg1 : MonoBehaviour
         health = maxHealth;
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
-        LDollLegBD = Resources.Load<Sprite>("Limbs/Doll Leg BACK DAMAGED");
-        LDollLegThighBD = Resources.Load<Sprite>("Limbs/Doll Thigh BACK DAMAGED");
+
+        LDollLegBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Leg BACK DAMAGED");
+        LDollLegThighBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Thigh BACK DAMAGED");
+
+        LDollLegFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Leg BACK FULLY DAMAGED");
+        LDollLegThighFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Thigh BACK FULLY DAMAGED");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 5)
+        //Shows degredation sprites when helath is half
+        if (health <= 5 && health > 2)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegBD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighBD;
+        }
+        //Shows fully damaged sprites when health is very low
+        else if (health <= 2)
+        {
+            DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegFD;
+            DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighFD;
         }
 
         //Takes steady damage when Walking
