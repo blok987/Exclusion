@@ -9,6 +9,7 @@ public class inventory : MonoBehaviour
 {
     public static List<ItemData> items = new();
     public GameObject Inventory;
+    public GameObject gs;
     public GameObject s1;
     public GameObject s2;
     public GameObject s3;
@@ -36,10 +37,11 @@ public class inventory : MonoBehaviour
     private PlayerInput pi;
     public void Awake()
     {
+        gs = GameObject.Find("Grid Panel"); 
         III = GetComponent<InventoryItemInstance>();
         player = GameObject.FindGameObjectWithTag("Player");
-        pi = player.GetComponent<PlayerInput>();
         slots = GetComponentsInChildren<inventoryslot>(true);
+        slots = gs.GetComponentsInChildren<inventoryslot>(true); Debug.Log(slots.Length);
         if (slots.Length > 0) s1 = slots[0]?.gameObject;
         if (slots.Length > 1) s2 = slots[1]?.gameObject;
         if (slots.Length > 2) s3 = slots[2]?.gameObject;
@@ -62,10 +64,11 @@ public class inventory : MonoBehaviour
     }
     public void Start()
     {
+      
         selectedslot = "s1";
         scroll();
         
-       
+
     }
     public void scroll()
     {

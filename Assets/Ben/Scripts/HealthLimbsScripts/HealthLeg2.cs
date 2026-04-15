@@ -10,12 +10,20 @@ public class HealthLeg2 : MonoBehaviour
     public GameObject DollLegR;
     public GameObject DollLegThighR;
 
-    public bool canTakeDamage = true;
+    private bool canTakeDamage = true;
 
     private WalkScript walkScript;
 
-    public Sprite RDollLegBD;
-    public Sprite RDollLegThighBD;
+    private Sprite RDollLeg;
+    private Sprite RDollLegThigh;
+
+    private Sprite RDollLegBD;
+    private Sprite RDollLegThighBD;
+
+    private Sprite RDollLegFD;
+    private Sprite RDollLegThighFD;
+
+    public float degredationRate = 0.09f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,8 +31,14 @@ public class HealthLeg2 : MonoBehaviour
         health = maxHealth;
         walkScript = transform.parent.GetComponent<WalkScript>();
 
-        RDollLegBD = Resources.Load<Sprite>("Limbs/Doll Leg FRONT DAMAGED");
-        RDollLegThighBD = Resources.Load<Sprite>("Limbs/Doll Thigh FRONT DAMAGED");
+        RDollLeg = Resources.Load<Sprite>("Limbs/NLimbs/Doll Leg FRONT");
+        RDollLegThigh = Resources.Load<Sprite>("Limbs/NLimbs/Doll Thigh FRONT");
+
+        RDollLegBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Leg FRONT DAMAGED");
+        RDollLegThighBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Thigh FRONT DAMAGED");
+
+        RDollLegFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Leg FRONT FULLY DAMAGED");
+        RDollLegThighFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Thigh FRONT FULLY DAMAGED");
     }
 
     // Update is called once per frame
@@ -54,10 +68,21 @@ public class HealthLeg2 : MonoBehaviour
         }
         #endregion
 
-        if (health <= 5)
+        if (health > 5)
+        {
+            DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLeg;
+            DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThigh;
+        }
+
+        if (health <= 5 && health > 2)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegBD;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighBD;
+        }
+        else if (health <= 2)
+        {
+            DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegFD;
+            DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighFD;
         }
     }
 
@@ -92,8 +117,8 @@ public class HealthLeg2 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.09f;
-        healthBarLeg2.UpdateHealth(0.09f);
+        health -= degredationRate;
+        healthBarLeg2.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }

@@ -182,7 +182,7 @@ public class WalkScript : MonoBehaviour
         }
 
         //Controls Animation bools for Jumping
-        if (!isGrounded())
+        if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
         {
             PlayerAnim.SetBool("isJumping", true);
         }
@@ -193,9 +193,10 @@ public class WalkScript : MonoBehaviour
         }
 
         //Controls Animation bools for Climbing
-        if (isClimbingLeft() && PlayerDirection.y > 0 || isClimbingRight() && PlayerDirection.y > 0)
+        if (isClimbingLeft() && PlayerDirection.y > 0 && Input.GetKey(KeyCode.W) || isClimbingRight() && PlayerDirection.y > 0 && Input.GetKey(KeyCode.W))
         {
             PlayerAnim.SetBool("IsClimbing", true);
+            PlayerAnim.SetBool("isJumping", false);
         }
         else
         {
@@ -211,7 +212,7 @@ public class WalkScript : MonoBehaviour
 
 
             //Allows the player to stop climbing
-            if (isClimbingLeft() && Input.GetKeyDown(KeyCode.D))
+            if (isClimbingLeft() && Input.GetButton("D"))
             {
                 StartCoroutine(WaitToClimb());
             }
@@ -229,7 +230,7 @@ public class WalkScript : MonoBehaviour
             PlayerDirection.x = 0;
 
 
-            if (isClimbingRight() && Input.GetKeyDown(KeyCode.A))
+            if (isClimbingRight() && Input.GetKey(KeyCode.A))
             { 
                 StartCoroutine(WaitToClimb());
             }
@@ -256,11 +257,11 @@ public class WalkScript : MonoBehaviour
         return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
 
-    [HideInInspector] public bool isClimbingLeft()
+     public bool isClimbingLeft()
     {
         return Physics2D.Raycast(transform.position + (Vector3)LOffset, Vector2.left, LArmlength, Climbable);
     }
-     [HideInInspector] public bool isClimbingRight()
+      public bool isClimbingRight()
     {
         return Physics2D.Raycast(transform.position + (Vector3)ROffset, Vector2.right, RArmlength, Climbable);
     }
