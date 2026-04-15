@@ -10,7 +10,7 @@ public class HealthLeg2 : MonoBehaviour
     public GameObject DollLegR;
     public GameObject DollLegThighR;
 
-    public bool canTakeDamage = true;
+    private bool canTakeDamage = true;
 
     private WalkScript walkScript;
 

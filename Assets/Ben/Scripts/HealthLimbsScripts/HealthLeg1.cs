@@ -12,7 +12,7 @@ public class HealthLeg1 : MonoBehaviour
 
     private WalkScript walkScript;
 
-    public bool canTakeDamage = true;
+    private bool canTakeDamage = true;
 
     private Sprite LDollLegBD;
     private Sprite LDollLegThighBD;

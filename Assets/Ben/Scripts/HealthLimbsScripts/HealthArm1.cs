@@ -14,17 +14,34 @@ public class HealthArm1 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
+    public Sprite LDollForeArmBD;
+    public Sprite LDollUpperArmBD;
+
+    public Sprite LDollLegFD;
+    public Sprite LDollLegThighFD;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
+
+        LDollForeArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Forearm BACK DAMAGED");
+        LDollUpperArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Upper Arm BACK DAMAGED");
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health <= 5 && health > 2)
+        {
+            DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmBD;
+            DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmBD;
+        }
+
         if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
         {
             StartCoroutine(ClimbDamage());
