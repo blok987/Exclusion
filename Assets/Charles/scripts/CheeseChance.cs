@@ -18,7 +18,7 @@ public class CheeseChance : MonoBehaviour
     void Update()
     {
 
-        if (cc == 39)
+        if (cc == 39 || cc == 99)
         {
             StartCoroutine(Cheesee());
         }
