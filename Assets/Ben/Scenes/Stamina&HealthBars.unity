@@ -225,6 +225,10 @@ MonoBehaviour:
   DollForermL: {fileID: 0}
   DollUpperArmL: {fileID: 0}
   canTakeDamage: 1
+  LDollForeArmBD: {fileID: 0}
+  LDollUpperArmBD: {fileID: 0}
+  LDollLegFD: {fileID: 0}
+  LDollLegThighFD: {fileID: 0}
 --- !u!1 &134117295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2382809722269744742, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -819,6 +823,10 @@ MonoBehaviour:
   DollForermL: {fileID: 2063338836}
   DollUpperArmL: {fileID: 428948808}
   canTakeDamage: 1
+  LDollForeArmBD: {fileID: 0}
+  LDollUpperArmBD: {fileID: 0}
+  LDollLegFD: {fileID: 0}
+  LDollLegThighFD: {fileID: 0}
 --- !u!114 &777100074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +954,6 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 0}
   DollLegL: {fileID: 0}
   DollLegThighL: {fileID: 0}
-  canTakeDamage: 1
 --- !u!1 &1058769696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3776410156966435260, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -1808,9 +1815,6 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 0}
   DollLegR: {fileID: 0}
   DollLegThighR: {fileID: 0}
-  canTakeDamage: 1
-  RDollLegBD: {fileID: 0}
-  RDollLegThighBD: {fileID: 0}
 --- !u!224 &1392539343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3050527161722303996, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
@@ -2040,9 +2044,6 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 1315421218}
   DollLegR: {fileID: 1058769696}
   DollLegThighR: {fileID: 236770146}
-  canTakeDamage: 1
-  RDollLegBD: {fileID: 0}
-  RDollLegThighBD: {fileID: 0}
 --- !u!114 &1762086735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,7 +2061,6 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 1315421217}
   DollLegL: {fileID: 134117295}
   DollLegThighL: {fileID: 1767728814}
-  canTakeDamage: 1
 --- !u!114 &1762086736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   Climbable:
     serializedVersion: 2
     m_Bits: 128
-  HalfBodyDistance: 0.15
+  HalfBodyDistance: 0.1
   LArmlength: 0.5
   RArmlength: 0.5
 --- !u!1001 &8912340352027240684
