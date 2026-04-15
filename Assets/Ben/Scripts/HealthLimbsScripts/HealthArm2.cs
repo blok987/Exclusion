@@ -15,6 +15,8 @@ public class HealthArm2 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
+    public float degredationRate = 0.09f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,8 +49,8 @@ public class HealthArm2 : MonoBehaviour
     {
         print("ClimbDamage");
         canTakeDamage = false;
-        health -= 0.09f;
-        healthBarArm2.UpdateHealth(0.09f);
+        health -= degredationRate;
+        healthBarArm2.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.7f);
         canTakeDamage = true;
     }
