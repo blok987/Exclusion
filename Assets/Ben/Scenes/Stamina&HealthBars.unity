@@ -947,7 +947,6 @@ MonoBehaviour:
   DollLegL: {fileID: 0}
   DollLegThighL: {fileID: 0}
   canTakeDamage: 1
-  DollLegBD: {fileID: 0}
 --- !u!1 &1058769696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3776410156966435260, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -1810,6 +1809,8 @@ MonoBehaviour:
   DollLegR: {fileID: 0}
   DollLegThighR: {fileID: 0}
   canTakeDamage: 1
+  RDollLegBD: {fileID: 0}
+  RDollLegThighBD: {fileID: 0}
 --- !u!224 &1392539343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3050527161722303996, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
@@ -2040,6 +2041,8 @@ MonoBehaviour:
   DollLegR: {fileID: 1058769696}
   DollLegThighR: {fileID: 236770146}
   canTakeDamage: 1
+  RDollLegBD: {fileID: 0}
+  RDollLegThighBD: {fileID: 0}
 --- !u!114 &1762086735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,7 +2061,6 @@ MonoBehaviour:
   DollLegL: {fileID: 134117295}
   DollLegThighL: {fileID: 1767728814}
   canTakeDamage: 1
-  DollLegBD: {fileID: 2999422177354063160, guid: b59c96ff32e16bf4c98a5df01ca37fa9, type: 3}
 --- !u!114 &1762086736
 MonoBehaviour:
   m_ObjectHideFlags: 0

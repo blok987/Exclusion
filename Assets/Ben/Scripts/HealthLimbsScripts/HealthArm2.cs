@@ -47,8 +47,8 @@ public class HealthArm2 : MonoBehaviour
     {
         print("ClimbDamage");
         canTakeDamage = false;
-        health -= 0.2f;
-        healthBarArm2.UpdateHealth(0.2f);
+        health -= 0.09f;
+        healthBarArm2.UpdateHealth(0.09f);
         yield return new WaitForSeconds(0.7f);
         canTakeDamage = true;
     }

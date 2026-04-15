@@ -10,7 +10,7 @@ public class UseArm : MonoBehaviour
     private GameObject arm11;
     private GameObject arm2;
     private GameObject arm22;
-    public GameObject carm1;
+    public Image carm1;
     public Image carm2;
     public void Start()
     {
@@ -20,8 +20,8 @@ public class UseArm : MonoBehaviour
         arm11 = Player.transform.Find("Doll Forearm FRONT").gameObject;
         arm2 = Player.transform.Find("Doll Upper Arm BACK").gameObject;
         arm22 = Player.transform.Find("Doll Forearm BACK").gameObject;
-            carm1 = c.transform.Find("L Arm").gameObject;
-        carm2 = c.GetComponent<Image>();
+        carm1 = c.transform.Find("L arm").GetComponent<Image>();
+        carm2 = c.transform.Find("R arm").GetComponent<Image>();
     }
     void Update()
     {
@@ -33,6 +33,7 @@ public class UseArm : MonoBehaviour
             arm2 = Player.transform.Find("Doll Upper Arm BACK").gameObject;
             arm22 = Player.transform.Find("Doll Forearm BACK").gameObject;
         }
-        carm1 = c.transform.Find("L Arm").gameObject;
+        carm1 = c.transform.Find("L arm").GetComponent<Image>();
+        carm2 = c.transform.Find("R arm").GetComponent<Image>();
     }
 }
