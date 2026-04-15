@@ -275,6 +275,12 @@ AnimatorController:
   m_Name: Doll
   serializedVersion: 5
   m_AnimatorParameters:
+  - m_Name: IsWalking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   - m_Name: isRunning
     m_Type: 4
     m_DefaultFloat: 0
@@ -508,16 +514,16 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4255822610265966080}
-    m_Position: {x: 570, y: -90, z: 0}
+    m_Position: {x: 710, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -344779250474393096}
-    m_Position: {x: 850, y: 90, z: 0}
+    m_Position: {x: 990, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8424338000557123183}
-    m_Position: {x: 540, y: 220, z: 0}
+    m_Position: {x: 670, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2706717036345315918}
-    m_Position: {x: 575, y: 285, z: 0}
+    m_Position: {x: 670, y: 380, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

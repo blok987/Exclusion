@@ -225,10 +225,18 @@ MonoBehaviour:
   DollForermL: {fileID: 0}
   DollUpperArmL: {fileID: 0}
   canTakeDamage: 1
+  LDollForeArm: {fileID: 0}
+  LDollUpperArm: {fileID: 0}
   LDollForeArmBD: {fileID: 0}
   LDollUpperArmBD: {fileID: 0}
-  LDollLegFD: {fileID: 0}
-  LDollLegThighFD: {fileID: 0}
+  LDollForearmFD: {fileID: 0}
+  LDollUpperArmFD: {fileID: 0}
+  degredationRate: 0.09
+--- !u!1 &94705421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8181043558053108185, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+  m_PrefabInstance: {fileID: 8912340352027240684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &134117295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2382809722269744742, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -248,6 +256,16 @@ MonoBehaviour:
 --- !u!1 &236770146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1711965367973721238, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+  m_PrefabInstance: {fileID: 8912340352027240684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &241887769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4881926844533955373, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+  m_PrefabInstance: {fileID: 8912340352027240684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &290520635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9189098354929612557, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
   m_PrefabInstance: {fileID: 8912340352027240684}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &428948808 stripped
@@ -322,6 +340,7 @@ MonoBehaviour:
   DollForermR: {fileID: 0}
   DollUpperArmR: {fileID: 0}
   canTakeDamage: 1
+  degredationRate: 0.09
 --- !u!212 &603669743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -805,6 +824,7 @@ MonoBehaviour:
   DollForermR: {fileID: 518291597}
   DollUpperArmR: {fileID: 856124072}
   canTakeDamage: 1
+  degredationRate: 0.09
 --- !u!114 &777100073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,10 +843,13 @@ MonoBehaviour:
   DollForermL: {fileID: 2063338836}
   DollUpperArmL: {fileID: 428948808}
   canTakeDamage: 1
+  LDollForeArm: {fileID: 0}
+  LDollUpperArm: {fileID: 0}
   LDollForeArmBD: {fileID: 0}
   LDollUpperArmBD: {fileID: 0}
-  LDollLegFD: {fileID: 0}
-  LDollLegThighFD: {fileID: 0}
+  LDollForearmFD: {fileID: 0}
+  LDollUpperArmFD: {fileID: 0}
+  degredationRate: 0.09
 --- !u!114 &777100074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,6 +977,7 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 0}
   DollLegL: {fileID: 0}
   DollLegThighL: {fileID: 0}
+  degredationRate: 0.09
 --- !u!1 &1058769696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3776410156966435260, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -1448,7 +1472,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96575665, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1815,6 +1839,12 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 0}
   DollLegR: {fileID: 0}
   DollLegThighR: {fileID: 0}
+  degredationRate: 0.09
+--- !u!1 &1339120716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5727740618581335779, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+  m_PrefabInstance: {fileID: 8912340352027240684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1392539343 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3050527161722303996, guid: 5b5a1291e8be60142ae66eeedfe1af0f, type: 3}
@@ -2044,6 +2074,7 @@ MonoBehaviour:
   healthBarLeg2: {fileID: 1315421218}
   DollLegR: {fileID: 1058769696}
   DollLegThighR: {fileID: 236770146}
+  degredationRate: 0.09
 --- !u!114 &1762086735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,6 +2092,7 @@ MonoBehaviour:
   healthBarLeg1: {fileID: 1315421217}
   DollLegL: {fileID: 134117295}
   DollLegThighL: {fileID: 1767728814}
+  degredationRate: 0.09
 --- !u!114 &1762086736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,7 +2224,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96575665, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2487,7 +2519,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  DollHead: {fileID: 0}
+  DollChest: {fileID: 0}
+  DollMidsection: {fileID: 0}
+  DollWaist: {fileID: 0}
   healthBar: {fileID: 1315421216}
+  DollHeadS: {fileID: 0}
+  DollChestS: {fileID: 0}
+  DollMidsectionS: {fileID: 0}
+  DollWaistS: {fileID: 0}
+  DollHeadBD: {fileID: 0}
+  DollChestBD: {fileID: 0}
+  DollMidsectionBD: {fileID: 0}
+  DollWaistBD: {fileID: 0}
+  DollHeadFD: {fileID: 0}
+  DollChestFD: {fileID: 0}
+  DollMidsectionFD: {fileID: 0}
+  DollWaistFD: {fileID: 0}
 --- !u!70 &1969493087
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2879,7 +2927,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  DollHead: {fileID: 241887769}
+  DollChest: {fileID: 1339120716}
+  DollMidsection: {fileID: 290520635}
+  DollWaist: {fileID: 94705421}
   healthBar: {fileID: 1315421216}
+  DollHeadS: {fileID: 0}
+  DollChestS: {fileID: 0}
+  DollMidsectionS: {fileID: 0}
+  DollWaistS: {fileID: 0}
+  DollHeadBD: {fileID: 0}
+  DollChestBD: {fileID: 0}
+  DollMidsectionBD: {fileID: 0}
+  DollWaistBD: {fileID: 0}
+  DollHeadFD: {fileID: 0}
+  DollChestFD: {fileID: 0}
+  DollMidsectionFD: {fileID: 0}
+  DollWaistFD: {fileID: 0}
 --- !u!114 &6611394860610481407
 MonoBehaviour:
   m_ObjectHideFlags: 0
