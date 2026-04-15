@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Thigh DEAD_0: 8038936061966020484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

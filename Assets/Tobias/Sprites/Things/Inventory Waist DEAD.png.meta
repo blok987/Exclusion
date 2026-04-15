@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Waist DEAD_0: -1329171942773640336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

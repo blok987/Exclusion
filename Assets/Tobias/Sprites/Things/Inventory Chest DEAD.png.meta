@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Chest DEAD_0: 9064314835164769565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
