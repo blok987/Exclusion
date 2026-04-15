@@ -17,8 +17,10 @@ public class HealthArm1 : MonoBehaviour
     public Sprite LDollForeArmBD;
     public Sprite LDollUpperArmBD;
 
-    public Sprite LDollLegFD;
-    public Sprite LDollLegThighFD;
+    public Sprite LDollForearmFD;
+    public Sprite LDollUpperArmFD;
+
+    public float degredationRate = 0.09f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +32,8 @@ public class HealthArm1 : MonoBehaviour
         LDollForeArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Forearm BACK DAMAGED");
         LDollUpperArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Upper Arm BACK DAMAGED");
 
+        LDollForearmFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Forearm BACK FULLY DAMAGED");
+        LDollUpperArmFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Upper Arm BACK FULLY DAMAGED");
 
     }
 
@@ -40,6 +44,12 @@ public class HealthArm1 : MonoBehaviour
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmBD;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmBD;
+        }
+
+        if (health <= 2)
+        {
+            DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForearmFD;
+            DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmFD;
         }
 
         if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
@@ -62,8 +72,8 @@ public class HealthArm1 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.09f;
-        healthBarArm1.UpdateHealth(0.09f);
+        health -= degredationRate;
+        healthBarArm1.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }

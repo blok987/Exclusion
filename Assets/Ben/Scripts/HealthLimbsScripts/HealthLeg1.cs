@@ -20,6 +20,8 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegFD;
     private Sprite LDollLegThighFD;
 
+    public float degredationRate = 0.09f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,8 +88,8 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator WalkDamage()
     {
         canTakeDamage = false;
-        health -= 0.05f;
-        healthBarLeg1.UpdateHealth(0.05f);
+        health -= degredationRate;
+        healthBarLeg1.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }

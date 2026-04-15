@@ -191,10 +191,9 @@ public class WalkScript : MonoBehaviour
             PlayerAnim.SetBool("isJumping", false);
 
         }
-        
 
         //Controls Animation bools for Climbing
-        if (isClimbingLeft() && PlayerDirection.y > -1 && Input.GetKey(KeyCode.W) || isClimbingRight() && PlayerDirection.y > -1 && Input.GetKey(KeyCode.W))
+        if (isClimbingLeft() && PlayerDirection.y > 0 && Input.GetKey(KeyCode.W) || isClimbingRight() && PlayerDirection.y > 0 && Input.GetKey(KeyCode.W))
         {
             PlayerAnim.SetBool("IsClimbing", true);
             PlayerAnim.SetBool("isJumping", false);
