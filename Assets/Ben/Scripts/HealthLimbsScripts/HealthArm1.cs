@@ -14,6 +14,9 @@ public class HealthArm1 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
+    public Sprite LDollForeArm;
+    public Sprite LDollUpperArm;
+
     public Sprite LDollForeArmBD;
     public Sprite LDollUpperArmBD;
 
@@ -29,6 +32,9 @@ public class HealthArm1 : MonoBehaviour
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
 
+        LDollForeArm = Resources.Load<Sprite>("Limbs/NLimbs/Doll Forearm BACK");
+        LDollUpperArm = Resources.Load<Sprite>("Limbs/NLimbs/Doll Upper Arm BACK");
+
         LDollForeArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Forearm BACK DAMAGED");
         LDollUpperArmBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Upper Arm BACK DAMAGED");
 
@@ -40,6 +46,12 @@ public class HealthArm1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health > 5)
+        {
+            DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArm;
+            DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArm;
+        }
+
         if (health <= 5 && health > 2)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmBD;

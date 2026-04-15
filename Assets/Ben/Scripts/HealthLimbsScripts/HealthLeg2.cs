@@ -14,6 +14,9 @@ public class HealthLeg2 : MonoBehaviour
 
     private WalkScript walkScript;
 
+    private Sprite RDollLeg;
+    private Sprite RDollLegThigh;
+
     private Sprite RDollLegBD;
     private Sprite RDollLegThighBD;
 
@@ -27,6 +30,9 @@ public class HealthLeg2 : MonoBehaviour
     {
         health = maxHealth;
         walkScript = transform.parent.GetComponent<WalkScript>();
+
+        RDollLeg = Resources.Load<Sprite>("Limbs/NLimbs/Doll Leg FRONT");
+        RDollLegThigh = Resources.Load<Sprite>("Limbs/NLimbs/Doll Thigh FRONT");
 
         RDollLegBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Leg FRONT DAMAGED");
         RDollLegThighBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Thigh FRONT DAMAGED");
@@ -61,6 +67,12 @@ public class HealthLeg2 : MonoBehaviour
             StartCoroutine(ClimbDamage());
         }
         #endregion
+
+        if (health > 5)
+        {
+            DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLeg;
+            DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThigh;
+        }
 
         if (health <= 5 && health > 2)
         {

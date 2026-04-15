@@ -14,6 +14,9 @@ public class HealthLeg1 : MonoBehaviour
 
     private bool canTakeDamage = true;
 
+    private Sprite LDollLeg;
+    private Sprite LDollLegThigh;
+
     private Sprite LDollLegBD;
     private Sprite LDollLegThighBD;
 
@@ -30,6 +33,9 @@ public class HealthLeg1 : MonoBehaviour
         canTakeDamage = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
 
+        LDollLeg = Resources.Load<Sprite>("Limbs/NLimbs/Doll Leg BACK");
+        LDollLegThigh = Resources.Load<Sprite>("Limbs/NLimbs/Doll Thigh BACK");
+
         LDollLegBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Leg BACK DAMAGED");
         LDollLegThighBD = Resources.Load<Sprite>("Limbs/BDLimbs/Doll Thigh BACK DAMAGED");
 
@@ -40,6 +46,13 @@ public class HealthLeg1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (health > 5)
+        {
+            DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLeg;
+            DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThigh;
+        }
+
         //Shows degredation sprites when helath is half
         if (health <= 5 && health > 2)
         {
