@@ -26,8 +26,6 @@ public class LimbFade : MonoBehaviour
     {
         if (limb.name == "L arm")
         { 
-            Debug.Log("L arm");
-            
             ha1 = player.GetComponentInChildren<HealthArm1>();
             
             health = ha1.health;
@@ -61,61 +59,11 @@ public class LimbFade : MonoBehaviour
     }
     public void fade()
     {
-        if (health == 0)
-        {
-            currant = 0 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        if (health == 1)
-        {
-            currant = 1 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        else if (health == 2)
-        {
-            currant = 2 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        else if (health == 3)
-        {
-            currant = 3 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        else if (health == 4)
-        {
-            currant = 4 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        else if (health == 5)
-        {
-            currant = 5 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-        else if (health == 6)
-        {
-            currant = 6 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-         else if (health == 7)
-        {
-            currant = 7 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-         else if (health == 8)
-        {
-            currant = 8 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-         else if (health == 9)
-        {
-            currant = 9 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
-         else if (health == 10)
-        {
-            currant = 10 * 25.5f;
-            i.color = new Color(1, 1, 1, currant);
-        }
+        
+        
+        currant = health / 10f;
+        i.color = new Color(1, 1, 1, currant);
+       
 
     }
 }
