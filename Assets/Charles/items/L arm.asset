@@ -20,13 +20,13 @@ MonoBehaviour:
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 4782825333168001537, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
+        m_TargetAssemblyTypeName: UseArm, Assembly-CSharp
+        m_MethodName: UseA
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
