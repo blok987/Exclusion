@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Midsection DEAD_0: -2160367926467170001
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

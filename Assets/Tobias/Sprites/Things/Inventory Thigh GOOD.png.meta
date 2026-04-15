@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Thigh GOOD_0: 2020108157385151698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

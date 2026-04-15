@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Slot DEAD_0: 2623403530705386755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

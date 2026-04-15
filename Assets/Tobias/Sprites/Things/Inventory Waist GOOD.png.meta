@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Waist GOOD_0: 111295764224755556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
