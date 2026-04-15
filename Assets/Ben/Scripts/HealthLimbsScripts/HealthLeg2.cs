@@ -10,7 +10,7 @@ public class HealthLeg2 : MonoBehaviour
     public GameObject DollLegR;
     public GameObject DollLegThighR;
 
-    public bool canTakeDamage = true;
+    private bool canTakeDamage = true;
 
     private WalkScript walkScript;
 
@@ -19,6 +19,8 @@ public class HealthLeg2 : MonoBehaviour
 
     private Sprite RDollLegFD;
     private Sprite RDollLegThighFD;
+
+    public float degredationRate = 0.09f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -103,8 +105,8 @@ public class HealthLeg2 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.09f;
-        healthBarLeg2.UpdateHealth(0.09f);
+        health -= degredationRate;
+        healthBarLeg2.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
