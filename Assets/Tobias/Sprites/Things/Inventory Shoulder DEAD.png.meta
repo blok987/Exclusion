@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1a47513ae637b9a4f8f72313b74aa4d6
+guid: 2de8830ea96552047b2b36945fcc72a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 111295764224755556
-    second: Inventory Waist GOOD_0
+      213: -5379881772604802005
+    second: Inventory Shoulder DEAD_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Waist GOOD_0
+      name: Inventory Shoulder DEAD_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4674f9b68e66b8100800000000000000
-      internalID: 111295764224755556
+      spriteID: b2cba4a1802d655b0800000000000000
+      internalID: -5379881772604802005
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Inventory Waist GOOD_0: 111295764224755556
+      Inventory Shoulder DEAD_0: -5379881772604802005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
