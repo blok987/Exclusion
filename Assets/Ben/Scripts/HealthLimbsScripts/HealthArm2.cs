@@ -57,12 +57,22 @@ public class HealthArm2 : MonoBehaviour
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArmBD;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmBD;
         }
-        else if (health <= 2)
+        if (health <= 2)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForearmFD;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmFD;
         }
 
+        if (health <= 0)
+        {
+            DollForermR.SetActive(false);
+            DollUpperArmR.SetActive(false);
+        }
+        else if (health > 0)
+        {
+            DollForermR.SetActive(true);
+            DollUpperArmR.SetActive(true);
+        }
 
         if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
         {
@@ -87,7 +97,7 @@ public class HealthArm2 : MonoBehaviour
         canTakeDamage = false;
         health -= degredationRate;
         healthBarArm2.UpdateHealth(degredationRate);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
 

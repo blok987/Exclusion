@@ -6,11 +6,17 @@ public class HealthBarArm1 : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    
+
+    public HealthArm1 healthArm1;
+
     [SerializeField] private Image healthFill3;
     [SerializeField] private float fillSpeed;
 
-    
+    private void Update()
+    {
+        currentHealth = healthArm1.health;
+        UpdateHealthBar();
+    }
 
     public void UpdateHealth(float amount)
     {

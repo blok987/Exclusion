@@ -64,6 +64,17 @@ public class HealthArm1 : MonoBehaviour
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmFD;
         }
 
+        if (health <= 0)
+        {
+           DollForermL.SetActive(false);
+           DollUpperArmL.SetActive(false);
+        }
+        else if (health > 0)
+        {
+            DollForermL.SetActive(true);
+            DollUpperArmL.SetActive(true);
+        }
+
         if (walkScript.isClimbingLeft() && canTakeDamage == true && walkScript.PlayerDirection.y > 0 || walkScript.isClimbingRight() && canTakeDamage == true && walkScript.PlayerDirection.y > 0)
         {
             StartCoroutine(ClimbDamage());

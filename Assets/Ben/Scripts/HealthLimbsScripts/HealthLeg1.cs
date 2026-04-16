@@ -60,10 +60,20 @@ public class HealthLeg1 : MonoBehaviour
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighBD;
         }
         //Shows fully damaged sprites when health is very low
-        else if (health <= 2)
+        if (health <= 2)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegFD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighFD;
+        }
+        if (health <= 0)
+        {
+            DollLegL.SetActive(false);
+            DollLegThighL.SetActive(false);
+        }
+        else if (health > 0)
+        {
+            DollLegL.SetActive(true);
+            DollLegThighL.SetActive(true);
         }
 
         //Takes steady damage when Walking

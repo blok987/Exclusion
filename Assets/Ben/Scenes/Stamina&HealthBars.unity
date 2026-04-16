@@ -1684,6 +1684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  healthLeg1: {fileID: 1762086735}
   healthFill2: {fileID: 507878243}
   fillSpeed: 0.4
 --- !u!114 &1315421218
@@ -1700,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  healthLeg2: {fileID: 1762086734}
   healthFill2: {fileID: 709133452}
   fillSpeed: 0.4
 --- !u!114 &1315421219
@@ -1716,6 +1718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  healthArm2: {fileID: 777100072}
   healthFill4: {fileID: 2117351414}
   fillSpeed: 0.4
 --- !u!114 &1315421220
@@ -1732,6 +1735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  healthArm1: {fileID: 777100073}
   healthFill3: {fileID: 1587703073}
   fillSpeed: 0.4
 --- !u!1 &1323419999
