@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 592060910236481087}
   - component: {fileID: -124462259790399598}
   - component: {fileID: 2210935487759903794}
+  - component: {fileID: 7395264140834031809}
   m_Layer: 0
   m_Name: L leg
   m_TagString: Untagged
@@ -194,3 +195,30 @@ PolygonCollider2D:
       - {x: 0.5840236, y: 0.21597648}
       - {x: 0.5424851, y: 0.21597631}
   m_UseDelaunayMesh: 0
+--- !u!114 &7395264140834031809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069952089090714574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42084fd0e45dae4cab744f2e4e1fba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  legcolisionhealth: {fileID: 0}
+  c: {fileID: 0}
+  leg1: {fileID: 0}
+  leg11: {fileID: 0}
+  leg2: {fileID: 0}
+  leg22: {fileID: 0}
+  cleg1: {fileID: 0}
+  cleg11: {fileID: 0}
+  cleg2: {fileID: 0}
+  cleg22: {fileID: 0}
+  stuffbackground: {fileID: 0}
+  playerlimbs: {fileID: 0}
+  gameobject: {fileID: 0}
+  id: {fileID: 11400000, guid: 5766a1ae08d16fd4eb03e250b9745637, type: 2}

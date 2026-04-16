@@ -15,18 +15,19 @@ MonoBehaviour:
   description: 
   itenprice: $5
   itemSprite: {fileID: 3954330747236880760, guid: e23c826fda0ef2944b968bfb7be88c84, type: 3}
+  inventorysprite: {fileID: -5570559177988548002, guid: 284083f3a6d07344f914d51ae67b70b2, type: 3}
   itemQuality: 2
   ip: {fileID: 1069952089090714574, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 7395264140834031809, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
+        m_TargetAssemblyTypeName: UseLeg, Assembly-CSharp
+        m_MethodName: UseL
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

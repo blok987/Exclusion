@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3540936883150620880}
   - component: {fileID: 441174657014152141}
   - component: {fileID: -8819334199800067926}
-  - component: {fileID: 4782825333168001537}
+  - component: {fileID: 5433671660902158040}
   m_Layer: 0
   m_Name: L arm
   m_TagString: Untagged
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4782825333168001537
+--- !u!114 &5433671660902158040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,8 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6933c7c4aa718140b9d6a00f8a797da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  armcolisionhealth: {fileID: 0}
+  c: {fileID: 0}
+  arm1: {fileID: 0}
+  arm11: {fileID: 0}
+  arm2: {fileID: 0}
+  arm22: {fileID: 0}
   carm1: {fileID: 0}
   carm2: {fileID: 0}
-  stuffbackground: {fileID: 0}
-  playerlimbs: {fileID: 0}
-  gameobject: {fileID: 0}
+  id: {fileID: 11400000, guid: 8a1491bf3af14c74282dd9049726b863, type: 2}

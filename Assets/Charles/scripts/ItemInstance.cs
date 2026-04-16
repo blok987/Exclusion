@@ -44,7 +44,8 @@ public class ItemInstance : MonoBehaviour
         {   
             sr.sprite =  itemData.inventorysprite;
             inventory.items.Add(itemData);
-            i.AddItem();
+            i.AddItem(); 
+            sr.sprite = itemData.inventorysprite;
             Destroy(gameObject);
         }
     }
