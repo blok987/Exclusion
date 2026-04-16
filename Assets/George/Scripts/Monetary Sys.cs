@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,22 +24,25 @@ public class MonetarySys : MonoBehaviour
         SpallValue = 1;
 
     }
+    //Destroys Spall and adds to the Spallet when the player collides with it
     private void Update()
     {
+        
         if (playerContact())
         {
+            Destroy(gameObject);
             Debug.Log("Player Contact");
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-    
+
+
+
+    //Checks for player contact using a BoxCast
     [HideInInspector] bool playerContact()
     {
         return Physics2D.BoxCast(transform.position + CastOrigin , Size, 0, Vector2.zero, Player);
     }
+    //Visualisation of boxcast
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
