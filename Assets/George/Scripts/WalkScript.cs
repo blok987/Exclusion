@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEditor.Experimental.GraphView;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
@@ -13,10 +14,6 @@ public class WalkScript : MonoBehaviour
 
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
-
-
-
-
 
     [SerializeField] bool isJumping = false;
     public bool canMove = true;
@@ -37,6 +34,19 @@ public class WalkScript : MonoBehaviour
     public float HalfBodyDistance = 1.1f;
     public float LArmlength = -1f;
     public float RArmlength = 1f;
+
+    //Sprite Renderers for limbs, handling sprite flipping
+    public SpriteRenderer ForearmFRONT;
+    public SpriteRenderer UpperArmFRONT;
+
+    public SpriteRenderer ForearmBACK;
+    public SpriteRenderer UpperArmBACK;
+
+    public SpriteRenderer LegFRONT;
+    public SpriteRenderer ThighFRONT;
+
+    public SpriteRenderer LegBACK;
+    public SpriteRenderer ThighBACK;
 
     //Player Animator for handling animations
     private Animator PlayerAnim;
@@ -70,13 +80,29 @@ public class WalkScript : MonoBehaviour
                 //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
 
+                ForearmFRONT.sortingOrder = 12;
+                UpperArmFRONT.sortingOrder = 11;
+
+                ForearmBACK.sortingOrder = 1;
+                UpperArmBACK.sortingOrder = 2;
+
+                LegFRONT.sortingOrder = 10;
+                ThighFRONT.sortingOrder = 9;
+
+                LegBACK.sortingOrder = 4;
+                ThighBACK.sortingOrder = 3;
+
             }
             else
             {
                 PlayerDirection.x += AirSpeed * Time.deltaTime;
 
             }
+
+            
+
         }
+
         else if (Input.GetKey(KeyCode.A) && canMove)//-X Move
         {
             if (isGrounded())
@@ -84,7 +110,18 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
                 gameObject.transform.localScale = new Vector3(-1, 1, 1);
+               
+                ForearmFRONT.sortingOrder = 1;
+                UpperArmFRONT.sortingOrder = 2;
 
+                ForearmBACK.sortingOrder = 12;
+                UpperArmBACK.sortingOrder = 11;
+
+                LegFRONT.sortingOrder = 4;
+                ThighFRONT.sortingOrder = 3;
+
+                LegBACK.sortingOrder = 10;
+                ThighBACK.sortingOrder = 9;
 
             }
             else
@@ -92,6 +129,9 @@ public class WalkScript : MonoBehaviour
                 PlayerDirection.x -= AirSpeed * Time.deltaTime;
 
             }
+
+            
+
         }
         else //Handles no X-axis Input
         {
@@ -110,13 +150,20 @@ public class WalkScript : MonoBehaviour
         //Starts the Running Anim if moving on the X-Axis
         if (PlayerDirection.x != 0)
         {
-            PlayerAnim.SetBool("isRunning", true);
+            PlayerAnim.SetBool("IsWalking", true);
+            PlayerAnim.SetBool("isRunning", false);
         }
 
-        //Stops the Running Anim if not moving on the X-Axis
+        //Stops the Wallking Anim if not moving on the X-Axis
         if (PlayerDirection.x == 0)
         {
-            PlayerAnim.SetBool("isRunning", false);
+            PlayerAnim.SetBool("IsWalking", false);
+        }
+
+        if (PlayerDirection.x >= 7 || PlayerDirection.x <= -7)
+        {
+            
+            PlayerAnim.SetBool("isRunning", true);
         }
 
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
