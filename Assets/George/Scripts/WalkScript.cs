@@ -212,7 +212,7 @@ public class WalkScript : MonoBehaviour
 
 
             //Allows the player to stop climbing
-            if (isClimbingLeft() && Input.GetButton("D"))
+            if (isClimbingLeft() && Input.GetKey(KeyCode.D))
             {
                 StartCoroutine(WaitToClimb());
             }
