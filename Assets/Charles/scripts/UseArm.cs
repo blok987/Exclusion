@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UseArm : MonoBehaviour
 {
     private GameObject Player;
-    private GameObject armcolision&health;
+    private GameObject armcolisionhealth;
     private Canvas c;
     private GameObject arm1;
     private GameObject arm11;
