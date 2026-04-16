@@ -9,6 +9,7 @@ public class ItemData : ScriptableObject
    [TextArea] public string description;
     public string itenprice;
     public Sprite itemSprite;
+    public Sprite inventorysprite;
     public string itemQuality;
     public GameObject ip;
     public UnityEvent itemBehavior;

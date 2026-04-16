@@ -60,15 +60,12 @@ public class inventory : MonoBehaviour
         ol7 = s7.GetComponent<Outline>();
         ol8 = s8.GetComponent<Outline>();
        
-
     }
+
     public void Start()
     {
-      
         selectedslot = "s1";
         scroll();
-        
-
     }
     public void scroll()
     {
@@ -168,10 +165,8 @@ public class inventory : MonoBehaviour
             ((Outline)ol8).enabled = true;
             
         }
-       
-
-
     }
+
     public void Update()
     {
         
@@ -225,8 +220,6 @@ public class inventory : MonoBehaviour
         {
             selectedslot = selectedslot switch
             {
-               
-                
                 "s1" => "s8",
                 "s8" => "s7",
                 "s7" => "s6",
@@ -256,17 +249,12 @@ public class inventory : MonoBehaviour
                 sc.GetComponent<InventoryItemInstance>().Drop();
             }
         }
-
-
     }
     public void AddItem()
     {
        
         EvaluateInventory();
     }
-
-
-
 
     public void EvaluateInventory() 
     { 

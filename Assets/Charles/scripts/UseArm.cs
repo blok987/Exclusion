@@ -65,7 +65,7 @@ public class UseArm : MonoBehaviour
         {
             arm1.SetActive(false);
             arm11.SetActive(false);
-            carm1.color = new Color(1, 1, 1, 0.5f);
+            carm1.color = new Color(1, 1, 1, 1f);
         }
     }
 }

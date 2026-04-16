@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UseLeg : MonoBehaviour
 {
     private GameObject Player;
+    private GameObject legcolisionhealth;
     private Canvas c;
     private GameObject leg1;
     private GameObject leg11;
@@ -14,12 +15,15 @@ public class UseLeg : MonoBehaviour
     public GameObject stuffbackground;
     public GameObject playerlimbs;
     public GameObject gameobject;
+    public ItemData id;
 
 
 
     public void Start()
     {
         c = FindAnyObjectByType<Canvas>();
+        legcolisionhealth = Player.transform.Find("LegColision&Health").gameObject;
+        id = GetComponent<ItemData>();
         stuffbackground = c.transform.Find("Stuff Background").gameObject;
         playerlimbs = stuffbackground.transform.Find("Player Limbs").gameObject;
         gameobject = playerlimbs.transform.Find("GameObject").gameObject;
