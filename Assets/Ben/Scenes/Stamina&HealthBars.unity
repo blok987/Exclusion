@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2143beeaa59de304bbeb6c17a599aec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1.69
   maxHealth: 10
   healthBarArm1: {fileID: 1315421220}
   DollForermL: {fileID: 2063338836}
