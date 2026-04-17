@@ -12,7 +12,7 @@ public class UseArm : MonoBehaviour
     public GameObject arm1;
     public GameObject arm11;
     public GameObject arm2;
-    public GameObject arm22;s
+    public GameObject arm22;
     public GameObject carm1;
     public Image carm11;
     public GameObject carm2;
