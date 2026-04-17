@@ -36,17 +36,17 @@ public class WalkScript : MonoBehaviour
     public float RArmlength = 1f;
 
     //Sprite Renderers for limbs, handling sprite flipping
-    public SpriteRenderer ForearmFRONT;
-    public SpriteRenderer UpperArmFRONT;
+    private SpriteRenderer ForearmFRONT;
+    private SpriteRenderer UpperArmFRONT;
 
-    public SpriteRenderer ForearmBACK;
-    public SpriteRenderer UpperArmBACK;
+    private SpriteRenderer ForearmBACK;
+    private SpriteRenderer UpperArmBACK;
 
-    public SpriteRenderer LegFRONT;
-    public SpriteRenderer ThighFRONT;
+    private SpriteRenderer LegFRONT;
+    private SpriteRenderer ThighFRONT;
 
-    public SpriteRenderer LegBACK;
-    public SpriteRenderer ThighBACK;
+    private SpriteRenderer LegBACK;
+    private SpriteRenderer ThighBACK;
 
     //Player Animator for handling animations
     private Animator PlayerAnim;
@@ -58,6 +58,15 @@ public class WalkScript : MonoBehaviour
         print("Indeed. 500 hundered Compiler Errors");
 
         PlayerAnim = GetComponent<Animator>();
+
+        ForearmFRONT = transform.Find("Doll Forearm FRONT").GetComponent<SpriteRenderer>();
+        UpperArmFRONT = transform.Find("Doll Upper Arm FRONT").GetComponent<SpriteRenderer>();
+        ForearmBACK = transform.Find("Doll Forearm BACK").GetComponent<SpriteRenderer>();
+        UpperArmBACK = transform.Find("Doll Upper Arm BACK").GetComponent<SpriteRenderer>();
+        LegFRONT = transform.Find("Doll Leg FRONT").GetComponent<SpriteRenderer>();
+        ThighFRONT = transform.Find("Doll Thigh FRONT").GetComponent<SpriteRenderer>();
+        LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
+        ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
