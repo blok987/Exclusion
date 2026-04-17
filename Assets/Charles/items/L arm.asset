@@ -15,12 +15,13 @@ MonoBehaviour:
   description: this is a leftleg
   itenprice: $5
   itemSprite: {fileID: 5369983280639482150, guid: 82bbc4a88fed7db4c8e5b95a5492f47b, type: 3}
-  itemQuality: -1
+  inventorysprite: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
+  itemQuality: 3
   ip: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4782825333168001537, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
+      - m_Target: {fileID: 5433671660902158040, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
         m_TargetAssemblyTypeName: UseArm, Assembly-CSharp
         m_MethodName: UseA
         m_Mode: 1

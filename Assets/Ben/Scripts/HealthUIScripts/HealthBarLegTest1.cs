@@ -6,11 +6,18 @@ public class HealthBarLegTest1 : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    
+
+    public HealthLeg1 healthLeg1;
+
     [SerializeField] private Image healthFill2;
     [SerializeField] private float fillSpeed;
 
-    
+
+    private void Update()
+    {
+        currentHealth = healthLeg1.health;
+        UpdateHealthBar();
+    }
 
     public void UpdateHealth(float amount)
     {

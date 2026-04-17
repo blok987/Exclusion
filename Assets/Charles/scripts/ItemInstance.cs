@@ -42,8 +42,10 @@ public class ItemInstance : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {   
+            sr.sprite =  itemData.inventorysprite;
             inventory.items.Add(itemData);
-            i.AddItem();
+            i.AddItem(); 
+            sr.sprite = itemData.inventorysprite;
             Destroy(gameObject);
         }
     }

@@ -79,11 +79,24 @@ public class HealthLeg2 : MonoBehaviour
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegBD;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighBD;
         }
-        else if (health <= 2)
+        if (health <= 2)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegFD;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighFD;
         }
+
+        if (health <= 0)
+        {
+            DollLegR.SetActive(false);
+            DollLegThighR.SetActive(false);
+        }
+        else if (health > 0)
+        {
+            DollLegR.SetActive(true);
+            DollLegThighR.SetActive(true);
+        }
+
+        
     }
 
     public void TakeDamage(float amount)
@@ -99,8 +112,8 @@ public class HealthLeg2 : MonoBehaviour
     private IEnumerator WaitForDamage()
     {
         canTakeDamage = false;
-        health -= 0.05f;
-        healthBarLeg2.UpdateHealth(0.05f);
+        health -= degredationRate;
+        healthBarLeg2.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true; 
 
