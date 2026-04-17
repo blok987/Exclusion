@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14ac6cd76cb57fa4381104038c84b952, type: 3}
-  m_Name: L leg
+  m_Name: arm
   m_EditorClassIdentifier: 
-  description: 
+  description: this is a arm
   itenprice: $5
-  itemSprite: {fileID: 3954330747236880760, guid: e23c826fda0ef2944b968bfb7be88c84, type: 3}
-  inventorysprite: {fileID: -5570559177988548002, guid: 284083f3a6d07344f914d51ae67b70b2, type: 3}
-  itemQuality: 2
-  ip: {fileID: 1069952089090714574, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
+  itemSprite: {fileID: 5369983280639482150, guid: 82bbc4a88fed7db4c8e5b95a5492f47b, type: 3}
+  inventorysprite: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
+  itemQuality: 3
+  ip: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
   itemBehavior:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7395264140834031809, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
-        m_TargetAssemblyTypeName: UseLeg, Assembly-CSharp
-        m_MethodName: UseL
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
+        m_MethodName: Use
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33,3 +33,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  player: {fileID: 6659572026570973603, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}

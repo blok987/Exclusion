@@ -13,6 +13,5 @@ public class ItemData : ScriptableObject
     public string itemQuality;
     public GameObject ip;
     public UnityEvent itemBehavior;
-
-    
+   
 }

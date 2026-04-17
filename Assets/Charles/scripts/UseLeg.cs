@@ -25,7 +25,7 @@ public class UseLeg : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         legcolisionhealth = Player.transform.Find("LegCollision&Health").gameObject;
-        id = GetComponent<ItemData>();
+        
         c = FindAnyObjectByType<Canvas>();
         Player = GameObject.FindWithTag("Player");
         leg1 = Player.transform.Find("Doll Leg FRONT").gameObject;
@@ -48,13 +48,13 @@ public class UseLeg : MonoBehaviour
     }
     void Update()
     {
-        c = FindAnyObjectByType<Canvas>();
-
-        leg1 = Player.transform.Find("Doll Leg FRONT").gameObject;
-        leg11 = Player.transform.Find("Doll Thigh FRONT").gameObject;
-        leg2 = Player.transform.Find("Doll Leg BACK").gameObject;
-        leg22 = Player.transform.Find("Doll Thigh BACK").gameObject;
-        // Fix: Find the child transform, then get the Image component from it
+        //c = FindAnyObjectByType<Canvas>();
+        
+        //leg1 = Player.transform.Find("Doll Leg FRONT").gameObject;
+        //leg11 = Player.transform.Find("Doll Thigh FRONT").gameObject;
+        //leg2 = Player.transform.Find("Doll Leg BACK").gameObject;
+       // leg22 = Player.transform.Find("Doll Thigh BACK").gameObject;
+        
         if (cleg1 == null)
         {
             cleg1 = c.transform.Find("stuff background/playerlimbs/limbs/L leg").gameObject;
@@ -75,7 +75,7 @@ public class UseLeg : MonoBehaviour
     }
     public void UseL()
     {
-        if (leg1.activeSelf == false)
+        if (leg11.activeSelf == false)
         {
             h.health = h.maxHealth;
             leg1.SetActive(true);

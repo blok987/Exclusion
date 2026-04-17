@@ -24,7 +24,7 @@ public class UseArm : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         armcolisionhealth = Player.transform.Find("ArmCollision&Health").gameObject;
-        id = GetComponent<ItemData>();
+        
         c = FindAnyObjectByType<Canvas>();
         Player = GameObject.FindWithTag("Player");
         arm1 = Player.transform.Find("Doll Forearm FRONT").gameObject;
@@ -44,12 +44,12 @@ public class UseArm : MonoBehaviour
     }
     void Update()
     {
-        c = FindAnyObjectByType<Canvas>();
+        //c = FindAnyObjectByType<Canvas>();
 
-        arm1 = Player.transform.Find("Doll Forearm FRONT").gameObject;
-        arm11 = Player.transform.Find("Doll Upper Arm FRONT").gameObject;
-        arm2 = Player.transform.Find("Doll Forearm BACK").gameObject;
-        arm22 = Player.transform.Find("Doll Upper Arm BACK").gameObject;
+        //arm1 = Player.transform.Find("Doll Forearm FRONT").gameObject;
+        //arm11 = Player.transform.Find("Doll Upper Arm FRONT").gameObject;
+        //arm2 = Player.transform.Find("Doll Forearm BACK").gameObject;
+        //arm22 = Player.transform.Find("Doll Upper Arm BACK").gameObject;
         // Fix: Find the child transform, then get the Image component from it
         if (carm1 == null)
         {
