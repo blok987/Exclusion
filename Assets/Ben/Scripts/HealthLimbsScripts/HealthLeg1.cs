@@ -24,6 +24,7 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegThighFD;
 
     public float degredationRate = 0.09f;
+    public float runDegredationRate = 0.115f;    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -83,6 +84,11 @@ public class HealthLeg1 : MonoBehaviour
             {
                 StartCoroutine(WalkDamage());
             }
+
+            if (walkScript.PlayerDirection.x > 7 && walkScript.isGrounded() || walkScript.PlayerDirection.x < -7 && walkScript.isGrounded())
+            {
+                StartCoroutine(RunDamage());
+            }
         }
 
         //Takes damage when Jumping
@@ -117,11 +123,20 @@ public class HealthLeg1 : MonoBehaviour
         canTakeDamage = true;
     }
 
+    private IEnumerator RunDamage()
+    {
+        canTakeDamage = false;
+        health -= runDegredationRate;
+        healthBarLeg1.UpdateHealth(runDegredationRate);
+        yield return new WaitForSeconds(0.6f);
+        canTakeDamage = true;
+    }
+
     private IEnumerator JumpDegredation()
     {
         canTakeDamage = false;
-        health -= 0.3f;
-        healthBarLeg1.UpdateHealth(0.3f);
+        health -= 0.35f;
+        healthBarLeg1.UpdateHealth(0.35f);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
@@ -129,8 +144,8 @@ public class HealthLeg1 : MonoBehaviour
     private IEnumerator ClimbDamage()
     {
         canTakeDamage = false;
-        health -= 0.09f;
-        healthBarLeg1.UpdateHealth(0.09f);
+        health -= degredationRate;
+        healthBarLeg1.UpdateHealth(degredationRate);
         yield return new WaitForSeconds(0.6f);
         canTakeDamage = true;
     }
