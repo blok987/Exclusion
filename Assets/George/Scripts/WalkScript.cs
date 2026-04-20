@@ -18,8 +18,6 @@ public class WalkScript : MonoBehaviour
     [SerializeField] bool isJumping = false;
     public bool canMove = true;
 
-
-
     public Vector2 PlayerDirection;
     //Offsets for the raycasts to check for ground and climbable walls
     public Vector2 GroundOffset;
@@ -184,8 +182,9 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
-
+             
         }
+        
 
         if (!isGrounded())
         {
@@ -337,6 +336,8 @@ public class WalkScript : MonoBehaviour
         LArmlength = 0.5f;
         RArmlength = 0.5f;
     }
-    
+
+   
+
 
 }   

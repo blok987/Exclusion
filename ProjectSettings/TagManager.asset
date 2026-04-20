@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerLeg1
   - hurt
+  - Spike
   layers:
   - Default
   - TransparentFX
