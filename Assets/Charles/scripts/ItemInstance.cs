@@ -9,11 +9,10 @@ public class ItemInstance : MonoBehaviour
     private inventory i;
     private Canvas c;
     private GameObject p;
-   
     
     public void Start()
     {
-  
+
        
         p = GameObject.FindWithTag("Player");
         c = FindAnyObjectByType<Canvas>();
@@ -40,7 +39,7 @@ public class ItemInstance : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") & i.inventoryfull == false)
         {   
             sr.sprite =  itemData.inventorysprite;
             inventory.items.Add(itemData);

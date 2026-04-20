@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image), typeof(Button))]
 public class InventoryItemInstance : MonoBehaviour
 {
+    public UseLeg   ul;
+    public UseArm ua;
     public ItemData data;
     private inventory inventory;
     private Canvas c;
@@ -20,6 +22,8 @@ public class InventoryItemInstance : MonoBehaviour
         inventory = c.GetComponent<inventory>();
         p = GameObject.FindWithTag("Player");
         prb = p.GetComponent<Rigidbody2D>();
+         ul = GetComponent<UseLeg>();
+            ua = GetComponent<UseArm>();
     }
     private void FixedUpdate()
     {
@@ -38,7 +42,9 @@ public class InventoryItemInstance : MonoBehaviour
     }
     public void Use()
     {
-        data.itemBehavior.Invoke();
+        //data.itemBehavior.Invoke();
+        ua.UseA();
+        ul.UseL();
         inventory.items.Remove(data);
         inventory.AddItem();
         FindFirstObjectByType<inventory>().EvaluateInventory();

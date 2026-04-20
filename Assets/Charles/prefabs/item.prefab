@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1139082954626563197}
   - component: {fileID: 8244893714516194239}
   - component: {fileID: 4509576224131396446}
+  - component: {fileID: 7719415419785724222}
+  - component: {fileID: 5064810735306924810}
   m_Layer: 5
   m_Name: item
   m_TagString: Untagged
@@ -162,3 +164,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1259683345305503168}
   ti: {fileID: 4898794460196019643}
+--- !u!114 &7719415419785724222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898794460196019643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6933c7c4aa718140b9d6a00f8a797da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  armcolisionhealth: {fileID: 0}
+  c: {fileID: 0}
+  arm1: {fileID: 0}
+  arm11: {fileID: 0}
+  arm2: {fileID: 0}
+  arm22: {fileID: 0}
+  carm1: {fileID: 0}
+  carm11: {fileID: 0}
+  carm2: {fileID: 0}
+  carm22: {fileID: 0}
+  h: {fileID: 0}
+  h2: {fileID: 0}
+--- !u!114 &5064810735306924810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898794460196019643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42084fd0e45dae4cab744f2e4e1fba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  legcolisionhealth: {fileID: 0}
+  c: {fileID: 0}
+  leg1: {fileID: 0}
+  leg11: {fileID: 0}
+  leg2: {fileID: 0}
+  leg22: {fileID: 0}
+  cleg1: {fileID: 0}
+  cleg11: {fileID: 0}
+  cleg2: {fileID: 0}
+  cleg22: {fileID: 0}
+  h: {fileID: 0}
+  h2: {fileID: 0}

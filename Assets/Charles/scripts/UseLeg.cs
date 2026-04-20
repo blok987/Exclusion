@@ -11,14 +11,10 @@ public class UseLeg : MonoBehaviour
     public GameObject leg11;
     public GameObject leg2;
     public GameObject leg22;
-    public GameObject cleg1;
-    public Image cleg11;
-    public GameObject cleg2;
-    public Image cleg22;
-    public HealthLeg1 h;
-    public HealthLeg2 h2;
-    public ItemData id;
-
+    
+    public HealthLeg1 h2;
+    public HealthLeg2 h;
+    private int ran;
 
 
     public void Start()
@@ -32,64 +28,37 @@ public class UseLeg : MonoBehaviour
         leg11 = Player.transform.Find("Doll Thigh FRONT").gameObject;
         leg2 = Player.transform.Find("Doll Leg BACK").gameObject;
         leg22 = Player.transform.Find("Doll Thigh BACK").gameObject;
-        cleg1 = c.transform.Find("stuffbackground/playerlimbs/gameobject/L leg").gameObject;
-        if (cleg1 != null)
-        {
-            cleg11 = cleg1.transform.GetComponent<Image>();
-        }
-        cleg2 = c.transform.Find("stuffbackground/playerlimbs/gameobject/R leg").gameObject;
-        if (cleg2 != null)
-        {
-            cleg22 = cleg2.transform.GetComponent<Image>();
-        }
-        h = legcolisionhealth.GetComponent<HealthLeg1>();
-        h2 = legcolisionhealth.GetComponent<HealthLeg2>();
+       
+        h = legcolisionhealth.GetComponent<HealthLeg2>();
+        h2 = legcolisionhealth.GetComponent<HealthLeg1>();
 
     }
-    void Update()
-    {
-        //c = FindAnyObjectByType<Canvas>();
-        
-        //leg1 = Player.transform.Find("Doll Leg FRONT").gameObject;
-        //leg11 = Player.transform.Find("Doll Thigh FRONT").gameObject;
-        //leg2 = Player.transform.Find("Doll Leg BACK").gameObject;
-       // leg22 = Player.transform.Find("Doll Thigh BACK").gameObject;
-        
-        if (cleg1 == null)
-        {
-            cleg1 = c.transform.Find("stuff background/playerlimbs/limbs/L leg").gameObject;
-        }
-        if (cleg1 != null && cleg11 == null)
-        {
-            cleg11 = cleg1.transform.GetComponent<Image>();
-        }
-        if (cleg2 == null)
-        {
-            cleg2 = c.transform.Find("stuff background/playerlimbs/limbs/R leg").gameObject;
-        }
-        if (cleg2 != null && cleg22 == null)
-        {
-            cleg22 = cleg2.transform.GetComponent<Image>();
-        }
-
-    }
+    
     public void UseL()
     {
-        if (leg11.activeSelf == false)
+        if (leg11.activeSelf == false & leg22.activeSelf == false)
         {
-            h.health = h.maxHealth;
+            ran = Random.Range(1, 2);
+        }    
+        Debug.Log("UseL called");
+        if (leg11.activeSelf == false & leg22.activeSelf == true || ran==2)
+        {
+            h.health = 10f;
             leg1.SetActive(true);
             leg11.SetActive(true);
-            cleg11.color = new Color(1, 1, 1, 1f);
-            
+           
+            Debug.Log("leg1 activated");
+
         }
-        else if (leg2.activeSelf == false)
+         if (leg22.activeSelf == false & leg11.activeSelf == true || ran==1)
         {
-            h2.health = h2.maxHealth;   
+            h2.health = 10f;   
             leg2.SetActive(true);
             leg22.SetActive(true);
-            cleg22.color = new Color(1, 1, 1, 1f);
             
+            Debug.Log("leg2 activated");
+
         }
+         
     }
 }
