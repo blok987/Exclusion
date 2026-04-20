@@ -87,8 +87,8 @@ public class HealthArm1 : MonoBehaviour
         healthBarArm1.UpdateHealth(amount);
         if (health <= 0)
         {
-            Destroy(DollUpperArmL);
-            Destroy(DollForermL);
+            DollForermL.SetActive(false);
+            DollUpperArmL.SetActive(false);
         }
     }
 
