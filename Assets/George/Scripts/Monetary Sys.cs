@@ -32,6 +32,7 @@ public class MonetarySys : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Player Contact");
+
         }
     }
 

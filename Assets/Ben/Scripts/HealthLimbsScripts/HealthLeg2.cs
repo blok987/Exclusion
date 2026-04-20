@@ -111,8 +111,8 @@ public class HealthLeg2 : MonoBehaviour
         healthBarLeg2.UpdateHealth(amount);
         if (health <= 0)
         {
-            Destroy(DollLegR);
-            Destroy(DollLegThighR);
+            DollLegR.SetActive(false);
+            DollLegThighR.SetActive(false);
         }
     }
     private IEnumerator WalkDamage()
