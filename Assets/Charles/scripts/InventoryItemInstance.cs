@@ -15,7 +15,8 @@ public class InventoryItemInstance : MonoBehaviour
     private GameObject p;
     private Rigidbody2D prb;
     public Vector3 offset;
- 
+    public Image image;
+
     public void Start()
     {
         c = FindAnyObjectByType<Canvas>();
@@ -24,9 +25,18 @@ public class InventoryItemInstance : MonoBehaviour
         prb = p.GetComponent<Rigidbody2D>();
          ul = GetComponent<UseLeg>();
             ua = GetComponent<UseArm>();
+        image = GetComponent<Image>();
+        image.sprite = data.inventorysprite;
+
     }
+
     private void FixedUpdate()
-    {
+    { 
+        if (image.sprite != data.inventorysprite)
+            {
+            image.sprite = data.inventorysprite;
+        }
+
         if (p == null)
         {
             p = GameObject.FindWithTag("Player");

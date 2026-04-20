@@ -16,6 +16,12 @@ public class UseArm : MonoBehaviour
     public HealthArm1 h2;
     public HealthArm2 h1;
     private int ran;
+    public int health = 10;
+    public Image sr;
+    public Sprite s;
+    public Sprite g;
+    public Sprite b;
+    public Sprite vb;
     public void Start()
     {
         Player = GameObject.FindWithTag("Player");
@@ -30,8 +36,18 @@ public class UseArm : MonoBehaviour
         
         h2 = armcolisionhealth.GetComponent<HealthArm1>();
         h1 = armcolisionhealth.GetComponent<HealthArm2>();
+        sr = GetComponent<Image>();
+        s = sr.sprite;
+        if (s == g) { health = 10; }
+        if (s == b) { health = 5; }
+        if (s == vb) { health = 2; }
     }
-    
+    private void Update()
+    {
+        if (s == g) { health = 10; }
+        if (s == b) { health = 5; }
+        if (s == vb) { health = 2; }
+    }
     public void UseA()
     {
         if (arm11.activeSelf == false & arm22.activeSelf == false)
@@ -40,7 +56,7 @@ public class UseArm : MonoBehaviour
         }
         if (arm11.activeSelf == false & arm22.activeSelf == true || ran==2)
         {
-            h1.health = 10f; 
+            h1.health = health; 
             arm1.SetActive(true);
             arm11.SetActive(true);
             
@@ -48,8 +64,8 @@ public class UseArm : MonoBehaviour
         }
        
         if (arm22.activeSelf == false & arm11.activeSelf == true || ran==1)
-        {
-            h2.health = 10f;   
+        {   
+            h2.health = health;   
             arm2.SetActive(true);
             arm22.SetActive(true);
             

@@ -15,6 +15,12 @@ public class UseLeg : MonoBehaviour
     public HealthLeg1 h2;
     public HealthLeg2 h;
     private int ran;
+    public int health;
+    public Image sr;
+    public Sprite s;
+    public Sprite g;
+    public Sprite b;
+    public Sprite vb;
 
 
     public void Start()
@@ -31,9 +37,17 @@ public class UseLeg : MonoBehaviour
        
         h = legcolisionhealth.GetComponent<HealthLeg2>();
         h2 = legcolisionhealth.GetComponent<HealthLeg1>();
+        sr = GetComponent<Image>();
+        s = sr.sprite;
 
     }
-    
+    private void Update()
+    {
+        if (s == g) { health = 10; }
+        if (s == b) { health = 5; }
+        if (s == vb) { health = 2; }
+    }
+
     public void UseL()
     {
         if (leg11.activeSelf == false & leg22.activeSelf == false)
@@ -43,7 +57,7 @@ public class UseLeg : MonoBehaviour
         Debug.Log("UseL called");
         if (leg11.activeSelf == false & leg22.activeSelf == true || ran==2)
         {
-            h.health = 10f;
+            h.health = health;
             leg1.SetActive(true);
             leg11.SetActive(true);
            
@@ -52,7 +66,7 @@ public class UseLeg : MonoBehaviour
         }
          if (leg22.activeSelf == false & leg11.activeSelf == true || ran==1)
         {
-            h2.health = 10f;   
+            h2.health = health;   
             leg2.SetActive(true);
             leg22.SetActive(true);
             

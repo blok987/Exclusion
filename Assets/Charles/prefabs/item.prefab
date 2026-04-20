@@ -32,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 4898794460196019643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.25, y: 3.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,8 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683e49b72c417a44c8dcd1d7ad9d400a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ul: {fileID: 0}
+  ua: {fileID: 0}
   data: {fileID: 0}
   offset: {x: 1.2, y: 0, z: 0}
+  image: {fileID: 0}
 --- !u!114 &4509576224131396446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,12 +186,14 @@ MonoBehaviour:
   arm11: {fileID: 0}
   arm2: {fileID: 0}
   arm22: {fileID: 0}
-  carm1: {fileID: 0}
-  carm11: {fileID: 0}
-  carm2: {fileID: 0}
-  carm22: {fileID: 0}
-  h: {fileID: 0}
   h2: {fileID: 0}
+  h1: {fileID: 0}
+  health: 10
+  sr: {fileID: 0}
+  s: {fileID: 0}
+  g: {fileID: 21300000, guid: c06f53295c72ff0499cb43d9eb1abbc7, type: 2}
+  b: {fileID: 21300000, guid: d6be252f9f0909f4b842d0483bc5db9f, type: 2}
+  vb: {fileID: 21300000, guid: adc5a83040e34fc4aa7e77af338c4483, type: 2}
 --- !u!114 &5064810735306924810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,9 +213,11 @@ MonoBehaviour:
   leg11: {fileID: 0}
   leg2: {fileID: 0}
   leg22: {fileID: 0}
-  cleg1: {fileID: 0}
-  cleg11: {fileID: 0}
-  cleg2: {fileID: 0}
-  cleg22: {fileID: 0}
-  h: {fileID: 0}
   h2: {fileID: 0}
+  h: {fileID: 0}
+  health: 0
+  sr: {fileID: 0}
+  s: {fileID: 0}
+  g: {fileID: 21300000, guid: c5036b36d2377ec4a8078260343c6af1, type: 2}
+  b: {fileID: 2999422177354063160, guid: b59c96ff32e16bf4c98a5df01ca37fa9, type: 3}
+  vb: {fileID: -8676710112576702814, guid: 5063c949dac011344b724164e078a6fd, type: 3}
