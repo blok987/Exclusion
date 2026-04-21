@@ -79,6 +79,11 @@ public class WalkScript : MonoBehaviour
         //Player Gravity
         PlayerDirection.y = GetComponent<Rigidbody2D>().linearVelocity.y;
 
+        //Yewoch Animation stop
+        if (isGrounded() && PlayerAnim.GetBool("isYeowch"))
+        {             PlayerAnim.SetBool("isYeowch", false);
+        }
+
 
 
         #region Player X-Axis Movement
