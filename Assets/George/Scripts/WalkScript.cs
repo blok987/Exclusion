@@ -89,11 +89,12 @@ public class WalkScript : MonoBehaviour
         #region Player X-Axis Movement
         if (Input.GetKey(KeyCode.D) && canMove)//+X Move
         {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                
 
                 ForearmFRONT.sortingOrder = 12;
                 UpperArmFRONT.sortingOrder = 11;
@@ -120,11 +121,12 @@ public class WalkScript : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.A) && canMove)//-X Move
         {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                
                
                 ForearmFRONT.sortingOrder = 1;
                 UpperArmFRONT.sortingOrder = 2;
@@ -261,6 +263,7 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("IsClimbing", true);
             PlayerAnim.SetBool("isJumping", false);
+            PlayerAnim.SetBool("isYeowch", false);
         }
         else
         {
