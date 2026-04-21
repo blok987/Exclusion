@@ -18,7 +18,7 @@ public class inventory : MonoBehaviour
     public GameObject s6;
     public GameObject s7;
     public GameObject s8;
-    
+    public GameObject item8;
     private inventoryslot[] slots;
     public Component ol1;
     public Component ol2;
@@ -35,13 +35,14 @@ public class inventory : MonoBehaviour
     public GameObject ss;
     private GameObject player;
     private PlayerInput pi;
+    public bool inventoryfull = false;
     public void Awake()
     {
         gs = GameObject.Find("Grid Panel"); 
         III = GetComponent<InventoryItemInstance>();
         player = GameObject.FindGameObjectWithTag("Player");
         slots = GetComponentsInChildren<inventoryslot>(true);
-        slots = gs.GetComponentsInChildren<inventoryslot>(true); Debug.Log(slots.Length);
+        slots = gs.GetComponentsInChildren<inventoryslot>(true); 
         if (slots.Length > 0) s1 = slots[0]?.gameObject;
         if (slots.Length > 1) s2 = slots[1]?.gameObject;
         if (slots.Length > 2) s3 = slots[2]?.gameObject;
@@ -169,7 +170,16 @@ public class inventory : MonoBehaviour
 
     public void Update()
     {
-        
+        if (item8.activeSelf == true)
+        {
+            inventoryfull = true;
+        }
+        if (item8.activeSelf == false)
+        {
+            inventoryfull = false;
+        }
+
+
         if (selectedslot == "s1")
             ss = s1;
         else if (selectedslot == "s2")

@@ -7,22 +7,36 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image), typeof(Button))]
 public class InventoryItemInstance : MonoBehaviour
 {
+    public UseLeg   ul;
+    public UseArm ua;
     public ItemData data;
     private inventory inventory;
     private Canvas c;
     private GameObject p;
     private Rigidbody2D prb;
     public Vector3 offset;
- 
+    public Image image;
+
     public void Start()
     {
         c = FindAnyObjectByType<Canvas>();
         inventory = c.GetComponent<inventory>();
         p = GameObject.FindWithTag("Player");
         prb = p.GetComponent<Rigidbody2D>();
+         ul = GetComponent<UseLeg>();
+            ua = GetComponent<UseArm>();
+        image = GetComponent<Image>();
+        image.sprite = data.inventorysprite;
+
     }
+
     private void FixedUpdate()
-    {
+    { 
+        if (image.sprite != data.inventorysprite)
+            {
+            image.sprite = data.inventorysprite;
+        }
+
         if (p == null)
         {
             p = GameObject.FindWithTag("Player");
@@ -38,7 +52,9 @@ public class InventoryItemInstance : MonoBehaviour
     }
     public void Use()
     {
-        data.itemBehavior.Invoke();
+        //data.itemBehavior.Invoke();
+        ua.UseA();
+        ul.UseL();
         inventory.items.Remove(data);
         inventory.AddItem();
         FindFirstObjectByType<inventory>().EvaluateInventory();

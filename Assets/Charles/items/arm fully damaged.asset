@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ac6cd76cb57fa4381104038c84b952, type: 3}
+  m_Name: arm fully damaged
+  m_EditorClassIdentifier: 
+  description: this is a arm
+  itenprice: $5
+  itemSprite: {fileID: -1788417292138412229, guid: 3a3533de17339a74fb0217814f4aac45, type: 3}
+  inventorysprite: {fileID: -8586211775191379449, guid: f800d3f423cb56543963e9ec5ed4dccd, type: 3}
+  itemQuality: 3
+  ip: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
+  itemBehavior:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: ItemData, Assembly-CSharp
+        m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

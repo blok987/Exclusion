@@ -16,12 +16,12 @@ public class RandomArmDamage : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerArm1 == null)
+        if (playerArm1.activeSelf == false)
         {
            isArm1Dead = true;
         }
 
-        if (playerArm2 == null)
+        if (playerArm2.activeSelf == false)
         {
             isArm2Dead = true;
         }
@@ -29,33 +29,33 @@ public class RandomArmDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.CompareTag("hurt"))
+        if (collision.gameObject.transform.CompareTag("hurt") || collision.gameObject.transform.CompareTag("Spike"))
         {
 
-            rd = Random.Range(1, 50);
+            rd = Random.Range(1, 20);
 
-            if (rd <= 25 && isArm1Dead == false)
+            if (rd <= 10 && isArm1Dead == false)
             {
                 playerArm1Health.TakeDamage(2);
                 Debug.Log("Arm 1 took damage");
                 playerBodyCollision.isArm1Colliding = true;
                 Debug.Log("rd is " + rd);
             }
-            if (rd <= 25 && isArm1Dead == true)
+            if (rd <= 10 && isArm1Dead == true)
             {
                 playerArm2Health.TakeDamage(2);
                 playerBodyCollision.isArm2Colliding = true;
                 Debug.Log("rd is " + rd);
             }
 
-            if (rd >= 26 && isArm2Dead == false)
+            if (rd >= 11 && isArm2Dead == false)
             {
                 playerArm2Health.TakeDamage(2);
                 Debug.Log("Arm 2 took damage");
                 playerBodyCollision.isArm2Colliding = true;
                 Debug.Log("rd is " + rd);
             }
-            if (rd >= 26 && isArm2Dead == true)
+            if (rd >= 11 && isArm2Dead == true)
             {
                 playerArm1Health.TakeDamage(2);
                 playerBodyCollision.isArm1Colliding = true;

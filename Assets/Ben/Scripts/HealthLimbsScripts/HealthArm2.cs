@@ -86,9 +86,9 @@ public class HealthArm2 : MonoBehaviour
         healthBarArm2.UpdateHealth(amount);
         if (health <= 0)
         {
-            Destroy(DollUpperArmR);
-            Destroy(DollForermR);
-            
+            DollForermR.SetActive(false);
+            DollUpperArmR.SetActive(false);
+
         }
     }
     private IEnumerator ClimbDamage()

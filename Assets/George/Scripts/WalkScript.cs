@@ -10,6 +10,7 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float Deceleration = 5;
 
     [SerializeField] float MaxSpeed = 10;
+    [SerializeField] float MaxVerticalSpeed = 8;
     [SerializeField] float AirSpeed = 5;
 
     [SerializeField] float JumpStrength = 5;
@@ -48,6 +49,8 @@ public class WalkScript : MonoBehaviour
 
     //Player Animator for handling animations
     private Animator PlayerAnim;
+
+    public float bounceHeight; // Force applied when hitting a spike
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -175,6 +178,7 @@ public class WalkScript : MonoBehaviour
 
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
         PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
+        PlayerDirection.y = Mathf.Clamp(PlayerDirection.y, -MaxVerticalSpeed, MaxVerticalSpeed);
         #endregion
 
         #region Player Y-Axis Movement
@@ -261,7 +265,7 @@ public class WalkScript : MonoBehaviour
         //Controls Left Climbing Cooldown
         if (isClimbingLeft())
         {
-            LArmlength = 0.5f;
+            LArmlength = 0.8f;
             PlayerDirection.x = 0;
             Debug.Log("Climbing");
 
@@ -283,6 +287,7 @@ public class WalkScript : MonoBehaviour
         if (isClimbingRight())
         {
             PlayerDirection.x = 0;
+            RArmlength = 0.8f;
 
 
             if (isClimbingRight() && Input.GetKey(KeyCode.A))
@@ -294,20 +299,30 @@ public class WalkScript : MonoBehaviour
             {
                 StartCoroutine(WaitToClimb());
             }
-            
 
+            
         }
         #endregion //ends y-axis movement handling
 
 
         GetComponent<Rigidbody2D>().linearVelocity = PlayerDirection;
+        
         #endregion
     }
 
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spike"))
+         {
+            Debug.Log("Player hit a spike! Bouncing.");
+            //PlayerDirection.y += bounceHeight;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocityY += bounceHeight;
+            PlayerAnim.SetBool("isYeowch", true);
+        }
+    }
 
     //Methods for ground/Wall check
-     [HideInInspector] public bool isGrounded()
+    [HideInInspector] public bool isGrounded()
     {
         return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
@@ -333,8 +348,8 @@ public class WalkScript : MonoBehaviour
         LArmlength = 0;
         RArmlength = 0;
         yield return new WaitForSeconds(1f);
-        LArmlength = 0.5f;
-        RArmlength = 0.5f;
+        LArmlength = 0.8f;
+        RArmlength = 0.8f;
     }
 
    

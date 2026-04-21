@@ -9,15 +9,15 @@ public class ItemInstance : MonoBehaviour
     private inventory i;
     private Canvas c;
     private GameObject p;
-   
     
     public void Start()
     {
-  
+
        
         p = GameObject.FindWithTag("Player");
         c = FindAnyObjectByType<Canvas>();
         i = FindFirstObjectByType<inventory>();
+        
     }
     private void Awake()
     {
@@ -25,6 +25,7 @@ public class ItemInstance : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = itemData.itemSprite;
         GetComponent<PolygonCollider2D>().isTrigger = false;
+        
     }
     private void Update()
     {
@@ -40,12 +41,13 @@ public class ItemInstance : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        
+        if (other.gameObject.CompareTag("Player") & i.inventoryfull == false)
         {   
-            sr.sprite =  itemData.inventorysprite;
+           
             inventory.items.Add(itemData);
             i.AddItem(); 
-            sr.sprite = itemData.inventorysprite;
+            
             Destroy(gameObject);
         }
     }
