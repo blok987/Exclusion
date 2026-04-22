@@ -9,9 +9,9 @@ public class Enable : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
-        armcollision = gameObject.transform.Find("ArmCollision&Health").gameObject;    
+        ArmcollisionCollider = armcollision.GetComponent<Collider2D>();
         walkScript = transform.parent.GetComponent<WalkScript>();
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
 
@@ -20,11 +20,17 @@ public class Enable : MonoBehaviour
     {
         if (walkScript.isRunning == true)
         {
-            gameObject.SetActive(true);
+            gameObject.GetComponent<Collider2D>().enabled = true;
+            ArmcollisionCollider.enabled = false;
+            
+
         }
         else if (walkScript.isRunning == false)
         {
-            gameObject.SetActive(false);
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            ArmcollisionCollider.enabled = true;
+            
+
         }
     }
 }
