@@ -17,7 +17,7 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float ClimbSpeed = 1;
 
     [SerializeField] bool isJumping = false;
-    bool isRunning = false;
+    public bool isRunning = false;
     public bool canMove = true;
 
     public Vector2 PlayerDirection;
