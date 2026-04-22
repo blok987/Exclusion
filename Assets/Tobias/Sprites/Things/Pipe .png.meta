@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 92a847c95a2d2b54da4412f2164ac5f6
+guid: 419533e319d7eca499df5fb7813b4092
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2737859981920352203
-    second: Deg Bar 2_5_0
+      213: -4404468278729657596
+    second: Pipe _0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deg Bar 2_5_0
+      name: Pipe _0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 7
-        width: 57
-        height: 18
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53841ec2ada210ad0800000000000000
-      internalID: -2737859981920352203
+      spriteID: 403b7d5bf6f20e2c0800000000000000
+      internalID: -4404468278729657596
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e528c8028ef0d1a48ba772df8ded42e7
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Deg Bar 2_5_0: -2737859981920352203
+      Pipe _0: -4404468278729657596
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

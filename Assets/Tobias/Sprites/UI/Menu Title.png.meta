@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 8769371278192989912
     second: Menu Title_0
+  - first:
+      213: 2049981984331904193
+    second: Menu Title_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,10 +132,10 @@ TextureImporter:
       name: Menu Title_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 13
-        width: 120
-        height: 76
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,11 +150,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Menu Title_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4bd04e0cff27c10800000000000000
+      internalID: 2049981984331904193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4ed87e725c04606429c55c6be6f9e90c
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +187,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Menu Title_0: 8769371278192989912
+      Menu Title_1: 2049981984331904193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 70177bc64516b794291adeb7e910a694
+guid: 5fd313c000f05ec4aa17e99516fbf9cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9220274502821098330
-    second: Deg Bar 0_5_0
+      213: -4782499762011323894
+    second: Menu Exit _0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Deg Bar 0_5_0
+      name: Menu Exit _0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 7
-        width: 57
-        height: 18
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6acc1c7d0310b0080800000000000000
-      internalID: -9220274502821098330
+      spriteID: a02cce22ec521adb0800000000000000
+      internalID: -4782499762011323894
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9c8235cc272433e478ff7a38fbe608a2
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Deg Bar 0_5_0: -9220274502821098330
+      Menu Exit _0: -4782499762011323894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

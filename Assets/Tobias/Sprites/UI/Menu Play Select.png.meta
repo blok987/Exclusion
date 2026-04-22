@@ -129,12 +129,12 @@ TextureImporter:
       name: Menu Play Select_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 51
-        width: 75
-        height: 26
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6241382faf8568641a3da6e993558a5c
     internalID: 0
     vertices: []
     indices: 
