@@ -17,6 +17,7 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float ClimbSpeed = 1;
 
     [SerializeField] bool isJumping = false;
+    bool isRunning = false;
     public bool canMove = true;
 
     public Vector2 PlayerDirection;
@@ -89,11 +90,12 @@ public class WalkScript : MonoBehaviour
         #region Player X-Axis Movement
         if (Input.GetKey(KeyCode.D) && canMove)//+X Move
         {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                
 
                 ForearmFRONT.sortingOrder = 12;
                 UpperArmFRONT.sortingOrder = 11;
@@ -120,11 +122,12 @@ public class WalkScript : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.A) && canMove)//-X Move
         {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
                 //Flips the Player's Sprite when moving left
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                
                
                 ForearmFRONT.sortingOrder = 1;
                 UpperArmFRONT.sortingOrder = 2;
@@ -162,23 +165,26 @@ public class WalkScript : MonoBehaviour
             }
         }
 
-        //Starts the Running Anim if moving on the X-Axis
+        //Starts the Walking Anim if moving on the X-Axis
         if (PlayerDirection.x != 0)
         {
             PlayerAnim.SetBool("IsWalking", true);
             PlayerAnim.SetBool("isRunning", false);
+            isRunning = false;
         }
 
-        //Stops the Wallking Anim if not moving on the X-Axis
+        //Stops the Walking Anim if not moving on the X-Axis
         if (PlayerDirection.x == 0)
         {
             PlayerAnim.SetBool("IsWalking", false);
+            isRunning = false;
         }
 
         if (PlayerDirection.x >= 7 || PlayerDirection.x <= -7)
         {
             
             PlayerAnim.SetBool("isRunning", true);
+            isRunning = true;
         }
 
         //Clamps the Player's X-Axis Speed to the MaxSpeed Variable
@@ -261,6 +267,7 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("IsClimbing", true);
             PlayerAnim.SetBool("isJumping", false);
+            PlayerAnim.SetBool("isYeowch", false);
         }
         else
         {

@@ -16,6 +16,13 @@ public class InventoryItemInstance : MonoBehaviour
     private Rigidbody2D prb;
     public Vector3 offset;
     public Image image;
+    public Sprite s;
+    public Sprite ga;
+    public Sprite ba;
+    public Sprite vba;
+    public Sprite gl;
+    public Sprite bl;
+    public Sprite vbl;
 
     public void Start()
     {
@@ -31,12 +38,14 @@ public class InventoryItemInstance : MonoBehaviour
     }
 
     private void FixedUpdate()
+
     { 
         if (image.sprite != data.inventorysprite)
             {
             image.sprite = data.inventorysprite;
         }
-
+        if (s == null || s != ga || s != ba || s != vba || s != gl || s != bl || s != vbl)
+            s = image.sprite;
         if (p == null)
         {
             p = GameObject.FindWithTag("Player");
@@ -53,8 +62,11 @@ public class InventoryItemInstance : MonoBehaviour
     public void Use()
     {
         //data.itemBehavior.Invoke();
-        ua.UseA();
-        ul.UseL();
+        if (s == ga || s == ba || s == vba){ 
+            ua.UseA();
+        }
+        if  (s == gl || s == bl || s == vbl)    
+            ul.UseL();
         inventory.items.Remove(data);
         inventory.AddItem();
         FindFirstObjectByType<inventory>().EvaluateInventory();
