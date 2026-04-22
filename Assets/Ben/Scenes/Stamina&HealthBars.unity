@@ -2265,16 +2265,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1378640697}
-  - component: {fileID: 1378640699}
   - component: {fileID: 1378640698}
   - component: {fileID: 1378640700}
+  - component: {fileID: 1378640701}
   m_Layer: 6
   m_Name: RunArmCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1378640697
 Transform:
   m_ObjectHideFlags: 0
@@ -2338,6 +2338,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.04498291, y: 3.5753105}
       - {x: -0.16384417, y: 3.334163}
+      - {x: 0.8078575, y: 1.8302143}
       - {x: 0.8846259, y: 1.711396}
       - {x: 2.2799177, y: 1.4738997}
       - {x: 2.1730998, y: 2.5981543}
@@ -2346,33 +2347,6 @@ PolygonCollider2D:
       - {x: 1.1036558, y: 3.022533}
       - {x: 0.8610897, y: 3.3791468}
   m_UseDelaunayMesh: 0
---- !u!50 &1378640699
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378640696}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1378640700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,6 +2364,20 @@ MonoBehaviour:
   playerArm1: {fileID: 8912340352027240688}
   playerArm2: {fileID: 8912340352027240687}
   playerBodyCollision: {fileID: 8912340352027240686}
+--- !u!114 &1378640701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378640696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651b9c496609b834fb2c7255a2d9f0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armcollision: {fileID: 8912340352027240689}
+  ArmcollisionCollider: {fileID: 0}
 --- !u!1 &1583847856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,8 +2615,8 @@ Transform:
   m_GameObject: {fileID: 1952511062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6685, y: -9.1512, z: 0}
-  m_LocalScale: {x: 43.696037, y: 15.242247, z: 1}
+  m_LocalPosition: {x: -2.4547, y: -9.1512, z: 0}
+  m_LocalScale: {x: 53.94276, y: 15.242247, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3213,7 +3201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5522421041847040448, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.17
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 5522421041847040448, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_LocalPosition.y
