@@ -26,6 +26,9 @@ public class HealthArm2 : MonoBehaviour
     private Sprite RDollForearmFD;
     private Sprite RDollUpperArmFD;
 
+    private Sprite RDollForeArmSLV;
+    private Sprite RDollUpperArmSLV;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,12 +44,21 @@ public class HealthArm2 : MonoBehaviour
 
         RDollForearmFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Forearm FRONT FULLY DAMAGED");
         RDollUpperArmFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Upper Arm FRONT FULLY DAMAGED");
+
+        RDollForeArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Forearm FRONT SLV");
+        RDollUpperArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Upper Arm FRONT SLV");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health > 5)
+
+        if (health >= 10)
+        {
+            DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArmSLV;
+            DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmSLV;
+        }
+        if (health > 5 && health < 10)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArm;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArm;
