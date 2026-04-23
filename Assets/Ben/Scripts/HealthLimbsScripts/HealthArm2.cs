@@ -53,12 +53,12 @@ public class HealthArm2 : MonoBehaviour
     void Update()
     {
 
-        if (health >= 10)
+        if (health > 10)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArmSLV;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmSLV;
         }
-        if (health > 5 && health < 10)
+        if (health > 5 && health <= 10)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArm;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArm;

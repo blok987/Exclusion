@@ -52,13 +52,13 @@ public class HealthArm1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health >= 10)
+        if (health > 10)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmSLV;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmSLV;
         }
 
-        if (health > 5 && health < 10)
+        if (health > 5 && health <= 10)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArm;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArm;

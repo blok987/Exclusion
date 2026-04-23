@@ -80,13 +80,13 @@ public class HealthLeg2 : MonoBehaviour
         }
         #endregion
 
-        if (health >= 10)
+        if (health > 10)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegSLV;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighSLV;
         }
 
-        if (health > 5 && health < 10)
+        if (health > 5 && health <= 10)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLeg;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThigh;

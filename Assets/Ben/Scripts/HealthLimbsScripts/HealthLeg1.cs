@@ -54,13 +54,13 @@ public class HealthLeg1 : MonoBehaviour
     void Update()
     {
 
-        if (health >= 10)
+        if (health > 10)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegSLV;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighSLV;
         }
 
-        if (health > 5 && health < 10)
+        if (health > 5 && health <= 10)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLeg;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThigh;
