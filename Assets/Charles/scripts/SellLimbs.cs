@@ -9,7 +9,7 @@ public class SellLimbs : MonoBehaviour
     public GameObject limbToBuy;
     public int sellPrice;
     public ItemData itemData;
-
+    public inventory i;
     public int buyPrice;
     public int greatitems;
     public int gooditems;
@@ -45,6 +45,11 @@ public class SellLimbs : MonoBehaviour
     }
     public void Buy()
     {
+        
+        inventory.items.Add(itemData);
+        i.AddItem();
+
+        Destroy(gameObject);
 
     }
     public void sell() 
