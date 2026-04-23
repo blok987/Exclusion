@@ -393,6 +393,8 @@ MonoBehaviour:
   LDollUpperArmBD: {fileID: 0}
   LDollForearmFD: {fileID: 0}
   LDollUpperArmFD: {fileID: 0}
+  LDollForeArmSLV: {fileID: 0}
+  LDollUpperArmSLV: {fileID: 0}
   degredationRate: 0.09
 --- !u!1 &457775088
 GameObject:
@@ -3130,6 +3132,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 1.2482508
       objectReference: {fileID: 0}
+    - target: {fileID: 2838335413451845616, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: LOffset.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838335413451845616, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: ROffset.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838335413451845616, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: GroundOffset.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3612450884399176895, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3148,7 +3162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5522421041847040448, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.19
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 5522421041847040448, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_LocalPosition.z
