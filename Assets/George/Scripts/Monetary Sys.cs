@@ -14,15 +14,13 @@ public class MonetarySys : MonoBehaviour
     
     public LayerMask Player;
     public LayerMask Collectible;
-    
-    public Vector3 CastOrigin;
 
+    public Vector3 CastOrigin;
     public Vector2 Size;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpallValue = 1;
-
+        SpallValue = 10;
     }
     //Destroys Spall and adds to the Spallet when the player collides with it
     private void Update()
@@ -32,6 +30,7 @@ public class MonetarySys : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Player Contact");
+            Spallet += SpallValue;
 
         }
     }
@@ -41,7 +40,7 @@ public class MonetarySys : MonoBehaviour
     //Checks for player contact using a BoxCast
     [HideInInspector] bool playerContact()
     {
-        return Physics2D.BoxCast(transform.position + CastOrigin , Size, 0, Vector2.zero, Player);
+        return Physics2D.BoxCast(transform.position + CastOrigin , Size, 0, Vector2.zero, Collectible);
     }
     //Visualisation of boxcast
     private void OnDrawGizmos()
