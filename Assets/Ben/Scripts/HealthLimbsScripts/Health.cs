@@ -31,6 +31,11 @@ public class Health : MonoBehaviour
     public Sprite DollMidsectionFD;
     public Sprite DollWaistFD;
 
+    public Sprite DollHeadSLV;
+    public Sprite DollChestSLV;
+    public Sprite DollMidsectionSLV;
+    public Sprite DollWaistSLV;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +54,11 @@ public class Health : MonoBehaviour
         DollMidsectionFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Midsection FULLY DAMAGED");
         DollWaistFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Waist FULLY DAMAGED");
 
+        DollHeadSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Head SLV");
+        DollChestSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Chest SLV");
+        DollMidsectionSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Midsection SLV");
+        DollWaistSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Waist SLV");
+
         health = maxHealth;
       
     }
@@ -56,7 +66,15 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health > 5)
+        if (health >= 10)
+        {
+            DollHead.GetComponent<SpriteRenderer>().sprite = DollHeadSLV;
+            DollChest.GetComponent<SpriteRenderer>().sprite = DollChestSLV;
+            DollMidsection.GetComponent<SpriteRenderer>().sprite = DollMidsectionSLV;
+            DollWaist.GetComponent<SpriteRenderer>().sprite = DollWaistSLV;
+        }
+
+        if (health > 5 && health < 10)
         {
             DollHead.GetComponent<SpriteRenderer>().sprite = DollHeadS;
             DollChest.GetComponent<SpriteRenderer>().sprite = DollChestS;

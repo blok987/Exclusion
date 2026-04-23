@@ -15,6 +15,7 @@ public class HealthBarLegTest1 : MonoBehaviour
 
     private void Update()
     {
+        maxHealth = healthLeg1.maxHealth;
         currentHealth = healthLeg1.health;
         UpdateHealthBar();
     }

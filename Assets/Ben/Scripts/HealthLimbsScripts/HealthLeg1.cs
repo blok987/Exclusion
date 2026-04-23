@@ -23,6 +23,9 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegFD;
     private Sprite LDollLegThighFD;
 
+    private Sprite LDollLegSLV;
+    private Sprite LDollLegThighSLV;
+
     public float degredationRate = 0.09f;
     public float runDegredationRate = 0.115f;    
 
@@ -42,13 +45,22 @@ public class HealthLeg1 : MonoBehaviour
 
         LDollLegFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Leg BACK FULLY DAMAGED");
         LDollLegThighFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Thigh BACK FULLY DAMAGED");
+
+        LDollLegSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Leg BACK SLV");
+        LDollLegThighSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Thigh BACK SLV");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (health > 5)
+        if (health >= 10)
+        {
+            DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegSLV;
+            DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighSLV;
+        }
+
+        if (health > 5 && health < 10)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLeg;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThigh;
