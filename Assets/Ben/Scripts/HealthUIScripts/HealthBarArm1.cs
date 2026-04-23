@@ -14,6 +14,7 @@ public class HealthBarArm1 : MonoBehaviour
 
     private void Update()
     {
+        maxHealth = healthArm1.maxHealth;
         currentHealth = healthArm1.health;
         UpdateHealthBar();
     }

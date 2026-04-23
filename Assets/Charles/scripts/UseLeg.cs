@@ -19,6 +19,7 @@ public class UseLeg : MonoBehaviour
     public int health;
     public Image sr;
     public Sprite s;
+    //public Sprite vg;
     public Sprite g;
     public Sprite b;
     public Sprite vb;
@@ -45,7 +46,8 @@ public class UseLeg : MonoBehaviour
     }
     private void Update()
     {
-        if (s == null || s != g || s != b || s != vb)
+        //|| s != vb
+        if (s == null || s != g || s != b || s != vb )
             s = sr.sprite;
 
         if (s == g)
@@ -63,7 +65,12 @@ public class UseLeg : MonoBehaviour
             health = 2;
            
         }
-        
+        //else  if (s == vb)
+        //{
+         //   health = 0;
+
+        //}
+
     }
 
     public void UseL()
@@ -73,6 +80,16 @@ public class UseLeg : MonoBehaviour
             ran = UnityEngine.Random.Range(1, 2);
             Debug.Log("random2 " + ran);
         }
+        //if (s == vg && h.health < h2.health && h.health < 11)
+        //{
+        //    prioritize = true;
+        //    Debug.Log("prioritize true");
+        //}
+        //if (s == vg && h.health > h2.health && h2.health <11)
+        //{
+        //    prioritize = false;
+        //    Debug.Log("prioritize false");
+        //}
         if (s == g && h.health < h2.health && h.health < 8)
         {
             prioritize = true;

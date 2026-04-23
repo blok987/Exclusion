@@ -6,11 +6,19 @@ public class HealthBarBodyTest : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
+
+    public Health health;
    
     [SerializeField] private Image healthFill;
     [SerializeField] private float fillSpeed;
 
-    
+    private void Update()
+    {
+        maxHealth = health.maxHealth;
+        currentHealth = health.health;
+        UpdateHealthBar();
+    }
+
 
     public void UpdateHealth(float amount)
     {
