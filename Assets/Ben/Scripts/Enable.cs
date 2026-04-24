@@ -1,16 +1,15 @@
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enable : MonoBehaviour
 {
-    public GameObject armcollision;
-    public Collider2D ArmcollisionCollider;
-    private WalkScript walkScript;
+    public Collider2D collisionCollider;
+    public WalkScript walkScript;
 
     private void Start()
     {
-        ArmcollisionCollider = armcollision.GetComponent<Collider2D>();
-        walkScript = transform.parent.GetComponent<WalkScript>();
+        
         gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
@@ -21,16 +20,17 @@ public class Enable : MonoBehaviour
         if (walkScript.isRunning == true)
         {
             gameObject.GetComponent<Collider2D>().enabled = true;
-            ArmcollisionCollider.enabled = false;
+            collisionCollider.enabled = false;
             
 
         }
         else if (walkScript.isRunning == false)
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
-            ArmcollisionCollider.enabled = true;
+            collisionCollider.enabled = true;
             
 
         }
     }
+     
 }

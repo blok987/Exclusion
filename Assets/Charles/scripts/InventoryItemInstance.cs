@@ -17,9 +17,11 @@ public class InventoryItemInstance : MonoBehaviour
     public Vector3 offset;
     public Image image;
     public Sprite s;
+    public Sprite vga;
     public Sprite ga;
     public Sprite ba;
     public Sprite vba;
+    public Sprite vgl;
     public Sprite gl;
     public Sprite bl;
     public Sprite vbl;
@@ -44,7 +46,7 @@ public class InventoryItemInstance : MonoBehaviour
             {
             image.sprite = data.inventorysprite;
         }
-        if (s == null || s != ga || s != ba || s != vba || s != gl || s != bl || s != vbl)
+        if (s == null || s != ga || s != ba || s != vba || s != gl || s != bl || s != vbl || s != vga || s != vgl)
             s = image.sprite;
         if (p == null)
         {
@@ -62,10 +64,10 @@ public class InventoryItemInstance : MonoBehaviour
     public void Use()
     {
         //data.itemBehavior.Invoke();
-        if (s == ga || s == ba || s == vba){ 
+        if (s == ga || s == ba || s == vba || s == vga){ 
             ua.UseA();
         }
-        if  (s == gl || s == bl || s == vbl)    
+        if  (s == gl || s == bl || s == vbl || s == vgl)    
             ul.UseL();
         inventory.items.Remove(data);
         inventory.AddItem();

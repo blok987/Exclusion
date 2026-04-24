@@ -17,13 +17,15 @@ public class UseLeg : MonoBehaviour
     public HealthLeg2 h;
     private int ran;
     public int health;
+    public int healthmax;
     public Image sr;
     public Sprite s;
-    //public Sprite vg;
+    public Sprite vg;
     public Sprite g;
     public Sprite b;
     public Sprite vb;
-    public bool prioritize;
+    public bool prioritize0;
+    public bool prioritize1;
     public bool prioritize2;
     public UseArm ua;
     public void Start()
@@ -47,29 +49,29 @@ public class UseLeg : MonoBehaviour
     private void Update()
     {
         //|| s != vb
-        if (s == null || s != g || s != b || s != vb )
+        if (s == null || s != g || s != b || s != vb || s != vg )
             s = sr.sprite;
 
         if (s == g)
         {
             health = 10;
-
+            healthmax = 10;
         }
         else if (s == b)
         {
             health = 5;
-           
+            healthmax = 10;
         }
         else if (s == vb)
         {
             health = 2;
-           
+            healthmax = 10;
         }
-        //else  if (s == vb)
-        //{
-         //   health = 0;
-
-        //}
+        else  if (s == vg)
+        {
+            health = 15;
+            healthmax = 15;
+        }
 
     }
 
@@ -80,25 +82,26 @@ public class UseLeg : MonoBehaviour
             ran = UnityEngine.Random.Range(1, 2);
             Debug.Log("random2 " + ran);
         }
-        //if (s == vg && h.health < h2.health && h.health < 11)
-        //{
-        //    prioritize = true;
-        //    Debug.Log("prioritize true");
-        //}
-        //if (s == vg && h.health > h2.health && h2.health <11)
-        //{
-        //    prioritize = false;
-        //    Debug.Log("prioritize false");
-        //}
+        if (s == vg && h.health < h2.health && h.health < 11)
+        {
+            prioritize0 = true;
+
+            Debug.Log("prioritize0 true");
+        }
+        if (s == vg && h.health > h2.health && h2.health <11)
+        {
+            prioritize0 = false;
+            Debug.Log("prioritize0 false");
+        }
         if (s == g && h.health < h2.health && h.health < 8)
         {
-            prioritize = true;
-            Debug.Log("prioritize true");
+            prioritize1 = true;
+            Debug.Log("prioritize1 true");
         }
         if (s == g && h.health > h2.health && h2.health < 8)
         {
-            prioritize = false;
-            Debug.Log("prioritize false");
+            prioritize1 = false;
+            Debug.Log("prioritize1 false");
         }
 
         if (s == b && h.health < h2.health && h.health <= 5)
@@ -111,18 +114,18 @@ public class UseLeg : MonoBehaviour
             prioritize2 = false;
             Debug.Log("prioritize2 false");
         }
-        if (leg11.activeSelf == false & leg22.activeSelf == true && h.health < 8 || ran == 2 || prioritize2 == true && h.health < 5 || prioritize == true)
+        if (leg11.activeSelf == false & leg22.activeSelf == true && h.health < 8 || ran == 2 || prioritize2 == true && h.health < 5 || prioritize1 == true && h.health <9 || prioritize0 == true)
         {
             h.health = health;
+            h.maxHealth = healthmax;
             leg1.SetActive(true);
             leg11.SetActive(true);
             Debug.Log("leg1");
         }
-
-
-        if (leg22.activeSelf == false & leg11.activeSelf == true && h2.health < 8 || ran == 1 || prioritize2 == false && h2.health < 5 || prioritize == false)
+        else if (leg22.activeSelf == false & leg11.activeSelf == true && h2.health < 8 || ran == 1 || prioritize2 == false && h2.health < 5 || prioritize1 == false && h2.health <9 || prioritize0 == false)
         {
             h2.health = health;
+            h2.maxHealth = healthmax;
             leg2.SetActive(true);
             leg22.SetActive(true);
             Debug.Log("leg2");

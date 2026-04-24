@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health >= 10)
+        if (health > 10)
         {
             DollHead.GetComponent<SpriteRenderer>().sprite = DollHeadSLV;
             DollChest.GetComponent<SpriteRenderer>().sprite = DollChestSLV;
@@ -74,7 +74,7 @@ public class Health : MonoBehaviour
             DollWaist.GetComponent<SpriteRenderer>().sprite = DollWaistSLV;
         }
 
-        if (health > 5 && health < 10)
+        if (health > 5 && health <= 10)
         {
             DollHead.GetComponent<SpriteRenderer>().sprite = DollHeadS;
             DollChest.GetComponent<SpriteRenderer>().sprite = DollChestS;
