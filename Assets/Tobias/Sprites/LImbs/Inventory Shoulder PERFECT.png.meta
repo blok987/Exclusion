@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62fa7613c902fef4a9c7ae9ea47eadde
+guid: fe183e759ed66844fb2fe930b249f297
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7521540838565234124
-    second: Inventory Leg PERFECT_0
+      213: -4370522918858553765
+    second: Inventory Shoulder PERFECT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Leg PERFECT_0
+      name: Inventory Shoulder PERFECT_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc54646ba81e16860800000000000000
-      internalID: 7521540838565234124
+      spriteID: b568bb2bf88c853c0800000000000000
+      internalID: -4370522918858553765
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Inventory Leg PERFECT_0: 7521540838565234124
+      Inventory Shoulder PERFECT_0: -4370522918858553765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
