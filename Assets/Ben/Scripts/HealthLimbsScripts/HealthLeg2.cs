@@ -44,8 +44,8 @@ public class HealthLeg2 : MonoBehaviour
         RDollLegFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Leg FRONT FULLY DAMAGED");
         RDollLegThighFD = Resources.Load<Sprite>("Limbs/FDLimbs/Doll Thigh FRONT FULLY DAMAGED");
 
-            RDollLegSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Leg FRONT SLV");
-            RDollLegThighSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Thigh FRONT SLV");
+        RDollLegSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Leg FRONT SLV");
+        RDollLegThighSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Thigh FRONT SLV");
     }
 
     // Update is called once per frame

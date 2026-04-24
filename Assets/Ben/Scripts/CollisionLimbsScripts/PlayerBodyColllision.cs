@@ -12,29 +12,11 @@ public class PlayerBodyCollision : MonoBehaviour
 
     public bool isArm1Colliding;
     public bool isArm2Colliding;
-
-
-
-    
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
+        if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
         {
             Debug.Log("Player Body Hit");
             
@@ -61,5 +43,37 @@ public class PlayerBodyCollision : MonoBehaviour
             isArm2Colliding = false;
         }
 
-    }     
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
+        {
+            Debug.Log("Player Body Hit");
+
+            playerHealth.TakeDamage(damage);
+        }
+
+        else if (isLeg1Colliding == true)
+        {
+            isLeg1Colliding = false;
+        }
+
+        else if (isLeg2Colliding == true)
+        {
+            isLeg2Colliding = false;
+        }
+
+        else if (isArm1Colliding == true)
+        {
+            isArm1Colliding = false;
+        }
+
+        else if (isArm2Colliding == true)
+        {
+            isArm2Colliding = false;
+        }
+
+    }
 }
