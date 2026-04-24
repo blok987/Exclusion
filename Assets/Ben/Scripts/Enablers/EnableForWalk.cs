@@ -1,11 +1,10 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Enable : MonoBehaviour
+public class EnableForWalk : MonoBehaviour
 {
     public Collider2D collisionCollider;
     public WalkScript walkScript;
+   
 
     private void Start()
     {
@@ -17,20 +16,24 @@ public class Enable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (walkScript.isRunning == true)
+        if (walkScript.isWalking)
         {
             gameObject.GetComponent<Collider2D>().enabled = true;
             collisionCollider.enabled = false;
             
+            
 
         }
-        else if (walkScript.isRunning == false)
+        else if (walkScript.isWalking == false )
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
             collisionCollider.enabled = true;
             
 
+
         }
+
+        
     }
      
 }
