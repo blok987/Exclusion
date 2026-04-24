@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Inventory Waist PERFECT_0: 2842014974306301274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
