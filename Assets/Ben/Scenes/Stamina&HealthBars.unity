@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 98460880}
   - component: {fileID: 98460883}
   - component: {fileID: 98460882}
-  - component: {fileID: 98460881}
+  - component: {fileID: 98460884}
   m_Layer: 6
   m_Name: WalkLegCollider
   m_TagString: Untagged
@@ -469,18 +469,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 63000735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &98460881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98460879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97adf3828ea91443ab4606607c199e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &98460882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2e9af6ccd29c84a809d920034716aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerArm1Health: {fileID: 0}
+  playerArm2Health: {fileID: 0}
+  playerArm1: {fileID: 0}
+  playerArm2: {fileID: 0}
+  playerBodyCollision: {fileID: 0}
 --- !u!60 &98460883
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -547,6 +540,20 @@ PolygonCollider2D:
       - {x: 0.41156387, y: 0.5574661}
       - {x: 0.52109337, y: 1.6501186}
   m_UseDelaunayMesh: 0
+--- !u!114 &98460884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98460879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17dd1594183c774d816108fc57fced3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionCollider: {fileID: 0}
+  walkScript: {fileID: 0}
 --- !u!1 &102044092
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +565,7 @@ GameObject:
   - component: {fileID: 102044093}
   - component: {fileID: 102044096}
   - component: {fileID: 102044095}
-  - component: {fileID: 102044094}
+  - component: {fileID: 102044097}
   m_Layer: 6
   m_Name: WalkBodyCollider
   m_TagString: Untagged
@@ -581,18 +588,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 63000735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &102044094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102044092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97adf3828ea91443ab4606607c199e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &102044095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2e9af6ccd29c84a809d920034716aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerArm1Health: {fileID: 0}
+  playerArm2Health: {fileID: 0}
+  playerArm1: {fileID: 0}
+  playerArm2: {fileID: 0}
+  playerBodyCollision: {fileID: 0}
 --- !u!60 &102044096
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -659,6 +659,20 @@ PolygonCollider2D:
       - {x: 0.41156387, y: 0.5574661}
       - {x: 0.52109337, y: 1.6501186}
   m_UseDelaunayMesh: 0
+--- !u!114 &102044097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102044092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17dd1594183c774d816108fc57fced3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionCollider: {fileID: 0}
+  walkScript: {fileID: 0}
 --- !u!1 &122140288
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +684,7 @@ GameObject:
   - component: {fileID: 122140289}
   - component: {fileID: 122140292}
   - component: {fileID: 122140291}
-  - component: {fileID: 122140290}
+  - component: {fileID: 122140293}
   m_Layer: 6
   m_Name: WalkArmCollider
   m_TagString: Untagged
@@ -693,18 +707,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 63000735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122140290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122140288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97adf3828ea91443ab4606607c199e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &122140291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2e9af6ccd29c84a809d920034716aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerArm1Health: {fileID: 0}
+  playerArm2Health: {fileID: 0}
+  playerArm1: {fileID: 0}
+  playerArm2: {fileID: 0}
+  playerBodyCollision: {fileID: 0}
 --- !u!60 &122140292
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -771,6 +778,20 @@ PolygonCollider2D:
       - {x: -0.4132738, y: 2.4209874}
       - {x: 0.017026424, y: 2.9331985}
   m_UseDelaunayMesh: 0
+--- !u!114 &122140293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122140288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17dd1594183c774d816108fc57fced3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionCollider: {fileID: 0}
+  walkScript: {fileID: 0}
 --- !u!1 &130783069
 GameObject:
   m_ObjectHideFlags: 0
