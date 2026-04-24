@@ -428,12 +428,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409837066}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1126324246}
+  m_Father: {fileID: 1413109200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &409837068
 MonoBehaviour:
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionCollider: {fileID: 1762086736}
-  walkScript: {fileID: 0}
+  walkScript: {fileID: 8912340352027240700}
 --- !u!114 &409837069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -516,9 +516,9 @@ PolygonCollider2D:
       - {x: 0.17814112, y: 2.0523582}
       - {x: -0.47006226, y: 1.602935}
       - {x: -1.2423635, y: 1.4159828}
-      - {x: -1.1703992, y: 0.28629625}
-      - {x: -0.09904432, y: 0.28755087}
-      - {x: 1.4419003, y: 0.27315253}
+      - {x: -1.1703992, y: 0.30634892}
+      - {x: -0.112247944, y: 0.30075377}
+      - {x: 1.4529881, y: 0.30641514}
       - {x: 1.4478322, y: 0.79949045}
       - {x: 1.4256401, y: 1.0833011}
   m_UseDelaunayMesh: 0
@@ -1111,12 +1111,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799263515}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1126324246}
+  m_Father: {fileID: 1413109200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &799263517
 PolygonCollider2D:
@@ -1164,11 +1164,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: 1.4285955, y: 2.9321163}
+      - {x: 0.12624496, y: 2.3582315}
+      - {x: 0.22019058, y: 2.2121105}
+      - {x: 0.83369124, y: 2.411177}
+      - {x: 1.5365458, y: 2.6509767}
   m_UseDelaunayMesh: 0
 --- !u!114 &799263518
 MonoBehaviour:
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionCollider: {fileID: 1762086736}
-  walkScript: {fileID: 0}
+  walkScript: {fileID: 8912340352027240700}
 --- !u!114 &799263519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,9 +1925,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1378640697}
-  - {fileID: 409837067}
-  - {fileID: 799263516}
+  - {fileID: 1413109200}
+  - {fileID: 1472824638}
   m_Father: {fileID: 8912340352027240685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286304865
@@ -2415,7 +2414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1126324246}
+  m_Father: {fileID: 1413109200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1378640698
 PolygonCollider2D:
@@ -2505,7 +2504,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionCollider: {fileID: 687862261}
-  walkScript: {fileID: 0}
+  walkScript: {fileID: 8912340352027240700}
+--- !u!1 &1413109199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413109200}
+  m_Layer: 6
+  m_Name: RunAnims
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413109200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413109199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1378640697}
+  - {fileID: 409837067}
+  - {fileID: 799263516}
+  m_Father: {fileID: 1126324246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1472824637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472824638}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472824638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472824637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1126324246}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544338681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2382809722269744742, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -3736,6 +3800,17 @@ PolygonCollider2D:
       - {x: 0.14818585, y: 2.3439732}
       - {x: 0.66304255, y: 3.0678842}
   m_UseDelaunayMesh: 0
+--- !u!114 &8912340352027240700 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2838335413451845616, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+  m_PrefabInstance: {fileID: 8912340352027240684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106715696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bab0aef17d5d594c8961d614e5bf5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
