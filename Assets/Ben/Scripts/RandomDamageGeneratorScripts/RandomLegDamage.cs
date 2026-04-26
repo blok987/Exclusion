@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RandomLegDamage : MonoBehaviour
@@ -13,13 +14,18 @@ public class RandomLegDamage : MonoBehaviour
     private bool isLeg1Dead = false;
     private bool isLeg2Dead = false;
 
+    private bool canBeHurtCol;
+    private bool canBeHurtTri;
+
     public PlayerBodyCollision playerBodyCollision;
     private int rd;
 
 
     private void Start()
     {
-       RandomLegCollider = GetComponent<Collider2D>();
+        RandomLegCollider = GetComponent<Collider2D>();
+        canBeHurtCol = true;
+        canBeHurtTri = true;
     }
     private void FixedUpdate()
     {
@@ -42,41 +48,107 @@ public class RandomLegDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
-        if (collision.gameObject.transform.CompareTag("hurt") || collision.gameObject.transform.CompareTag("Spike"))
+        if (canBeHurtCol == true)
         {
-            rd = Random.Range(1, 20);
 
-            if (rd <= 10 && isLeg1Dead == false)
+            if (collision.gameObject.transform.CompareTag("hurt") || collision.gameObject.transform.CompareTag("Spike"))
             {
-                playerLeg1Health.TakeDamage(2);
-                Debug.Log("Leg 1 took damage");
-                Debug.Log("rd is " + rd);
-                playerBodyCollision.isLeg1Colliding = true;
-            }
-            if (rd <= 10 && isLeg1Dead == true)
-            {
-                playerLeg2Health.TakeDamage(2);
-                playerBodyCollision.isLeg2Colliding = true;
-                Debug.Log("rd is " + rd);
+                rd = Random.Range(1, 20);
+
+                if (rd <= 10 && isLeg1Dead == false)
+                {
+                    playerLeg1Health.TakeDamage(2);
+                    Debug.Log("Leg 1 took damage");
+                    Debug.Log("rd is " + rd);
+                    playerBodyCollision.isLeg1Colliding = true;
+                    StartCoroutine(WaitToTakeDamageCol());
+                }
+                if (rd <= 10 && isLeg1Dead == true)
+                {
+                    playerLeg2Health.TakeDamage(2);
+                    playerBodyCollision.isLeg2Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageCol());
+                }
+
+                if (rd >= 11 && isLeg2Dead == false)
+                {
+                    playerLeg2Health.TakeDamage(2);
+                    Debug.Log("Leg 2 took damage");
+                    playerBodyCollision.isLeg2Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageCol());
+                }
+                if (rd >= 11 && isLeg2Dead == true)
+                {
+                    playerLeg1Health.TakeDamage(2);
+                    playerBodyCollision.isLeg1Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageCol());
+                }
             }
 
-            if (rd >= 11 && isLeg2Dead == false)
-            {
-                playerLeg2Health.TakeDamage(2);
-                Debug.Log("Leg 2 took damage");
-                playerBodyCollision.isLeg2Colliding = true;
-                Debug.Log("rd is " + rd);
-            }
-            if (rd >= 11 && isLeg2Dead == true)
-            {
-                playerLeg1Health.TakeDamage(2);
-                playerBodyCollision.isLeg1Colliding = true;
-                Debug.Log("rd is " + rd);
-            }
         }
+
     }
 
-    
-}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (canBeHurtTri == true)
+        {
 
+            if (collision.gameObject.transform.CompareTag("hurt") || collision.gameObject.transform.CompareTag("Spike"))
+            {
+                rd = Random.Range(1, 20);
+
+                if (rd <= 10 && isLeg1Dead == false)
+                {
+                    playerLeg1Health.TakeDamage(2);
+                    Debug.Log("Leg 1 took damage");
+                    Debug.Log("rd is " + rd);
+                    playerBodyCollision.isLeg1Colliding = true;
+                    StartCoroutine(WaitToTakeDamageTri());
+                }
+                if (rd <= 10 && isLeg1Dead == true)
+                {
+                    playerLeg2Health.TakeDamage(2);
+                    playerBodyCollision.isLeg2Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageTri());
+                }
+
+                if (rd >= 11 && isLeg2Dead == false)
+                {
+                    playerLeg2Health.TakeDamage(2);
+                    Debug.Log("Leg 2 took damage");
+                    playerBodyCollision.isLeg2Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageTri());
+                }
+                if (rd >= 11 && isLeg2Dead == true)
+                {
+                    playerLeg1Health.TakeDamage(2);
+                    playerBodyCollision.isLeg1Colliding = true;
+                    Debug.Log("rd is " + rd);
+                    StartCoroutine(WaitToTakeDamageTri());
+                }
+            }
+
+        }
+
+    }
+
+    private IEnumerator WaitToTakeDamageCol()
+    {
+        canBeHurtCol = false;
+        yield return new WaitForSeconds(0.75f);
+        canBeHurtCol = true;
+    }
+
+    private IEnumerator WaitToTakeDamageTri()
+    {
+        canBeHurtTri = false;
+        yield return new WaitForSeconds(0.75f);
+        canBeHurtTri = true;
+    }
+}
