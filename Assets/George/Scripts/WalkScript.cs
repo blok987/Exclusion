@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEditor.Experimental.GraphView;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
@@ -16,7 +17,8 @@ public class WalkScript : MonoBehaviour
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
 
-    [SerializeField] bool isJumping = false;
+    public bool isWalking = false;
+    public bool isJumping = false;
     public bool isRunning = false;
     public bool canMove = true;
 
@@ -170,7 +172,9 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("IsWalking", true);
             PlayerAnim.SetBool("isRunning", false);
+            isWalking = true;
             isRunning = false;
+
         }
 
         //Stops the Walking Anim if not moving on the X-Axis
@@ -178,12 +182,14 @@ public class WalkScript : MonoBehaviour
         {
             PlayerAnim.SetBool("IsWalking", false);
             isRunning = false;
+            isWalking = false;
         }
 
         if (PlayerDirection.x >= 7 || PlayerDirection.x <= -7)
         {
             
             PlayerAnim.SetBool("isRunning", true);
+            isWalking = false;
             isRunning = true;
         }
 
@@ -197,21 +203,39 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             PlayerDirection.y += JumpStrength;
-             
-        }
-        
+            
 
+        }
+     
         if (!isGrounded())
         {
             PlayerAnim.SetBool("isJumping", true);
         }
         else if (isGrounded())
         {
+            
             PlayerAnim.SetBool("isJumping", false);
         
         }
-        
-        
+
+       
+        if (!isGrounded() && !isClimbingLeft() && !isClimbingRight())
+        {
+            isJumping = true;
+            
+        }
+        else if (isGrounded() || isClimbingLeft() || isClimbingRight())
+        {
+            isJumping = false;
+
+        }
+
+        if (isJumping == true)
+        {
+            isRunning = false;
+        }
+
+
 
         //Climbing Movement 
         if (Input.GetKey(KeyCode.F))
@@ -363,8 +387,4 @@ public class WalkScript : MonoBehaviour
         LArmlength = 0.8f;
         RArmlength = 0.8f;
     }
-
-   
-
-
 }   
