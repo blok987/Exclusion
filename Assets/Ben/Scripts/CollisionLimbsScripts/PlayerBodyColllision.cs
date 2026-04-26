@@ -94,14 +94,14 @@ public class PlayerBodyCollision : MonoBehaviour
     private IEnumerator WaitToTakeDamageCol()
     {
         canBeHurtCol = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         canBeHurtCol = true;
     }
 
     private IEnumerator WaitToTakeDamageTri()
     {
         canBeHurtTri = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         canBeHurtTri = true;
     }
 

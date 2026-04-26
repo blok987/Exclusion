@@ -56,8 +56,10 @@ public class WalkScript : MonoBehaviour
     public float bounceHeight; // Force applied when hitting a spike
 
     public GameObject ForearmF;
-
     public GameObject ForearmB;
+
+    public GameObject LegF;
+    public GameObject LegB;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -80,7 +82,7 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         #region Player Movement Handling
 
         //Player Gravity
