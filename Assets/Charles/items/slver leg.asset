@@ -15,7 +15,7 @@ MonoBehaviour:
   description: 
   itenprice: $5
   itemSprite: {fileID: 21300000, guid: e66d383f85d22fb4f97a628b2c579c43, type: 2}
-  inventorysprite: {fileID: -5570559177988548002, guid: 284083f3a6d07344f914d51ae67b70b2, type: 3}
+  inventorysprite: {fileID: 7521540838565234124, guid: 62fa7613c902fef4a9c7ae9ea47eadde, type: 3}
   itemQuality: 2
   ip: {fileID: 1069952089090714574, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
   itemBehavior:

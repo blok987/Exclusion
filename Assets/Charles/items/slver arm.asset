@@ -15,7 +15,7 @@ MonoBehaviour:
   description: this is a arm
   itenprice: $5
   itemSprite: {fileID: -8085365919771549580, guid: 7203b723d7e79df438ff61d4d298a34a, type: 3}
-  inventorysprite: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
+  inventorysprite: {fileID: -2204822247264875186, guid: b973eea0b6d35aa45b8491512f7469c7, type: 3}
   itemQuality: 3
   ip: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
   itemBehavior:
