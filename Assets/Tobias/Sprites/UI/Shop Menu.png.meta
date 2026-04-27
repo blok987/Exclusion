@@ -1,28 +1,10 @@
 fileFormatVersion: 2
-guid: 4016a14467946a8468b9c90c373c19f6
+guid: 002b8b9825abd854ab8e6cc0405dc35f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7986952569655907133
-    second: Background CLOUDS_0
-  - first:
-      213: -3114069329675266886
-    second: Background CLOUDS_1
-  - first:
-      213: -2908687620264014634
-    second: Background CLOUDS_2
-  - first:
-      213: -18107923707863319
-    second: Background CLOUDS_3
-  - first:
-      213: 8373507679755911919
-    second: Background CLOUDS_4
-  - first:
-      213: -2347081141174903228
-    second: Background CLOUDS_5
-  - first:
-      213: -807559607302004606
-    second: Background CLOUDS_6
+      213: -3499373818004586423
+    second: Shop Menu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -144,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background CLOUDS_5
+      name: Shop Menu_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 192
-        height: 108
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44e5041332e7d6fd0800000000000000
-      internalID: -2347081141174903228
+      spriteID: 940c8819d0abf6fc0800000000000000
+      internalID: -3499373818004586423
       vertices: []
       indices: 
       edges: []
@@ -169,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5c27a744125c93446b42e875354ecef7
+    spriteID: b8d7eca26440c8c40a029a265a623852
     internalID: 0
     vertices: []
     indices: 
@@ -179,13 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background CLOUDS_0: 7986952569655907133
-      Background CLOUDS_1: -3114069329675266886
-      Background CLOUDS_2: -2908687620264014634
-      Background CLOUDS_3: -18107923707863319
-      Background CLOUDS_4: 8373507679755911919
-      Background CLOUDS_5: -2347081141174903228
-      Background CLOUDS_6: -807559607302004606
+      Shop Menu_0: -3499373818004586423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
