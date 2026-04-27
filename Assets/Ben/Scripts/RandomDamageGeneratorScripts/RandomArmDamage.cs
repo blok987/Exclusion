@@ -27,6 +27,16 @@ public class RandomArmDamage : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (playerArm1.activeSelf == false)
+        {
+            playerBodyCollision.isArm1Colliding = false;
+        }
+        if (playerArm2.activeSelf == false)
+        {
+            playerBodyCollision.isArm2Colliding = false;
+        }
+
         if (playerArm1.activeSelf == false)
         {
            isArm1Dead = true;
