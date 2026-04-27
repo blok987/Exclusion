@@ -55,6 +55,12 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
+    public GameObject ForearmF;
+    public GameObject ForearmB;
+
+    public GameObject LegF;
+    public GameObject LegB;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,7 +82,7 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         #region Player Movement Handling
 
         //Player Gravity
@@ -168,24 +174,26 @@ public class WalkScript : MonoBehaviour
         }
 
         //Starts the Walking Anim if moving on the X-Axis
-        if (PlayerDirection.x != 0)
+        if (PlayerDirection.x != 0 && isGrounded())
         {
             PlayerAnim.SetBool("IsWalking", true);
             PlayerAnim.SetBool("isRunning", false);
             isWalking = true;
             isRunning = false;
+            isJumping = false;
 
         }
 
         //Stops the Walking Anim if not moving on the X-Axis
-        if (PlayerDirection.x == 0)
+        if (PlayerDirection.x == 0 && isGrounded())
         {
             PlayerAnim.SetBool("IsWalking", false);
             isRunning = false;
             isWalking = false;
+            isJumping = false;
         }
 
-        if (PlayerDirection.x >= 7 || PlayerDirection.x <= -7)
+        if ((PlayerDirection.x >= 7 || PlayerDirection.x <= -7) && isGrounded())
         {
             
             PlayerAnim.SetBool("isRunning", true);
@@ -233,6 +241,7 @@ public class WalkScript : MonoBehaviour
         if (isJumping == true)
         {
             isRunning = false;
+            isWalking = false; 
         }
 
 
@@ -292,6 +301,7 @@ public class WalkScript : MonoBehaviour
             PlayerAnim.SetBool("IsClimbing", true);
             PlayerAnim.SetBool("isJumping", false);
             PlayerAnim.SetBool("isYeowch", false);
+
         }
         else
         {
@@ -301,14 +311,15 @@ public class WalkScript : MonoBehaviour
         //Controls Left Climbing Cooldown
         if (isClimbingLeft())
         {
-            LArmlength = 0.8f;
+            LArmlength = 1f;
             PlayerDirection.x = 0;
-            Debug.Log("Climbing");
+            ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            ForearmB.GetComponent<Collider2D>().isTrigger = true;
 
 
             //Allows the player to stop climbing
             if (isClimbingLeft() && Input.GetKey(KeyCode.D))
-            {
+            { 
                 StartCoroutine(WaitToClimb());
             }
 
@@ -323,8 +334,9 @@ public class WalkScript : MonoBehaviour
         if (isClimbingRight())
         {
             PlayerDirection.x = 0;
-            RArmlength = 0.8f;
-
+            RArmlength = 1f;
+            ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            ForearmB.GetComponent<Collider2D>().isTrigger = true;
 
             if (isClimbingRight() && Input.GetKey(KeyCode.A))
             { 
@@ -383,8 +395,12 @@ public class WalkScript : MonoBehaviour
     {
         LArmlength = 0;
         RArmlength = 0;
+        ForearmF.GetComponent<Collider2D>().isTrigger = false;
+        ForearmB.GetComponent<Collider2D>().isTrigger = false;
         yield return new WaitForSeconds(1f);
-        LArmlength = 0.8f;
-        RArmlength = 0.8f;
+        LArmlength = 1f;
+        RArmlength = 1f;
     }
+
+    
 }   

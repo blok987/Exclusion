@@ -154,9 +154,11 @@ MonoBehaviour:
   offset: {x: 1.2, y: 0, z: 0}
   image: {fileID: 0}
   s: {fileID: 0}
+  vga: {fileID: -2204822247264875186, guid: b973eea0b6d35aa45b8491512f7469c7, type: 3}
   ga: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
   ba: {fileID: -4634770665792126417, guid: cfe066bd836f72740a52977da4d09ae7, type: 3}
   vba: {fileID: -8586211775191379449, guid: f800d3f423cb56543963e9ec5ed4dccd, type: 3}
+  vgl: {fileID: 7521540838565234124, guid: 62fa7613c902fef4a9c7ae9ea47eadde, type: 3}
   gl: {fileID: -5570559177988548002, guid: 284083f3a6d07344f914d51ae67b70b2, type: 3}
   bl: {fileID: -3660875295753300849, guid: 132e0ad19007a684a80ad8a72e0f3462, type: 3}
   vbl: {fileID: -6692214493140244976, guid: 76e6046dd8a9762418ccd869c2f7ed99, type: 3}
@@ -196,12 +198,15 @@ MonoBehaviour:
   h2: {fileID: 0}
   h: {fileID: 0}
   health: 10
+  healthmax: 0
   sr: {fileID: 1259683345305503168}
   s: {fileID: 0}
+  vg: {fileID: 7521540838565234124, guid: 62fa7613c902fef4a9c7ae9ea47eadde, type: 3}
   g: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
   b: {fileID: -4634770665792126417, guid: cfe066bd836f72740a52977da4d09ae7, type: 3}
   vb: {fileID: -8586211775191379449, guid: f800d3f423cb56543963e9ec5ed4dccd, type: 3}
-  prioritize: 0
+  prioritize0: 0
+  prioritize1: 0
   prioritize2: 0
   ul: {fileID: 0}
 --- !u!114 &5064810735306924810
@@ -226,11 +231,14 @@ MonoBehaviour:
   h2: {fileID: 0}
   h: {fileID: 0}
   health: 10
+  healthmax: 0
   sr: {fileID: 1259683345305503168}
   s: {fileID: 0}
+  vg: {fileID: 7521540838565234124, guid: 62fa7613c902fef4a9c7ae9ea47eadde, type: 3}
   g: {fileID: -5570559177988548002, guid: 284083f3a6d07344f914d51ae67b70b2, type: 3}
   b: {fileID: -3660875295753300849, guid: 132e0ad19007a684a80ad8a72e0f3462, type: 3}
   vb: {fileID: -6692214493140244976, guid: 76e6046dd8a9762418ccd869c2f7ed99, type: 3}
-  prioritize: 0
+  prioritize0: 0
+  prioritize1: 0
   prioritize2: 0
   ua: {fileID: 0}

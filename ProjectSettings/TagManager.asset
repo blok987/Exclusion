@@ -7,6 +7,7 @@ TagManager:
   - PlayerLeg1
   - hurt
   - Spike
+  - GunTarget
   layers:
   - Default
   - TransparentFX

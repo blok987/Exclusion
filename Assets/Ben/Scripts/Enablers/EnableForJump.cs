@@ -24,7 +24,7 @@ public class EnableForJump : MonoBehaviour
             
 
         }
-        else if (walkScript.isJumping == false )
+        else if (walkScript.isJumping == false && walkScript.isWalking == false && walkScript.isRunning == false)
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
             collisionCollider.enabled = true;
