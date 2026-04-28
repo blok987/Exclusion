@@ -88,6 +88,8 @@ public class PlayerBodyCollision : MonoBehaviour
             {
                 isArm2Colliding = false;
             }
+
+            
         }
     }
 

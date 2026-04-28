@@ -29,6 +29,15 @@ public class RandomLegDamage : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (playerLeg1.activeSelf == false )
+        {
+            playerBodyCollision.isLeg1Colliding = false;
+        }
+        if (playerLeg2.activeSelf == false)
+        {
+            playerBodyCollision.isLeg2Colliding = false;
+        }
+
         if (playerLeg1.activeSelf == false)
         {
             isLeg1Dead = true;

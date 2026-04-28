@@ -1185,6 +1185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2143beeaa59de304bbeb6c17a599aec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &805000543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8500289192212326871, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
+  m_PrefabInstance: {fileID: 1110986114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817099436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1763,37 @@ MonoBehaviour:
   DollLegThighL: {fileID: 0}
   degredationRate: 0.09
   runDegredationRate: 0.12
+--- !u!1 &991020312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991020313}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991020313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991020312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.71, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1110986115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043866570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7144928161559656446, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
@@ -2100,7 +2136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6839704295728793934, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839704295728793934, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2152,13 +2188,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6839704295728793934, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
       insertIndex: -1
       addedObject: {fileID: 371289890}
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 6839704295728793934, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 991020313}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8500289192212326871, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1110986118}
   m_SourcePrefab: {fileID: 100100000, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
 --- !u!4 &1110986115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6839704295728793934, guid: 2bd33df05e7d0e54e838d9f837b1cc50, type: 3}
   m_PrefabInstance: {fileID: 1110986114}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1110986118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805000543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8239fba69ee234a9f667ee51b21a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8168194048593077112, guid: 603da4671681ba74a8a878944acad0ac, type: 3}
+  firePoint: {fileID: 991020313}
 --- !u!1 &1192185623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6832641063938343288, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
