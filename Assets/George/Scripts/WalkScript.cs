@@ -58,8 +58,6 @@ public class WalkScript : MonoBehaviour
     public GameObject ForearmF;
     public GameObject ForearmB;
 
-    public GameObject LegF;
-    public GameObject LegB;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

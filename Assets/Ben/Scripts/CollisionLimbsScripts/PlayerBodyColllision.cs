@@ -14,8 +14,8 @@ public class PlayerBodyCollision : MonoBehaviour
     public bool isArm1Colliding;
     public bool isArm2Colliding;
 
-    private bool canBeHurtCol;
-    private bool canBeHurtTri;
+    private bool canBeHurtCol = true;
+    private bool canBeHurtTri = true;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,7 +23,7 @@ public class PlayerBodyCollision : MonoBehaviour
         if (canBeHurtCol == true)
         { 
 
-            if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
+            if (collision.gameObject.CompareTag("hurt") || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("GunTarget"))
             {
                 Debug.Log("Player Body Hit");
 
@@ -61,12 +61,14 @@ public class PlayerBodyCollision : MonoBehaviour
         if (canBeHurtTri == true)
         {
 
-            if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
+            if (collision.gameObject.CompareTag("hurt") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("Spike") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false || collision.gameObject.CompareTag("GunTarget") && isLeg1Colliding == false && isLeg2Colliding == false && isArm1Colliding == false && isArm2Colliding == false)
             {
-                Debug.Log("Player Body Hit");
+                {
+                    Debug.Log("Player Body Hit");
 
-                playerHealth.TakeDamage(damage);
-                StartCoroutine(WaitToTakeDamageTri());
+                    playerHealth.TakeDamage(damage);
+                    StartCoroutine(WaitToTakeDamageTri());
+                }
             }
 
             else if (isLeg1Colliding == true)
