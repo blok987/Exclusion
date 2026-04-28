@@ -2215,6 +2215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8168194048593077112, guid: 603da4671681ba74a8a878944acad0ac, type: 3}
   firePoint: {fileID: 991020313}
+  bulletScript: {fileID: 0}
 --- !u!1 &1192185623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6832641063938343288, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}

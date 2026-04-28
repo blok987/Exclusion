@@ -31,10 +31,12 @@ public class RandomArmDamage : MonoBehaviour
         if (playerArm1.activeSelf == false)
         {
             playerBodyCollision.isArm1Colliding = false;
+            
         }
         if (playerArm2.activeSelf == false)
         {
             playerBodyCollision.isArm2Colliding = false;
+            
         }
 
         if (playerArm1.activeSelf == false)
