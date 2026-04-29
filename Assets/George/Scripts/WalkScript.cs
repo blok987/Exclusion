@@ -7,12 +7,17 @@ using Unity.VisualScripting;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
 {
+    [SerializeField] float ogAcceleration = 5;
     [SerializeField] float Acceleration = 10;
     [SerializeField] float Deceleration = 5;
 
+    [SerializeField] float ogMaxSpeed = 10;
     [SerializeField] float MaxSpeed = 10;
     [SerializeField] float MaxVerticalSpeed = 8;
     [SerializeField] float AirSpeed = 5;
+
+    [SerializeField] float CrippledMaxSpeed = 5;
+    [SerializeField] float CrippledAcceleration = 5;
 
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
@@ -20,6 +25,7 @@ public class WalkScript : MonoBehaviour
     public bool isWalking = false;
     public bool isJumping = false;
     public bool isRunning = false;
+    public bool isCrippled = false;
     public bool canClimb = true;
     public bool canMove = true;
 
@@ -56,7 +62,8 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
-    
+    private HealthLeg1 healthLeg1; // Reference to the HealthLeg1 script
+    private HealthLeg2 healthLeg2;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,8 +72,10 @@ public class WalkScript : MonoBehaviour
         print("The tingles! do you feel them? We must have more!");
         print("Indeed. 500 hundered Compiler Errors");
 
+        //Animator for Player
         PlayerAnim = GetComponent<Animator>();
 
+        //Grabs the Sprite Renderers for the limbs, used for degredation
         ForearmFRONT = transform.Find("Doll Forearm FRONT").GetComponent<SpriteRenderer>();
         UpperArmFRONT = transform.Find("Doll Upper Arm FRONT").GetComponent<SpriteRenderer>();
         ForearmBACK = transform.Find("Doll Forearm BACK").GetComponent<SpriteRenderer>();
@@ -76,7 +85,10 @@ public class WalkScript : MonoBehaviour
         LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
 
-        
+        healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
+        healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
+
+
     }
 
     // Update is called once per frame
@@ -90,8 +102,28 @@ public class WalkScript : MonoBehaviour
 
         //Yewoch Animation stop
         if (isGrounded() && PlayerAnim.GetBool("isYeowch"))
-        {             PlayerAnim.SetBool("isYeowch", false);
+        {      
+            PlayerAnim.SetBool("isYeowch", false);
         }
+
+        //Controls the crippled anim of the player and the speed reduction when a leg's health reaches 0
+        if (healthLeg1.health <= 0 || healthLeg2.health <= 0)
+        {
+            PlayerAnim.SetBool("isCrippled", true);
+            isCrippled = true;
+
+            MaxSpeed = CrippledMaxSpeed;
+            Acceleration = CrippledAcceleration;
+        }
+
+        if (healthLeg1.health > 0 && healthLeg2.health > 0)
+        {
+            PlayerAnim.SetBool("isCrippled", false);
+            isCrippled = false;
+            MaxSpeed = ogMaxSpeed;
+            Acceleration = ogAcceleration;
+        }
+
 
 
 
@@ -197,17 +229,6 @@ public class WalkScript : MonoBehaviour
         {
             
             PlayerAnim.SetBool("isRunning", true);
-            //Head.GetComponent<Collider2D>().isTrigger = true;
-            //Chest.GetComponent<Collider2D>().isTrigger = true;
-            //Midsection.GetComponent<Collider2D>().isTrigger = true;
-            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
-            //UpperArmF.GetComponent<Collider2D>().isTrigger = true;
-            //UpperArmB.GetComponent<Collider2D>().isTrigger = true;
-            //LegF.GetComponent<Collider2D>().isTrigger = true;
-            //LegB.GetComponent<Collider2D>().isTrigger = true;
-            //ThighF.GetComponent<Collider2D>().isTrigger = true;
-            //ThighB.GetComponent<Collider2D>().isTrigger = true;
             isWalking = false;
             isRunning = true;
         }
