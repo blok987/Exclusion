@@ -20,6 +20,7 @@ public class WalkScript : MonoBehaviour
     public bool isWalking = false;
     public bool isJumping = false;
     public bool isRunning = false;
+    public bool canClimb = true;
     public bool canMove = true;
 
     public Vector2 PlayerDirection;
@@ -55,8 +56,7 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
-    public GameObject ForearmF;
-    public GameObject ForearmB;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,6 +75,8 @@ public class WalkScript : MonoBehaviour
         ThighFRONT = transform.Find("Doll Thigh FRONT").GetComponent<SpriteRenderer>();
         LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
+
+        
     }
 
     // Update is called once per frame
@@ -172,7 +174,7 @@ public class WalkScript : MonoBehaviour
         }
 
         //Starts the Walking Anim if moving on the X-Axis
-        if (PlayerDirection.x != 0 && isGrounded())
+        if (PlayerDirection.x > 0 && PlayerDirection.x < 7 && isGrounded() || PlayerDirection.x < 0 && PlayerDirection.x > -7 && isGrounded())
         {
             PlayerAnim.SetBool("IsWalking", true);
             PlayerAnim.SetBool("isRunning", false);
@@ -195,6 +197,17 @@ public class WalkScript : MonoBehaviour
         {
             
             PlayerAnim.SetBool("isRunning", true);
+            //Head.GetComponent<Collider2D>().isTrigger = true;
+            //Chest.GetComponent<Collider2D>().isTrigger = true;
+            //Midsection.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //UpperArmF.GetComponent<Collider2D>().isTrigger = true;
+            //UpperArmB.GetComponent<Collider2D>().isTrigger = true;
+            //LegF.GetComponent<Collider2D>().isTrigger = true;
+            //LegB.GetComponent<Collider2D>().isTrigger = true;
+            //ThighF.GetComponent<Collider2D>().isTrigger = true;
+            //ThighB.GetComponent<Collider2D>().isTrigger = true;
             isWalking = false;
             isRunning = true;
         }
@@ -245,8 +258,7 @@ public class WalkScript : MonoBehaviour
 
 
         //Climbing Movement 
-        if (Input.GetKey(KeyCode.F))
-        {
+        
             if (isClimbingRight())
             {
                 GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -276,11 +288,7 @@ public class WalkScript : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().gravityScale = 1;
             }
-        }
-        else
-        {
-            GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
+        
 
         //Controls Animation bools for Jumping
         if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
@@ -311,8 +319,10 @@ public class WalkScript : MonoBehaviour
         {
             LArmlength = 1f;
             PlayerDirection.x = 0;
-            ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ThighF.GetComponent<Collider2D>().isTrigger = true;
+            //ThighB.GetComponent<Collider2D>().isTrigger = true;
 
 
             //Allows the player to stop climbing
@@ -333,8 +343,11 @@ public class WalkScript : MonoBehaviour
         {
             PlayerDirection.x = 0;
             RArmlength = 1f;
-            ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ThighF.GetComponent<Collider2D>().isTrigger = true;
+            //ThighB.GetComponent<Collider2D>().isTrigger = true;
+
 
             if (isClimbingRight() && Input.GetKey(KeyCode.A))
             { 
@@ -393,12 +406,11 @@ public class WalkScript : MonoBehaviour
     {
         LArmlength = 0;
         RArmlength = 0;
-        ForearmF.GetComponent<Collider2D>().isTrigger = false;
-        ForearmB.GetComponent<Collider2D>().isTrigger = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => isGrounded());
         LArmlength = 1f;
         RArmlength = 1f;
     }
 
-    
+   
+
 }   
