@@ -252,11 +252,13 @@ public class WalkScript : MonoBehaviour
         if (!isGrounded())
         {
             PlayerAnim.SetBool("isJumping", true);
+           
         }
         else if (isGrounded())
         {
             
             PlayerAnim.SetBool("isJumping", false);
+           
         
         }
 
@@ -318,7 +320,17 @@ public class WalkScript : MonoBehaviour
                 GetComponent<Rigidbody2D>().gravityScale = 1;
                 isClimbing = false;
             }
-        
+
+            if (PlayerDirection.y < 0)
+            {
+                RArmlength = 0;
+                LArmlength = 0;
+            }
+            else if (PlayerDirection.y >= 0)
+            {
+                RArmlength = 1;
+                LArmlength = 1;
+            }
 
         //Controls Animation bools for Jumping
         if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
