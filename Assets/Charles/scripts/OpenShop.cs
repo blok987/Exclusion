@@ -18,18 +18,17 @@ public class OpenShop : MonoBehaviour
     public int goodlegs;
     public int badarms;
     public int badlegs;
-    public int varrybadarms;
-    public int varrybadlegs;
+    public int verybadarms;
+    public int verybadlegs;
     
     public GameObject greatarm;
     public GameObject goodarm;
     public GameObject badarm;
-    public GameObject varrybadarm;
+    public GameObject verybadarm;
     public GameObject greatleg;
     public GameObject goodleg;
     public GameObject badleg;
-    public GameObject varryleg;
-
+    public GameObject verybadleg;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,8 +43,8 @@ public class OpenShop : MonoBehaviour
         goodlegs = Random.Range(0, 4);
         badarms = Random.Range(0, 6);
         badlegs = Random.Range(0, 6);
-        varrybadarms = Random.Range(0, 8);
-        varrybadlegs = Random.Range(0, 8);
+        verybadarms = Random.Range(0, 8);
+        verybadlegs = Random.Range(0, 8);
 
     }
 
@@ -63,46 +62,7 @@ public class OpenShop : MonoBehaviour
     { 
         shopUI.SetActive(false);
     }
-    public void Buy()
-    {
-
-         if (greatarms > 0)
-         {
-             buyPrice = 10;
-         }
-         if (greatlegs > 0)
-         {
-            buyPrice = 10;
-         }
-         if (goodarms > 0)
-         {
-             buyPrice = 7;
-         }
-         if (badarms > 0)
-         {
-             buyPrice = 5;
-         }
-         if (varrybadarms > 0)
-         {
-             buyPrice = 3;
-        }
-        inventory.items.Add(itemData);
-        i.AddItem();
-
-        
-
-    }
-    public void sell()
-    {
-        if (buyPrice > 0)
-        {
-
-        }
-        else
-        {
-            Debug.Log("You don't have any items to sell!");
-        }
-    }
+    
     public void UpdateShopUI()
     {
 

@@ -13,8 +13,8 @@ public class SellLimbs : MonoBehaviour
     public int goodlegs;
     public int badarms;
     public int badlegs;
-    public int varrybadarms;
-    public int varrybadlegs;
+    public int verybadarms;
+    public int verybadlegs;
     public int buyPrice;
 
     public Sprite vga;
@@ -34,7 +34,7 @@ public class SellLimbs : MonoBehaviour
         greatarms = os.greatarms;
         goodarms =os.goodarms;
         badarms = os.badarms;
-        varrybadarms = os.varrybadarms;
+        verybadarms = os.verybadarms;
         greatlegs = os.greatlegs;
         goodlegs = os.goodlegs;
         badlegs = os.badlegs;
@@ -82,7 +82,7 @@ public class SellLimbs : MonoBehaviour
         else if (this == vba)
         {
             buyPrice = 3;
-            varrybadarms -= 1;
+            verybadarms -= 1;
 
         }
 
