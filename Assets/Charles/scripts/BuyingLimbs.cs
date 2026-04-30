@@ -1,7 +1,7 @@
-using Unity.VisualScripting;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
-public class SellLimbs : MonoBehaviour
+public class BuyingLimbs : MonoBehaviour
 {
     OpenShop os;
     public ItemData itemData;
@@ -24,23 +24,24 @@ public class SellLimbs : MonoBehaviour
     public Sprite ba;
     public Sprite bl;
     public Sprite vba;
-
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+       
         greatarms = os.greatarms;
-        goodarms =os.goodarms;
+        goodarms = os.goodarms;
         badarms = os.badarms;
         varrybadarms = os.varrybadarms;
         greatlegs = os.greatlegs;
         goodlegs = os.goodlegs;
         badlegs = os.badlegs;
+        
     }
-
-
+    
+    
     public void Buy()
     {
         if (this == vga || this == vgl)
@@ -52,7 +53,7 @@ public class SellLimbs : MonoBehaviour
             }
             else if (this == vgl)
             {
-                greatlegs -= 1;
+                greatlegs -=1;
             }
         }
         else if (this == ga || this == gl)
@@ -83,7 +84,7 @@ public class SellLimbs : MonoBehaviour
         {
             buyPrice = 3;
             varrybadarms -= 1;
-
+            
         }
 
         inventory.items.Add(itemData);
