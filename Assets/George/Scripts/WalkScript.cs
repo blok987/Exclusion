@@ -7,12 +7,17 @@ using Unity.VisualScripting;
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
 {
+    [SerializeField] float ogAcceleration = 5;
     [SerializeField] float Acceleration = 10;
     [SerializeField] float Deceleration = 5;
 
+    [SerializeField] float ogMaxSpeed = 10;
     [SerializeField] float MaxSpeed = 10;
     [SerializeField] float MaxVerticalSpeed = 8;
     [SerializeField] float AirSpeed = 5;
+
+    [SerializeField] float CrippledMaxSpeed = 5;
+    [SerializeField] float CrippledAcceleration = 5;
 
     [SerializeField] float JumpStrength = 5;
     [SerializeField] float ClimbSpeed = 1;
@@ -20,6 +25,8 @@ public class WalkScript : MonoBehaviour
     public bool isWalking = false;
     public bool isJumping = false;
     public bool isRunning = false;
+    public bool isCrippled = false;
+    public bool canClimb = true;
     public bool canMove = true;
 
     public Vector2 PlayerDirection;
@@ -55,11 +62,9 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
-    public GameObject ForearmF;
-    public GameObject ForearmB;
+    private HealthLeg1 healthLeg1; // Reference to the HealthLeg1 script
+    private HealthLeg2 healthLeg2;
 
-    public GameObject LegF;
-    public GameObject LegB;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,8 +72,10 @@ public class WalkScript : MonoBehaviour
         print("The tingles! do you feel them? We must have more!");
         print("Indeed. 500 hundered Compiler Errors");
 
+        //Animator for Player
         PlayerAnim = GetComponent<Animator>();
 
+        //Grabs the Sprite Renderers for the limbs, used for degredation
         ForearmFRONT = transform.Find("Doll Forearm FRONT").GetComponent<SpriteRenderer>();
         UpperArmFRONT = transform.Find("Doll Upper Arm FRONT").GetComponent<SpriteRenderer>();
         ForearmBACK = transform.Find("Doll Forearm BACK").GetComponent<SpriteRenderer>();
@@ -77,6 +84,11 @@ public class WalkScript : MonoBehaviour
         ThighFRONT = transform.Find("Doll Thigh FRONT").GetComponent<SpriteRenderer>();
         LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
+
+        healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
+        healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
+
+
     }
 
     // Update is called once per frame
@@ -90,8 +102,28 @@ public class WalkScript : MonoBehaviour
 
         //Yewoch Animation stop
         if (isGrounded() && PlayerAnim.GetBool("isYeowch"))
-        {             PlayerAnim.SetBool("isYeowch", false);
+        {      
+            PlayerAnim.SetBool("isYeowch", false);
         }
+
+        //Controls the crippled anim of the player and the speed reduction when a leg's health reaches 0
+        if (healthLeg1.health <= 0 || healthLeg2.health <= 0)
+        {
+            PlayerAnim.SetBool("isCrippled", true);
+            isCrippled = true;
+
+            MaxSpeed = CrippledMaxSpeed;
+            Acceleration = CrippledAcceleration;
+        }
+
+        if (healthLeg1.health > 0 && healthLeg2.health > 0)
+        {
+            PlayerAnim.SetBool("isCrippled", false);
+            isCrippled = false;
+            MaxSpeed = ogMaxSpeed;
+            Acceleration = ogAcceleration;
+        }
+
 
 
 
@@ -174,7 +206,7 @@ public class WalkScript : MonoBehaviour
         }
 
         //Starts the Walking Anim if moving on the X-Axis
-        if (PlayerDirection.x != 0 && isGrounded())
+        if (PlayerDirection.x > 0 && PlayerDirection.x < 7 && isGrounded() || PlayerDirection.x < 0 && PlayerDirection.x > -7 && isGrounded())
         {
             PlayerAnim.SetBool("IsWalking", true);
             PlayerAnim.SetBool("isRunning", false);
@@ -247,8 +279,7 @@ public class WalkScript : MonoBehaviour
 
 
         //Climbing Movement 
-        if (Input.GetKey(KeyCode.F))
-        {
+        
             if (isClimbingRight())
             {
                 GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -278,11 +309,7 @@ public class WalkScript : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().gravityScale = 1;
             }
-        }
-        else
-        {
-            GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
+        
 
         //Controls Animation bools for Jumping
         if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
@@ -313,8 +340,10 @@ public class WalkScript : MonoBehaviour
         {
             LArmlength = 1f;
             PlayerDirection.x = 0;
-            ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ThighF.GetComponent<Collider2D>().isTrigger = true;
+            //ThighB.GetComponent<Collider2D>().isTrigger = true;
 
 
             //Allows the player to stop climbing
@@ -335,8 +364,11 @@ public class WalkScript : MonoBehaviour
         {
             PlayerDirection.x = 0;
             RArmlength = 1f;
-            ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
+            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
+            //ThighF.GetComponent<Collider2D>().isTrigger = true;
+            //ThighB.GetComponent<Collider2D>().isTrigger = true;
+
 
             if (isClimbingRight() && Input.GetKey(KeyCode.A))
             { 
@@ -395,12 +427,11 @@ public class WalkScript : MonoBehaviour
     {
         LArmlength = 0;
         RArmlength = 0;
-        ForearmF.GetComponent<Collider2D>().isTrigger = false;
-        ForearmB.GetComponent<Collider2D>().isTrigger = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => isGrounded());
         LArmlength = 1f;
         RArmlength = 1f;
     }
 
-    
+   
+
 }   
