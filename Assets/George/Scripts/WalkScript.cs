@@ -25,6 +25,7 @@ public class WalkScript : MonoBehaviour
     public bool isWalking = false;
     public bool isJumping = false;
     public bool isRunning = false;
+    public bool isClimbing = false;
     public bool isCrippled = false;
     public bool canClimb = true;
     public bool canMove = true;
@@ -239,8 +240,9 @@ public class WalkScript : MonoBehaviour
         #endregion
 
         #region Player Y-Axis Movement
-        //Jump Move        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        //Jump Move
+        
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false)
         {
             PlayerDirection.y += JumpStrength;
             
@@ -282,7 +284,9 @@ public class WalkScript : MonoBehaviour
         
             if (isClimbingRight())
             {
-                GetComponent<Rigidbody2D>().gravityScale = 0;
+            isClimbing = true;
+
+            GetComponent<Rigidbody2D>().gravityScale = 0;
                 if (Input.GetKey(KeyCode.W))
                 {
                     PlayerDirection.y += ClimbSpeed * Time.deltaTime;
@@ -290,12 +294,15 @@ public class WalkScript : MonoBehaviour
                 else
                 {
                     PlayerDirection.y = 0;
+                    
                 }
 
             }
             else if (isClimbingLeft())
             {
-                GetComponent<Rigidbody2D>().gravityScale = 0;
+
+             isClimbing = true;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
                 if (Input.GetKey(KeyCode.W))
                 {
                     PlayerDirection.y += ClimbSpeed * Time.deltaTime;
@@ -303,11 +310,13 @@ public class WalkScript : MonoBehaviour
                 else
                 {
                     PlayerDirection.y = 0;
+                    
                 }
             }
             else
             {
                 GetComponent<Rigidbody2D>().gravityScale = 1;
+                isClimbing = false;
             }
         
 
@@ -340,21 +349,26 @@ public class WalkScript : MonoBehaviour
         {
             LArmlength = 1f;
             PlayerDirection.x = 0;
-            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
-            //ThighF.GetComponent<Collider2D>().isTrigger = true;
-            //ThighB.GetComponent<Collider2D>().isTrigger = true;
+            
 
 
             //Allows the player to stop climbing
-            if (isClimbingLeft() && Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             { 
                 StartCoroutine(WaitToClimb());
             }
 
-            if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.W))
             {
                 StartCoroutine(WaitToClimb());
+            }
+
+            if (isClimbingLeft() && isGrounded())
+            {
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    StartCoroutine(WaitToClimb());
+                }
             }
 
         }
@@ -364,23 +378,30 @@ public class WalkScript : MonoBehaviour
         {
             PlayerDirection.x = 0;
             RArmlength = 1f;
-            //ForearmF.GetComponent<Collider2D>().isTrigger = true;
-            //ForearmB.GetComponent<Collider2D>().isTrigger = true;
-            //ThighF.GetComponent<Collider2D>().isTrigger = true;
-            //ThighB.GetComponent<Collider2D>().isTrigger = true;
+           
 
 
-            if (isClimbingRight() && Input.GetKey(KeyCode.A))
+            if (  Input.GetKey(KeyCode.A))
             { 
                 StartCoroutine(WaitToClimb());
             }
 
-            if (Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.W))
             {
                 StartCoroutine(WaitToClimb());
             }
 
-            
+            if (isClimbingRight() && isGrounded())
+            {
+                Debug.Log("heheh");
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                { 
+                    StartCoroutine(CancelClimbWithJump());
+                }
+            }
+
+
         }
         #endregion //ends y-axis movement handling
 
@@ -432,6 +453,16 @@ public class WalkScript : MonoBehaviour
         RArmlength = 1f;
     }
 
-   
+    private IEnumerator CancelClimbWithJump()
+    {
+        LArmlength = 0;
+        RArmlength = 0;
+        PlayerDirection.y += JumpStrength;
+        yield return new WaitForSeconds(1f);
+        LArmlength = 1f;
+        RArmlength = 1f;
+    }
+
+
 
 }   
