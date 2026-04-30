@@ -353,7 +353,7 @@ public class WalkScript : MonoBehaviour
 
 
             //Allows the player to stop climbing
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) && !isGrounded())
             { 
                 StartCoroutine(WaitToClimb());
             }
@@ -369,6 +369,11 @@ public class WalkScript : MonoBehaviour
                 {
                     StartCoroutine(WaitToClimb());
                 }
+
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    StartCoroutine(CancelClimbWithMove());
+                }
             }
 
         }
@@ -381,7 +386,7 @@ public class WalkScript : MonoBehaviour
            
 
 
-            if (  Input.GetKey(KeyCode.A))
+            if (  Input.GetKey(KeyCode.A) && !isGrounded())
             { 
                 StartCoroutine(WaitToClimb());
             }
@@ -393,12 +398,17 @@ public class WalkScript : MonoBehaviour
 
             if (isClimbingRight() && isGrounded())
             {
-                Debug.Log("heheh");
-
+                
                 if (Input.GetKeyDown(KeyCode.Space))
                 { 
                     StartCoroutine(CancelClimbWithJump());
                 }
+
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    StartCoroutine(CancelClimbWithMove());
+                }
+
             }
 
 
@@ -458,6 +468,15 @@ public class WalkScript : MonoBehaviour
         LArmlength = 0;
         RArmlength = 0;
         PlayerDirection.y += JumpStrength;
+        yield return new WaitForSeconds(1f);
+        LArmlength = 1f;
+        RArmlength = 1f;
+    }
+
+    private IEnumerator CancelClimbWithMove()
+    {
+        LArmlength = 0;
+        RArmlength = 0;
         yield return new WaitForSeconds(1f);
         LArmlength = 1f;
         RArmlength = 1f;

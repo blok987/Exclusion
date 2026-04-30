@@ -8,7 +8,7 @@ TagManager:
   - hurt
   - Spike
   - GunTarget
-  - Wall&Ground
+  - WallGround
   layers:
   - Default
   - TransparentFX
