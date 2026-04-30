@@ -4,7 +4,6 @@ using UnityEngine.Rendering;
 public class BullletScript : MonoBehaviour
 {
     public float bulletSpeed;
-    private float speed = 20f;
     public Rigidbody2D rb;
 
     public Vector2 directionOfBullet;
@@ -23,7 +22,7 @@ public class BullletScript : MonoBehaviour
 
    private void OnCollisionEnter2D(Collision2D collision)
    {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall&Ground"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("WallGround"))
         {
             Destroy(gameObject);
             Debug.Log("Bullet Destroyed");
@@ -32,7 +31,7 @@ public class BullletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("WallGround"))
         {
             Destroy(gameObject);
         }
