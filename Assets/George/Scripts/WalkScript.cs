@@ -125,6 +125,8 @@ public class WalkScript : MonoBehaviour
             Acceleration = ogAcceleration;
         }
 
+        
+
 
 
 
@@ -242,7 +244,7 @@ public class WalkScript : MonoBehaviour
         #region Player Y-Axis Movement
         //Jump Move
         
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
             
@@ -321,16 +323,8 @@ public class WalkScript : MonoBehaviour
                 isClimbing = false;
             }
 
-            if (PlayerDirection.y < 0)
-            {
-                RArmlength = 0;
-                LArmlength = 0;
-            }
-            else if (PlayerDirection.y >= 0)
-            {
-                RArmlength = 1;
-                LArmlength = 1;
-            }
+        
+
 
         //Controls Animation bools for Jumping
         if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
@@ -360,8 +354,8 @@ public class WalkScript : MonoBehaviour
         if (isClimbingLeft())
         {
             LArmlength = 1f;
-            PlayerDirection.x = 0;
-            
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, 0, MaxSpeed);
+
 
 
             //Allows the player to stop climbing
@@ -377,29 +371,30 @@ public class WalkScript : MonoBehaviour
 
             if (isClimbingLeft() && isGrounded())
             {
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space) && isCrippled == false)
                 {
                     StartCoroutine(WaitToClimb());
                 }
 
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    StartCoroutine(CancelClimbWithMove());
-                }
+                
             }
 
+        }
+        else if (!isClimbingLeft())
+        {
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         }
 
         //Controls Right Climbing Cooldown
         if (isClimbingRight())
         {
-            PlayerDirection.x = 0;
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, 0);
             RArmlength = 1f;
-           
 
 
-            if (  Input.GetKey(KeyCode.A) && !isGrounded())
-            { 
+
+            if (Input.GetKey(KeyCode.A) && !isGrounded())
+            {
                 StartCoroutine(WaitToClimb());
             }
 
@@ -408,22 +403,25 @@ public class WalkScript : MonoBehaviour
                 StartCoroutine(WaitToClimb());
             }
 
+            if (isClimbingRight() && PlayerDirection.y < 0)
+            {
+                StartCoroutine(WaitToClimb());
+            }
+
             if (isClimbingRight() && isGrounded())
             {
-                
-                if (Input.GetKeyDown(KeyCode.Space))
-                { 
+
+                if (Input.GetKeyDown(KeyCode.Space) && isCrippled == false)
+                {
                     StartCoroutine(CancelClimbWithJump());
                 }
-
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    StartCoroutine(CancelClimbWithMove());
-                }
-
             }
 
 
+        }
+        else if (!isClimbingRight())
+        {
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         }
         #endregion //ends y-axis movement handling
 
@@ -441,6 +439,11 @@ public class WalkScript : MonoBehaviour
             //PlayerDirection.y += bounceHeight;
             gameObject.GetComponent<Rigidbody2D>().linearVelocityY += bounceHeight;
             PlayerAnim.SetBool("isYeowch", true);
+        }
+
+        if (collision.gameObject.CompareTag("WallGround"))
+        {
+            PlayerDirection.x = 0;
         }
     }
 
@@ -484,16 +487,4 @@ public class WalkScript : MonoBehaviour
         LArmlength = 1f;
         RArmlength = 1f;
     }
-
-    private IEnumerator CancelClimbWithMove()
-    {
-        LArmlength = 0;
-        RArmlength = 0;
-        yield return new WaitForSeconds(1f);
-        LArmlength = 1f;
-        RArmlength = 1f;
-    }
-
-
-
 }   
