@@ -4242,6 +4242,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4285934418332292174, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285934418332292174, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285934418332292174, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: healthBarArm2
       value: 
       objectReference: {fileID: 1315421219}
@@ -4310,16 +4318,28 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6220713868563633980, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220713868563633980, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220713868563633980, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: healthBarArm1
       value: 
       objectReference: {fileID: 1315421220}
+    - target: {fileID: 6338409335005214497, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6338409335005214497, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1315421216}
     - target: {fileID: 6338409335005214497, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6361497522811063763, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_TagString
@@ -4358,12 +4378,28 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7804167118335493326, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804167118335493326, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804167118335493326, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: healthBarLeg1
       value: 
       objectReference: {fileID: 1315421217}
     - target: {fileID: 8524986227060504889, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774403702815816672, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774403702815816672, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      propertyPath: maxHealth
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8774403702815816672, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       propertyPath: healthBarLeg2
