@@ -104,7 +104,7 @@ public class HealthLeg1 : MonoBehaviour
         }
 
         //Takes damage when Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded() && walkScript.isClimbing == false)
+        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded() && !walkScript.isClimbing && !walkScript.isCrippled)
         {
             StartCoroutine(JumpDegredation());
         }
