@@ -11,7 +11,7 @@ public class TurretFire : MonoBehaviour
 
     public bool canShoot = true;
 
-    private int shootCounter;
+    private float shootCounter;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,8 +47,8 @@ public class TurretFire : MonoBehaviour
     private IEnumerator Cooldown()
     {
         canShoot = false;
-        yield return new WaitForSeconds(5);
         shootCounter = 0;
+        yield return new WaitForSeconds(5);
         canShoot = true;
     }
 }
