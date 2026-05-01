@@ -90,6 +90,11 @@ public class HealthArm2 : MonoBehaviour
         {
             StartCoroutine(ClimbDamage());
         }
+
+        if (walkScript.isCrippled && canTakeDamage == true && walkScript.PlayerDirection.x > 0 || walkScript.isCrippled && canTakeDamage == true && walkScript.PlayerDirection.x < 0)
+        {
+            StartCoroutine(CrawlDamage());
+        }
     }
 
     public void TakeDamage(float amount)
@@ -113,6 +118,13 @@ public class HealthArm2 : MonoBehaviour
         canTakeDamage = true;
     }
 
-    
+    private IEnumerator CrawlDamage()
+    {
+        canTakeDamage = false;
+        health -= degredationRate;
+        healthBarArm2.UpdateHealth(degredationRate);
+        yield return new WaitForSeconds(0.5f);
+        canTakeDamage = true;
+    }
 
 }
