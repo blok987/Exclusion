@@ -125,6 +125,8 @@ public class WalkScript : MonoBehaviour
             Acceleration = ogAcceleration;
         }
 
+        
+
 
 
 
@@ -242,7 +244,7 @@ public class WalkScript : MonoBehaviour
         #region Player Y-Axis Movement
         //Jump Move
         
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
             
@@ -369,7 +371,7 @@ public class WalkScript : MonoBehaviour
 
             if (isClimbingLeft() && isGrounded())
             {
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space) && isCrippled == false)
                 {
                     StartCoroutine(WaitToClimb());
                 }
@@ -409,7 +411,7 @@ public class WalkScript : MonoBehaviour
             if (isClimbingRight() && isGrounded())
             {
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && isCrippled == false)
                 {
                     StartCoroutine(CancelClimbWithJump());
                 }
