@@ -430,10 +430,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 701962621}
         m_TargetAssemblyTypeName: StartMenuMethods, Assembly-CSharp
-        m_MethodName: startbutton
-        m_Mode: 5
+        m_MethodName: Quitbutton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701962619}
   - component: {fileID: 701962620}
+  - component: {fileID: 701962621}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -545,6 +546,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &701962621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701962618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738d7c2bece1ef2468f80b97970b492c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706146151
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,16 +940,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2052074878}
+      - m_Target: {fileID: 701962621}
         m_TargetAssemblyTypeName: StartMenuMethods, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: startbutton
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level
+          m_StringArgument: World Space
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &1889331006
@@ -1059,10 +1072,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 701962621}
         m_TargetAssemblyTypeName: StartMenuMethods, Assembly-CSharp
-        m_MethodName: startbutton
-        m_Mode: 5
+        m_MethodName: credtsbutton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

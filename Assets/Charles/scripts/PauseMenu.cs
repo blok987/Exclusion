@@ -8,10 +8,12 @@ public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
     public GameObject inv;
+    public GameObject shopiu;
 
     [SerializeField] private GameObject pauseMenu;
     public void Start()
     {
+        shopiu = GameObject.Find("shop iu");
         inv = GameObject.Find("stuff background");
 
     }
@@ -52,6 +54,7 @@ public class PauseMenu : MonoBehaviour
         if (isPaused == true)
         {
             inv.SetActive(false);
+            shopiu.SetActive(false);
         }
         else
         {
