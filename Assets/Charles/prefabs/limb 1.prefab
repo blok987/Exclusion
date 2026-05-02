@@ -153,13 +153,13 @@ MonoBehaviour:
   goodlegs: 0
   badarms: 0
   badlegs: 0
-  varrybadarms: 0
-  varrybadlegs: 0
+  verybadarms: 0
+  verybadlegs: 0
   buyPrice: 0
-  vga: {fileID: 0}
-  vgl: {fileID: 0}
-  ga: {fileID: 0}
-  gl: {fileID: 0}
-  ba: {fileID: 0}
-  bl: {fileID: 0}
-  vba: {fileID: 0}
+  vga: {fileID: 21300000, guid: 5bd5edf9201f82f41a6bcb1b528eebd8, type: 2}
+  vgl: {fileID: 21300000, guid: e66d383f85d22fb4f97a628b2c579c43, type: 2}
+  ga: {fileID: 21300000, guid: c06f53295c72ff0499cb43d9eb1abbc7, type: 2}
+  gl: {fileID: 21300000, guid: c5036b36d2377ec4a8078260343c6af1, type: 2}
+  ba: {fileID: 21300000, guid: d6be252f9f0909f4b842d0483bc5db9f, type: 2}
+  bl: {fileID: 21300000, guid: 1b3141e317e7967459561e6bd11cc3d3, type: 2}
+  vba: {fileID: 21300000, guid: adc5a83040e34fc4aa7e77af338c4483, type: 2}

@@ -1,9 +1,11 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class BuyingLimbs : MonoBehaviour
 {
-    OpenShop os;
+    public GameObject shopiu;
+    public OpenShop os;
     public ItemData itemData;
     public inventory i;
 
@@ -14,7 +16,7 @@ public class BuyingLimbs : MonoBehaviour
     public int badarms;
     public int badlegs;
     public int verybadarms;
-    public int verybadlegs;
+  
     public int buyPrice;
 
     public Sprite vga;
@@ -24,13 +26,23 @@ public class BuyingLimbs : MonoBehaviour
     public Sprite ba;
     public Sprite bl;
     public Sprite vba;
-    
+
+    public UnityEngine.UI.Image sr;
+    public Sprite cs;
+
+    public Canvas canvas;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        shopiu = GameObject.Find("shop iu");
+
+        os = shopiu.GetComponent<OpenShop>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        i = canvas.GetComponent<inventory>();
+        sr = GetComponent<UnityEngine.UI.Image>();
+        cs = sr.sprite;
         greatarms = os.greatarms;
         goodarms = os.goodarms;
         badarms = os.badarms;
@@ -38,49 +50,55 @@ public class BuyingLimbs : MonoBehaviour
         greatlegs = os.greatlegs;
         goodlegs = os.goodlegs;
         badlegs = os.badlegs;
-        
+        if (greatlegs == 0 && cs == vgl)
+        {
+            this.gameObject.SetActive(false);
+        }
+        if (greatarms == 0 && cs == vga)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
-    
-    
+
     public void Buy()
     {
-        if (this == vga || this == vgl)
+        if (cs == vga || cs == vgl)
         {
             buyPrice = 15;
-            if (this == vga)
+            if (cs == vga)
             {
                 greatarms -= 1;
             }
-            else if (this == vgl)
+            else if (cs == vgl)
             {
                 greatlegs -=1;
             }
         }
-        else if (this == ga || this == gl)
+        else if (cs == ga || cs == gl)
         {
             buyPrice = 10;
-            if (this == ga)
+            if (cs == ga)
             {
                 goodarms -= 1;
             }
-            else if (this == gl)
+            else if (cs == gl)
             {
                 goodlegs -= 1;
             }
         }
-        else if (this == ba || this == bl)
+        else if (cs == ba || cs == bl)
         {
             buyPrice = 7;
-            if (this == ba)
+            if (cs == ba)
             {
                 badarms -= 1;
             }
-            else if (this == bl)
+            else if (cs == bl)
             {
                 badlegs -= 1;
             }
         }
-        else if (this == vba)
+        else if (cs == vba)
         {
             buyPrice = 3;
             verybadarms -= 1;
