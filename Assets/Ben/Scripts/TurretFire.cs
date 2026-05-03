@@ -13,6 +13,14 @@ public class TurretFire : MonoBehaviour
 
     private float shootCounter;
 
+    public AudioClip shootSound;
+
+
+    void Start()
+    {
+        shootCounter = 0;
+        shootSound = Resources.Load<AudioClip>("Audio/SFX/gunshot");
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
@@ -40,6 +48,7 @@ public class TurretFire : MonoBehaviour
         if (canShoot)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            AudioSource.PlayClipAtPoint(shootSound, transform.position);
             shootCounter += 1;
         }
     }

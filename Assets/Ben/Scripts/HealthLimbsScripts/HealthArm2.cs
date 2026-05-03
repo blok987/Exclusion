@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using JetBrains.Annotations;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class HealthArm2 : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class HealthArm2 : MonoBehaviour
     private WalkScript walkScript;
 
     public bool canTakeDamage = true;
+    public bool hasPlayedFD = false;
+    public bool hasPlayedBD = false;
 
     public float degredationRate = 0.09f;
 
@@ -28,6 +31,15 @@ public class HealthArm2 : MonoBehaviour
 
     private Sprite RDollForeArmSLV;
     private Sprite RDollUpperArmSLV;
+
+    AudioSource audioSource;
+
+    public AudioClip Crack1;
+    public AudioClip Crack2;
+    public AudioClip Crack3;
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,11 +59,26 @@ public class HealthArm2 : MonoBehaviour
 
         RDollForeArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Forearm FRONT SLV");
         RDollUpperArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Upper Arm FRONT SLV");
+
+        audioSource = gameObject.GetComponentInParent<AudioSource>();
+
+        Crack1 = Resources.Load<AudioClip>("Audio/SFX/crack1");
+        Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
+        Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (health > 5)
+        {
+            hasPlayedBD = false;
+        }
+        if (health > 2)
+        {
+            hasPlayedFD = false;
+        }
 
         if (health > 10)
         {
@@ -68,11 +95,47 @@ public class HealthArm2 : MonoBehaviour
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArmBD;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmBD;
+
+            if (hasPlayedBD == false)
+            {
+                int randomCrackBD = Random.Range(1, 4);
+                switch (randomCrackBD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedBD = true;
+            }
         }
         if (health <= 2)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForearmFD;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmFD;
+
+            if (hasPlayedFD == false)
+            {
+                int randomCrackFD = Random.Range(1, 4);
+                switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedFD = true;
+            }
         }
 
         if (health <= 0)

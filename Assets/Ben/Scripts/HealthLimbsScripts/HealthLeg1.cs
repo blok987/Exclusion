@@ -13,6 +13,8 @@ public class HealthLeg1 : MonoBehaviour
     private WalkScript walkScript;
 
     private bool canTakeDamage = true;
+    public bool hasPlayedFD = false;
+    public bool hasPlayedBD = false;
 
     private Sprite LDollLeg;
     private Sprite LDollLegThigh;
@@ -27,7 +29,13 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegThighSLV;
 
     public float degredationRate = 0.09f;
-    public float runDegredationRate = 0.115f;    
+    public float runDegredationRate = 0.115f;
+
+    AudioSource audioSource;
+
+    public AudioClip Crack1;
+    public AudioClip Crack2;
+    public AudioClip Crack3;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,12 +56,25 @@ public class HealthLeg1 : MonoBehaviour
 
         LDollLegSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Leg BACK SLV");
         LDollLegThighSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Thigh BACK SLV");
+
+        audioSource = gameObject.GetComponentInParent<AudioSource>();
+
+        Crack1 = Resources.Load<AudioClip>("Audio/SFX/crack1");
+        Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
+        Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (health > 5)
+        {
+            hasPlayedBD = false;
+        }
+        if (health > 2)
+        {
+            hasPlayedFD = false;
+        }
         if (health > 10)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegSLV;
@@ -71,12 +92,48 @@ public class HealthLeg1 : MonoBehaviour
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegBD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighBD;
+
+            if (hasPlayedBD == false)
+            {
+                int randomCrackBD = Random.Range(1, 4);
+                switch (randomCrackBD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedBD = true;
+            }
         }
         //Shows fully damaged sprites when health is very low
         if (health <= 2)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegFD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighFD;
+
+            if (hasPlayedFD == false)
+            {
+                int randomCrackFD = Random.Range(1, 4);
+                switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedFD = true;
+            }
         }
         if (health <= 0)
         {
