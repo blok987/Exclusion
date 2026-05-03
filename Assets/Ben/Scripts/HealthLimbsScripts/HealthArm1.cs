@@ -16,6 +16,7 @@ public class HealthArm1 : MonoBehaviour
 
     public bool hasPlayedBD = false;  
     public bool hasPlayedFD = false;
+    public bool hasPlayedD = false;
 
     public Sprite LDollForeArm;
     public Sprite LDollUpperArm;
@@ -36,6 +37,12 @@ public class HealthArm1 : MonoBehaviour
     public AudioClip Crack1;
     public AudioClip Crack2;
     public AudioClip Crack3;
+
+    public AudioClip creak1;
+    public AudioClip creak2;
+
+    private ParticleSystem hitParticleL1;
+    private ParticleSystem hitParticleL2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,6 +69,12 @@ public class HealthArm1 : MonoBehaviour
         Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
         Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
 
+        creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
+        creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
+
+        hitParticleL1 = GameObject.Find("bone_7").GetComponent<ParticleSystem>();
+        hitParticleL2 = GameObject.Find("bone_8").GetComponent<ParticleSystem>();
+
     }
 
     // Update is called once per frame
@@ -74,6 +87,10 @@ public class HealthArm1 : MonoBehaviour
         if (health > 2)
         {
             hasPlayedFD = false;
+        }
+        if (health > 0)
+        {
+            hasPlayedD = false;
         }
 
         if (health > 10)
@@ -94,21 +111,21 @@ public class HealthArm1 : MonoBehaviour
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmBD;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmBD;
-
+            
             if (hasPlayedBD == false)
             {
-                int randomCrackBD = Random.Range(1, 4);
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
                     case 1:
-                        audioSource.PlayOneShot(Crack1);
+                        audioSource.PlayOneShot(creak1);
                         break;
-                    case 2:
-                        audioSource.PlayOneShot(Crack2);
-                        break;
-                    case 3:
-                        audioSource.PlayOneShot(Crack3);
-                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
                 }
                 hasPlayedBD = true;
             }
@@ -122,8 +139,32 @@ public class HealthArm1 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                int randomCrackFD = Random.Range(1, 4);
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
+                }
+                hasPlayedFD = true;
+            }
+            
+        }
+
+        if (health <= 0)
+        {
+           DollForermL.SetActive(false);
+           DollUpperArmL.SetActive(false);
+            if (hasPlayedD == false)
+            {
+                int randomCrackD = Random.Range(1, 4);
+                switch (randomCrackD)
                 {
                     case 1:
                         audioSource.PlayOneShot(Crack1);
@@ -135,15 +176,8 @@ public class HealthArm1 : MonoBehaviour
                         audioSource.PlayOneShot(Crack3);
                         break;
                 }
-                hasPlayedFD = true;
+                hasPlayedD = true;
             }
-            
-        }
-
-        if (health <= 0)
-        {
-           DollForermL.SetActive(false);
-           DollUpperArmL.SetActive(false);
         }
         else if (health > 0)
         {

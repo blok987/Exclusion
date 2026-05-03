@@ -33,13 +33,6 @@ public class WalkScript : MonoBehaviour
     public AudioSource audioSource;
 
     //Audio Clips for Player Actions
-    public AudioClip Crack1;
-    public AudioClip Crack2;
-    public AudioClip Crack3;
-
-    public AudioClip Creak1;
-    public AudioClip Creak2;
-
     public AudioClip Step1;
     public AudioClip Step2;
     public AudioClip Step3;

@@ -15,6 +15,8 @@ public class HealthLeg1 : MonoBehaviour
     private bool canTakeDamage = true;
     public bool hasPlayedFD = false;
     public bool hasPlayedBD = false;
+    public bool hasPlayedD = false;
+    public bool hasPlayedSLV = false;
 
     private Sprite LDollLeg;
     private Sprite LDollLegThigh;
@@ -37,12 +39,22 @@ public class HealthLeg1 : MonoBehaviour
     public AudioClip Crack2;
     public AudioClip Crack3;
 
+    public AudioClip creak1;
+    public AudioClip creak2;
+
+    private ParticleSystem hitParticleL1;
+    private ParticleSystem hitParticleL2;
+
+    private ParticleSystem hitParticleSLV1;
+    private ParticleSystem hitParticleSLV2;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
         canTakeDamage = true;
+        hasPlayedSLV = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
 
         LDollLeg = Resources.Load<Sprite>("Limbs/NLimbs/Doll Leg BACK");
@@ -62,11 +74,25 @@ public class HealthLeg1 : MonoBehaviour
         Crack1 = Resources.Load<AudioClip>("Audio/SFX/crack1");
         Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
         Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
+
+        creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
+        creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
+
+        hitParticleL1 = GameObject.Find("bone_11").GetComponent<ParticleSystem>();
+        hitParticleL2 = GameObject.Find("bone_12").GetComponent<ParticleSystem>();
+        
+        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVLL1").GetComponent<ParticleSystem>();
+        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVLL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health > 10)
+        {
+            hasPlayedSLV = false;
+        }
+
         if (health > 5)
         {
             hasPlayedBD = false;
@@ -85,6 +111,24 @@ public class HealthLeg1 : MonoBehaviour
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLeg;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThigh;
+
+                if (hasPlayedSLV == false)
+                {
+                    hitParticleSLV1.Play();
+                    hitParticleSLV2.Play();
+                    //int randomCrackSLV = Random.Range(1, 3);
+                    //switch (randomCrackSLV)
+                    //{
+                    //    case 1:
+                    //        audioSource.PlayOneShot(creak1);
+                    //        break;
+                    //    case 2:
+                    //        audioSource.PlayOneShot(creak2);
+                    //        break;
+                        
+                    //}
+                    hasPlayedSLV = true;
+            }
         }
 
         //Shows degredation sprites when helath is half
@@ -95,18 +139,18 @@ public class HealthLeg1 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                int randomCrackBD = Random.Range(1, 4);
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
                     case 1:
-                        audioSource.PlayOneShot(Crack1);
+                        audioSource.PlayOneShot(creak1);
                         break;
-                    case 2:
-                        audioSource.PlayOneShot(Crack2);
-                        break;
-                    case 3:
-                        audioSource.PlayOneShot(Crack3);
-                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
                 }
                 hasPlayedBD = true;
             }
@@ -119,8 +163,27 @@ public class HealthLeg1 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                int randomCrackFD = Random.Range(1, 4);
+                int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    
+                }
+                hasPlayedFD = true;
+            }
+        }
+        if (health <= 0)
+        {
+            DollLegL.SetActive(false);
+            DollLegThighL.SetActive(false);
+
+            if (hasPlayedD == false)
+            {
+                int randomCrackD = Random.Range(1, 4);
+                switch (randomCrackD)
                 {
                     case 1:
                         audioSource.PlayOneShot(Crack1);
@@ -132,13 +195,8 @@ public class HealthLeg1 : MonoBehaviour
                         audioSource.PlayOneShot(Crack3);
                         break;
                 }
-                hasPlayedFD = true;
+                hasPlayedD = true;
             }
-        }
-        if (health <= 0)
-        {
-            DollLegL.SetActive(false);
-            DollLegThighL.SetActive(false);
         }
         else if (health > 0)
         {

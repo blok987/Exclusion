@@ -18,11 +18,19 @@ public class RandomArmDamage : MonoBehaviour
     private bool canBeHurtCol;
     private bool canBeHurtTri;
 
+    private ParticleSystem hitParticleR1;
+    private ParticleSystem hitParticleR2;
+
+    private ParticleSystem hitParticleL1;
+    private ParticleSystem hitParticleL2;
+
 
     private void Start()
     {
         canBeHurtCol = true;
         canBeHurtTri = true;
+
+        
     }
 
     private void FixedUpdate()
@@ -64,6 +72,7 @@ public class RandomArmDamage : MonoBehaviour
                 if (rd <= 10 && isArm1Dead == false)
                 {
                     playerArm1Health.TakeDamage(2);
+                    
                     Debug.Log("Arm 1 took damage");
                     playerBodyCollision.isArm1Colliding = true;
                     Debug.Log("rd is " + rd);
