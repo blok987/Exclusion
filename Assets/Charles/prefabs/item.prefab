@@ -201,7 +201,7 @@ MonoBehaviour:
   healthmax: 0
   sr: {fileID: 1259683345305503168}
   s: {fileID: 0}
-  vg: {fileID: 7521540838565234124, guid: 62fa7613c902fef4a9c7ae9ea47eadde, type: 3}
+  vg: {fileID: -2204822247264875186, guid: b973eea0b6d35aa45b8491512f7469c7, type: 3}
   g: {fileID: -6302750096720141784, guid: d19575e16dc8cbf4da1938f9b1fe1b7e, type: 3}
   b: {fileID: -4634770665792126417, guid: cfe066bd836f72740a52977da4d09ae7, type: 3}
   vb: {fileID: -8586211775191379449, guid: f800d3f423cb56543963e9ec5ed4dccd, type: 3}
