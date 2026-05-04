@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
+    m_PressedColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    m_SelectedColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     m_DisabledColor: {r: 0.21698111, g: 0.17706478, b: 0.17706478, a: 0.43137255}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -145,8 +145,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b324a96e86752469a1860d678ca53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopiu: {fileID: 0}
+  os: {fileID: 0}
   itemData: {fileID: 0}
   i: {fileID: 0}
+  player: {fileID: 0}
+  asp: {fileID: 7505753121980178173, guid: 73176a6ca36875345a5164e38dbf0e7e, type: 3}
+  ap: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
+  adp: {fileID: 7505753121980178173, guid: 0d1a79ccb52e5fe40a019e72ff74ff0a, type: 3}
+  afdp: {fileID: 7505753121980178173, guid: 4fbff08afc8ed6746bbdfbf4797f4be1, type: 3}
+  lsp: {fileID: 1069952089090714574, guid: 349e8422cd184f24e9a40afc57cb95d5, type: 3}
+  lp: {fileID: 1069952089090714574, guid: 4a53c4ad47a5739419b98f78538316e6, type: 3}
+  ldp: {fileID: 1069952089090714574, guid: ebf8f15281b935d41a0f5e5740f6b7d9, type: 3}
+  lfdp: {fileID: 1069952089090714574, guid: fbdc53d1eaa822442b1fb2f1b534816c, type: 3}
   greatarms: 0
   greatlegs: 0
   goodarms: 0
@@ -154,7 +165,6 @@ MonoBehaviour:
   badarms: 0
   badlegs: 0
   verybadarms: 0
-  verybadlegs: 0
   buyPrice: 0
   vga: {fileID: 21300000, guid: 5bd5edf9201f82f41a6bcb1b528eebd8, type: 2}
   vgl: {fileID: 21300000, guid: e66d383f85d22fb4f97a628b2c579c43, type: 2}
@@ -163,3 +173,6 @@ MonoBehaviour:
   ba: {fileID: 21300000, guid: d6be252f9f0909f4b842d0483bc5db9f, type: 2}
   bl: {fileID: 21300000, guid: 1b3141e317e7967459561e6bd11cc3d3, type: 2}
   vba: {fileID: 21300000, guid: adc5a83040e34fc4aa7e77af338c4483, type: 2}
+  sr: {fileID: 0}
+  cs: {fileID: 0}
+  canvas: {fileID: 0}

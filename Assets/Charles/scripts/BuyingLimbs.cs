@@ -1,5 +1,7 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using NUnit.Framework.Interfaces;
+using System;
+using UnityEditor;
 using UnityEngine;
 
 public class BuyingLimbs : MonoBehaviour
@@ -8,16 +10,30 @@ public class BuyingLimbs : MonoBehaviour
     public OpenShop os;
     public ItemData itemData;
     public inventory i;
+    
+    public GameObject player;
+    public GameObject money;
+    public textmesh
 
-    public int greatarms;
-    public int greatlegs;
-    public int goodarms;
-    public int goodlegs;
-    public int badarms;
-    public int badlegs;
-    public int verybadarms;
+    public GameObject asp;
+    public GameObject ap;
+    public GameObject adp;
+    public GameObject afdp;
+
+    public GameObject lsp;
+    public GameObject lp;
+    public GameObject ldp;
+    public GameObject lfdp;
+
+    public float greatarms;
+    public float greatlegs;
+    public float goodarms;
+    public float goodlegs;
+    public float badarms;
+    public float badlegs;
+    public float verybadarms;
   
-    public int buyPrice;
+    public float buyPrice;
 
     public Sprite vga;
     public Sprite vgl;
@@ -37,9 +53,10 @@ public class BuyingLimbs : MonoBehaviour
     void Start()
     {
         shopiu = GameObject.Find("shop iu");
-
+        player = GameObject.FindWithTag("Player");
         os = shopiu.GetComponent<OpenShop>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        money = GameObject.Find("canvas/stuff background/stuff/money holder/Money");
         i = canvas.GetComponent<inventory>();
         sr = GetComponent<UnityEngine.UI.Image>();
         cs = sr.sprite;
@@ -67,11 +84,23 @@ public class BuyingLimbs : MonoBehaviour
             buyPrice = 15;
             if (cs == vga)
             {
-                greatarms -= 1;
+                
+                if (greatarms > 0)
+                {
+                    Instantiate(asp, player.transform.position, Quaternion.identity);
+                    greatarms -= 1;
+                }
+                
             }
             else if (cs == vgl)
             {
-                greatlegs -=1;
+               
+                if (greatlegs > 0)
+                {
+                    Instantiate(lsp, player.transform.position, Quaternion.identity);
+                    greatlegs -=1;
+                }
+
             }
         }
         else if (cs == ga || cs == gl)
@@ -79,11 +108,23 @@ public class BuyingLimbs : MonoBehaviour
             buyPrice = 10;
             if (cs == ga)
             {
-                goodarms -= 1;
+               
+                if (goodarms > 0)
+                {
+                    Instantiate(ap, player.transform.position, Quaternion.identity);
+                    goodarms -= 1;
+                }
+
             }
             else if (cs == gl)
             {
-                goodlegs -= 1;
+                
+                if (goodlegs > 0)
+                {
+                    Instantiate(lp, player.transform.position, Quaternion.identity);
+                    goodlegs -= 1;
+                }
+
             }
         }
         else if (cs == ba || cs == bl)
@@ -91,18 +132,35 @@ public class BuyingLimbs : MonoBehaviour
             buyPrice = 7;
             if (cs == ba)
             {
-                badarms -= 1;
+                
+                if (badarms > 0)
+                {
+                    Instantiate(adp, player.transform.position, Quaternion.identity);
+                    badarms -= 1;
+                }
+
             }
             else if (cs == bl)
             {
-                badlegs -= 1;
+                
+                if (badlegs > 0)
+                {
+                    Instantiate(ldp, player.transform.position, Quaternion.identity);
+                    badlegs -= 1;
+                }
+
             }
         }
         else if (cs == vba)
         {
             buyPrice = 3;
-            verybadarms -= 1;
             
+            if (verybadarms > 0)
+            {
+                Instantiate(afdp, player.transform.position, Quaternion.identity);
+                verybadarms -= 1;
+            }
+
         }
 
         inventory.items.Add(itemData);
