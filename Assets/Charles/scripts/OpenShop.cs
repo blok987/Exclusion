@@ -5,11 +5,8 @@ public class OpenShop : MonoBehaviour
 {
     public GameObject shopUI;
     public GameObject player;
-    public inventoryiteminstance iii;
-    public GameObject limbToBuy;
-    public int sellPrice;
-    public ItemData itemData;
-    public inventory i;
+    public InventoryItemInstance iii;
+   
     public int buyPrice;
 
     public int greatarms;
@@ -19,7 +16,7 @@ public class OpenShop : MonoBehaviour
     public int badarms;
     public int badlegs;
     public int verybadarms;
-    public int verybadlegs;
+   
     
     public GameObject greatarm;
     public GameObject goodarm;
@@ -28,31 +25,28 @@ public class OpenShop : MonoBehaviour
     public GameObject greatleg;
     public GameObject goodleg;
     public GameObject badleg;
-    public GameObject verybadleg;
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        shopUI = GameObject.Find("shop ui");
+        shopUI = this.gameObject;
         player = GameObject.FindWithTag("Player");
-        limbToBuy = GameObject.Find("buyablelimbs");
+       
         shopUI.SetActive(false);
         greatarms= Random.Range(0, 2);
         greatlegs = Random.Range(0, 2);
-        goodarms = Random.Range(0, 4);
-        goodlegs = Random.Range(0, 4);
-        badarms = Random.Range(0, 6);
-        badlegs = Random.Range(0, 6);
-        verybadarms = Random.Range(0, 8);
-        verybadlegs = Random.Range(0, 8);
+        goodarms = Random.Range(1, 4);
+        goodlegs = Random.Range(1, 4);
+        badarms = Random.Range(1, 6);
+        badlegs = Random.Range(1, 6);
+        verybadarms = Random.Range(1, 8);
+       
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void Openshop() 
     {
         shopUI.SetActive(true);
@@ -68,8 +62,4 @@ public class OpenShop : MonoBehaviour
 
     }
      
-}
-
-public class inventoryiteminstance
-{
 }

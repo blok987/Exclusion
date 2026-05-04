@@ -13,6 +13,10 @@ public class HealthLeg1 : MonoBehaviour
     private WalkScript walkScript;
 
     private bool canTakeDamage = true;
+    public bool hasPlayedFD = false;
+    public bool hasPlayedBD = false;
+    public bool hasPlayedD = false;
+    public bool hasPlayedSLV = false;
 
     private Sprite LDollLeg;
     private Sprite LDollLegThigh;
@@ -27,7 +31,22 @@ public class HealthLeg1 : MonoBehaviour
     private Sprite LDollLegThighSLV;
 
     public float degredationRate = 0.09f;
-    public float runDegredationRate = 0.115f;    
+    public float runDegredationRate = 0.115f;
+
+    AudioSource audioSource;
+
+    public AudioClip Crack1;
+    public AudioClip Crack2;
+    public AudioClip Crack3;
+
+    public AudioClip creak1;
+    public AudioClip creak2;
+
+    private ParticleSystem hitParticleL1;
+    private ParticleSystem hitParticleL2;
+
+    private ParticleSystem hitParticleSLV1;
+    private ParticleSystem hitParticleSLV2;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +54,7 @@ public class HealthLeg1 : MonoBehaviour
     {
         health = maxHealth;
         canTakeDamage = true;
+        hasPlayedSLV = true;
         walkScript = transform.parent.GetComponent<WalkScript>();
 
         LDollLeg = Resources.Load<Sprite>("Limbs/NLimbs/Doll Leg BACK");
@@ -48,12 +68,39 @@ public class HealthLeg1 : MonoBehaviour
 
         LDollLegSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Leg BACK SLV");
         LDollLegThighSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Thigh BACK SLV");
+
+        audioSource = gameObject.GetComponentInParent<AudioSource>();
+
+        Crack1 = Resources.Load<AudioClip>("Audio/SFX/crack1");
+        Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
+        Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
+
+        creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
+        creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
+
+        hitParticleL1 = GameObject.Find("bone_11").GetComponent<ParticleSystem>();
+        hitParticleL2 = GameObject.Find("bone_12").GetComponent<ParticleSystem>();
+        
+        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVLL1").GetComponent<ParticleSystem>();
+        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVLL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health > 10)
+        {
+            hasPlayedSLV = false;
+        }
 
+        if (health > 5)
+        {
+            hasPlayedBD = false;
+        }
+        if (health > 2)
+        {
+            hasPlayedFD = false;
+        }
         if (health > 10)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegSLV;
@@ -64,6 +111,24 @@ public class HealthLeg1 : MonoBehaviour
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLeg;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThigh;
+
+                if (hasPlayedSLV == false)
+                {
+                    hitParticleSLV1.Play();
+                    hitParticleSLV2.Play();
+                    //int randomCrackSLV = Random.Range(1, 3);
+                    //switch (randomCrackSLV)
+                    //{
+                    //    case 1:
+                    //        audioSource.PlayOneShot(creak1);
+                    //        break;
+                    //    case 2:
+                    //        audioSource.PlayOneShot(creak2);
+                    //        break;
+                        
+                    //}
+                    hasPlayedSLV = true;
+            }
         }
 
         //Shows degredation sprites when helath is half
@@ -71,17 +136,67 @@ public class HealthLeg1 : MonoBehaviour
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegBD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighBD;
+
+            if (hasPlayedBD == false)
+            {
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackBD = Random.Range(1, 2);
+                switch (randomCrackBD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
+                }
+                hasPlayedBD = true;
+            }
         }
         //Shows fully damaged sprites when health is very low
         if (health <= 2)
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegFD;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighFD;
+
+            if (hasPlayedFD == false)
+            {
+                int randomCrackFD = Random.Range(1, 2);
+                switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    
+                }
+                hasPlayedFD = true;
+            }
         }
         if (health <= 0)
         {
             DollLegL.SetActive(false);
             DollLegThighL.SetActive(false);
+
+            if (hasPlayedD == false)
+            {
+                int randomCrackD = Random.Range(1, 4);
+                switch (randomCrackD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedD = true;
+            }
         }
         else if (health > 0)
         {
@@ -104,7 +219,7 @@ public class HealthLeg1 : MonoBehaviour
         }
 
         //Takes damage when Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded() && walkScript.isClimbing == false)
+        if (Input.GetKeyDown(KeyCode.Space) && walkScript.isGrounded() && !walkScript.isClimbing && !walkScript.isCrippled)
         {
             StartCoroutine(JumpDegredation());
         }

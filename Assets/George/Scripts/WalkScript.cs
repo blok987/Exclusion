@@ -30,6 +30,14 @@ public class WalkScript : MonoBehaviour
     public bool canClimb = true;
     public bool canMove = true;
 
+    public AudioSource audioSource;
+
+    //Audio Clips for Player Actions
+    public AudioClip Step1;
+    public AudioClip Step2;
+    public AudioClip Step3;
+    public AudioClip Step4;
+
     public Vector2 PlayerDirection;
     //Offsets for the raycasts to check for ground and climbable walls
     public Vector2 GroundOffset;
@@ -63,8 +71,10 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
-    private HealthLeg1 healthLeg1; // Reference to the HealthLeg1 script
+    private HealthLeg1 healthLeg1; 
     private HealthLeg2 healthLeg2;
+
+    private int RandomFootstep;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -76,7 +86,7 @@ public class WalkScript : MonoBehaviour
         //Animator for Player
         PlayerAnim = GetComponent<Animator>();
 
-        //Grabs the Sprite Renderers for the limbs, used for degredation
+        //Grabs the Sprite Renderers for the limbs, used for flipping the sprite
         ForearmFRONT = transform.Find("Doll Forearm FRONT").GetComponent<SpriteRenderer>();
         UpperArmFRONT = transform.Find("Doll Upper Arm FRONT").GetComponent<SpriteRenderer>();
         ForearmBACK = transform.Find("Doll Forearm BACK").GetComponent<SpriteRenderer>();
@@ -89,13 +99,19 @@ public class WalkScript : MonoBehaviour
         healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
         healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
 
+        audioSource = GetComponent<AudioSource>();
 
+        //References for the audio clips for the player, used for degredation and footsteps
+        Step1 = Resources.Load<AudioClip>("Audio/SFX/step1");
+        Step2 = Resources.Load<AudioClip>("Audio/SFX/step2");
+        Step3 = Resources.Load<AudioClip>("Audio/SFX/step3");
+        Step4 = Resources.Load<AudioClip>("Audio/SFX/step4");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         #region Player Movement Handling
 
         //Player Gravity
@@ -103,7 +119,7 @@ public class WalkScript : MonoBehaviour
 
         //Yewoch Animation stop
         if (isGrounded() && PlayerAnim.GetBool("isYeowch"))
-        {      
+        {
             PlayerAnim.SetBool("isYeowch", false);
         }
 
@@ -128,6 +144,8 @@ public class WalkScript : MonoBehaviour
 
 
 
+
+
         #region Player X-Axis Movement
         if (Input.GetKey(KeyCode.D) && canMove)//+X Move
         {
@@ -135,8 +153,9 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x += Acceleration * Time.deltaTime;
+               
                 //Flips the Player's Sprite when moving left
-                
+
 
                 ForearmFRONT.sortingOrder = 12;
                 UpperArmFRONT.sortingOrder = 11;
@@ -157,7 +176,7 @@ public class WalkScript : MonoBehaviour
 
             }
 
-            
+
 
         }
 
@@ -167,9 +186,10 @@ public class WalkScript : MonoBehaviour
             if (isGrounded())
             {
                 PlayerDirection.x -= Acceleration * Time.deltaTime;
+              
                 //Flips the Player's Sprite when moving left
-                
-               
+
+
                 ForearmFRONT.sortingOrder = 1;
                 UpperArmFRONT.sortingOrder = 2;
 
@@ -189,7 +209,7 @@ public class WalkScript : MonoBehaviour
 
             }
 
-            
+
 
         }
         else //Handles no X-axis Input
@@ -228,7 +248,7 @@ public class WalkScript : MonoBehaviour
 
         if ((PlayerDirection.x >= 7 || PlayerDirection.x <= -7) && isGrounded())
         {
-            
+
             PlayerAnim.SetBool("isRunning", true);
             isWalking = false;
             isRunning = true;
@@ -241,32 +261,32 @@ public class WalkScript : MonoBehaviour
 
         #region Player Y-Axis Movement
         //Jump Move
-        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false)
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
-            
+
 
         }
-     
+
         if (!isGrounded())
         {
             PlayerAnim.SetBool("isJumping", true);
-           
+
         }
         else if (isGrounded())
         {
-            
+
             PlayerAnim.SetBool("isJumping", false);
-           
-        
+
+
         }
 
-       
+
         if (!isGrounded() && !isClimbingLeft() && !isClimbingRight())
         {
             isJumping = true;
-            
+
         }
         else if (isGrounded() || isClimbingLeft() || isClimbingRight())
         {
@@ -277,60 +297,52 @@ public class WalkScript : MonoBehaviour
         if (isJumping == true)
         {
             isRunning = false;
-            isWalking = false; 
+            isWalking = false;
         }
 
 
 
         //Climbing Movement 
-        
-            if (isClimbingRight())
-            {
+
+        if (isClimbingRight())
+        {
             isClimbing = true;
 
             GetComponent<Rigidbody2D>().gravityScale = 0;
-                if (Input.GetKey(KeyCode.W))
-                {
-                    PlayerDirection.y += ClimbSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    PlayerDirection.y = 0;
-                    
-                }
-
-            }
-            else if (isClimbingLeft())
+            if (Input.GetKey(KeyCode.W))
             {
-
-             isClimbing = true;
-            GetComponent<Rigidbody2D>().gravityScale = 0;
-                if (Input.GetKey(KeyCode.W))
-                {
-                    PlayerDirection.y += ClimbSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    PlayerDirection.y = 0;
-                    
-                }
+                PlayerDirection.y += ClimbSpeed * Time.deltaTime;
             }
             else
             {
-                GetComponent<Rigidbody2D>().gravityScale = 1;
-                isClimbing = false;
+                PlayerDirection.y = 0;
+
             }
 
-            if (PlayerDirection.y < 0)
+        }
+        else if (isClimbingLeft())
+        {
+
+            isClimbing = true;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            if (Input.GetKey(KeyCode.W))
             {
-                RArmlength = 0;
-                LArmlength = 0;
+                PlayerDirection.y += ClimbSpeed * Time.deltaTime;
             }
-            else if (PlayerDirection.y >= 0)
+            else
             {
-                RArmlength = 1;
-                LArmlength = 1;
+                PlayerDirection.y = 0;
+
             }
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 1;
+            isClimbing = false;
+        }
+
+
+
 
         //Controls Animation bools for Jumping
         if (!isGrounded() && !isClimbingLeft() || !isGrounded() && !isClimbingRight())
@@ -360,13 +372,13 @@ public class WalkScript : MonoBehaviour
         if (isClimbingLeft())
         {
             LArmlength = 1f;
-            PlayerDirection.x = 0;
-            
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, 0, MaxSpeed);
+
 
 
             //Allows the player to stop climbing
             if (Input.GetKey(KeyCode.D) && !isGrounded())
-            { 
+            {
                 StartCoroutine(WaitToClimb());
             }
 
@@ -377,29 +389,30 @@ public class WalkScript : MonoBehaviour
 
             if (isClimbingLeft() && isGrounded())
             {
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space) && isCrippled == false)
                 {
                     StartCoroutine(WaitToClimb());
                 }
 
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    StartCoroutine(CancelClimbWithMove());
-                }
+
             }
 
+        }
+        else if (!isClimbingLeft())
+        {
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         }
 
         //Controls Right Climbing Cooldown
         if (isClimbingRight())
         {
-            PlayerDirection.x = 0;
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, 0);
             RArmlength = 1f;
-           
 
 
-            if (  Input.GetKey(KeyCode.A) && !isGrounded())
-            { 
+
+            if (Input.GetKey(KeyCode.A) && !isGrounded())
+            {
                 StartCoroutine(WaitToClimb());
             }
 
@@ -408,39 +421,47 @@ public class WalkScript : MonoBehaviour
                 StartCoroutine(WaitToClimb());
             }
 
+            if (isClimbingRight() && PlayerDirection.y < 0)
+            {
+                StartCoroutine(WaitToClimb());
+            }
+
             if (isClimbingRight() && isGrounded())
             {
-                
-                if (Input.GetKeyDown(KeyCode.Space))
-                { 
+
+                if (Input.GetKeyDown(KeyCode.Space) && isCrippled == false)
+                {
                     StartCoroutine(CancelClimbWithJump());
                 }
-
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    StartCoroutine(CancelClimbWithMove());
-                }
-
             }
 
 
+        }
+        else if (!isClimbingRight())
+        {
+            PlayerDirection.x = Mathf.Clamp(PlayerDirection.x, -MaxSpeed, MaxSpeed);
         }
         #endregion //ends y-axis movement handling
 
 
         GetComponent<Rigidbody2D>().linearVelocity = PlayerDirection;
-        
+
         #endregion
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
-         {
+        {
             Debug.Log("Player hit a spike! Bouncing.");
             //PlayerDirection.y += bounceHeight;
             gameObject.GetComponent<Rigidbody2D>().linearVelocityY += bounceHeight;
             PlayerAnim.SetBool("isYeowch", true);
+        }
+
+        if (collision.gameObject.CompareTag("WallGround"))
+        {
+            PlayerDirection.x = 0;
         }
     }
 
@@ -450,11 +471,11 @@ public class WalkScript : MonoBehaviour
         return Physics2D.Raycast(transform.position + (Vector3)GroundOffset, Vector2.down, HalfBodyDistance, Ground);
     }
 
-     public bool isClimbingLeft()
+    public bool isClimbingLeft()
     {
         return Physics2D.Raycast(transform.position + (Vector3)LOffset, Vector2.left, LArmlength, Climbable);
     }
-      public bool isClimbingRight()
+    public bool isClimbingRight()
     {
         return Physics2D.Raycast(transform.position + (Vector3)ROffset, Vector2.right, RArmlength, Climbable);
     }
@@ -484,14 +505,40 @@ public class WalkScript : MonoBehaviour
         LArmlength = 1f;
         RArmlength = 1f;
     }
-
-    private IEnumerator CancelClimbWithMove()
+    public void WalkFootstepSound()
     {
-        LArmlength = 0;
-        RArmlength = 0;
-        yield return new WaitForSeconds(1f);
-        LArmlength = 1f;
-        RArmlength = 1f;
+        
+            audioSource.PlayOneShot(Step1);
+    }
+
+    public void RandomFootstep2Sound()
+    {
+        RandomFootstep = Random.Range(1, 4);
+
+        if (RandomFootstep == 1)
+        {
+            audioSource.PlayOneShot(Step2);
+        }
+        else if (RandomFootstep == 2)
+        {
+            audioSource.PlayOneShot(Step3);
+        }
+        else if (RandomFootstep == 3)
+        {
+            audioSource.PlayOneShot(Step4);
+        }
+
+    }
+
+    public void Run1Sound()
+    
+    {
+        audioSource.PlayOneShot(Step1);
+    }    
+
+    public void Run2Sound()
+    {
+        audioSource.PlayOneShot(Step3);
     }
 
 

@@ -14,6 +14,10 @@ public class HealthArm1 : MonoBehaviour
 
     public bool canTakeDamage = true;
 
+    public bool hasPlayedBD = false;  
+    public bool hasPlayedFD = false;
+    public bool hasPlayedD = false;
+
     public Sprite LDollForeArm;
     public Sprite LDollUpperArm;
 
@@ -27,6 +31,18 @@ public class HealthArm1 : MonoBehaviour
         public Sprite LDollUpperArmSLV;
 
     public float degredationRate = 0.09f;
+
+    AudioSource audioSource;
+
+    public AudioClip Crack1;
+    public AudioClip Crack2;
+    public AudioClip Crack3;
+
+    public AudioClip creak1;
+    public AudioClip creak2;
+
+    private ParticleSystem hitParticleL1;
+    private ParticleSystem hitParticleL2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,11 +63,36 @@ public class HealthArm1 : MonoBehaviour
         LDollForeArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Forearm BACK SLV");
         LDollUpperArmSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Upper Arm BACK SLV");
 
+        audioSource = gameObject.GetComponentInParent<AudioSource>();
+
+        Crack1 = Resources.Load<AudioClip>("Audio/SFX/crack1");
+        Crack2 = Resources.Load<AudioClip>("Audio/SFX/crack2");
+        Crack3 = Resources.Load<AudioClip>("Audio/SFX/crack3");
+
+        creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
+        creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
+
+        hitParticleL1 = GameObject.Find("bone_7").GetComponent<ParticleSystem>();
+        hitParticleL2 = GameObject.Find("bone_8").GetComponent<ParticleSystem>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health > 5)
+        {
+            hasPlayedBD = false;
+        }
+        if (health > 2)
+        {
+            hasPlayedFD = false;
+        }
+        if (health > 0)
+        {
+            hasPlayedD = false;
+        }
+
         if (health > 10)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmSLV;
@@ -62,24 +103,81 @@ public class HealthArm1 : MonoBehaviour
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArm;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArm;
+            
+
         }
 
         if (health <= 5 && health > 2)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForeArmBD;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmBD;
+            
+            if (hasPlayedBD == false)
+            {
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackBD = Random.Range(1, 2);
+                switch (randomCrackBD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
+                }
+                hasPlayedBD = true;
+            }
+
         }
 
         if (health <= 2)
         {
             DollForermL.GetComponent<SpriteRenderer>().sprite = LDollForearmFD;
             DollUpperArmL.GetComponent<SpriteRenderer>().sprite = LDollUpperArmFD;
+
+            if (hasPlayedFD == false)
+            {
+                hitParticleL1.Play();
+                hitParticleL2.Play();
+                int randomCrackFD = Random.Range(1, 2);
+                switch (randomCrackFD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(creak1);
+                        break;
+                    
+                    //case 3:
+                    //    audioSource.PlayOneShot(Crack3);
+                    //    break;
+                }
+                hasPlayedFD = true;
+            }
+            
         }
 
         if (health <= 0)
         {
            DollForermL.SetActive(false);
            DollUpperArmL.SetActive(false);
+            if (hasPlayedD == false)
+            {
+                int randomCrackD = Random.Range(1, 4);
+                switch (randomCrackD)
+                {
+                    case 1:
+                        audioSource.PlayOneShot(Crack1);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(Crack2);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(Crack3);
+                        break;
+                }
+                hasPlayedD = true;
+            }
         }
         else if (health > 0)
         {
@@ -91,6 +189,13 @@ public class HealthArm1 : MonoBehaviour
         {
             StartCoroutine(ClimbDamage());
         }
+
+        if (walkScript.isCrippled && canTakeDamage == true && walkScript.PlayerDirection.x > 0 || walkScript.isCrippled && canTakeDamage == true && walkScript.PlayerDirection.x < 0)
+        {
+            StartCoroutine(CrawlDamage());
+        }
+
+       
     }
 
     public void TakeDamage(float amount)
@@ -113,6 +218,13 @@ public class HealthArm1 : MonoBehaviour
         canTakeDamage = true;
     }
 
-   
-    
+    private IEnumerator CrawlDamage()
+    {
+        canTakeDamage = false;
+        health -= degredationRate;
+        healthBarArm1.UpdateHealth(degredationRate);
+        yield return new WaitForSeconds(0.5f);
+        canTakeDamage = true;
+    }
+
 }
