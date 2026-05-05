@@ -55,6 +55,21 @@ TagManager:
   - name: 3Land
     uniqueID: 658069143
     locked: 0
+  - name: Props
+    uniqueID: 1808459339
+    locked: 0
+  - name: Shop Waist
+    uniqueID: 439069775
+    locked: 0
+  - name: Shop Body
+    uniqueID: 11444775
+    locked: 0
+  - name: Shop Booth
+    uniqueID: 2084882725
+    locked: 0
+  - name: Shop Arms
+    uniqueID: 1016120667
+    locked: 0
   - name: Back Arm
     uniqueID: 3375770545
     locked: 0
