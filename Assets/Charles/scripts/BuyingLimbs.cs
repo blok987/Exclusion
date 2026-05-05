@@ -13,7 +13,7 @@ public class BuyingLimbs : MonoBehaviour
     
     public GameObject player;
     public GameObject money;
-    //public textmesh
+    public TMPro.TextMeshProUGUI moneytext;
 
     public GameObject asp;
     public GameObject ap;
@@ -56,7 +56,8 @@ public class BuyingLimbs : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         os = shopiu.GetComponent<OpenShop>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        money = GameObject.Find("canvas/stuff background/stuff/money holder/Money");
+        money = GameObject.Find("Canvas/stuff background/stuff/money holder/Money");
+        moneytext = money.GetComponent<TMPro.TextMeshProUGUI>();
         i = canvas.GetComponent<inventory>();
         sr = GetComponent<UnityEngine.UI.Image>();
         cs = sr.sprite;
