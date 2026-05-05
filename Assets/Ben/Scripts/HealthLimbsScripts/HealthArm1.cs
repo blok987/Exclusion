@@ -80,6 +80,16 @@ public class HealthArm1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (health <= 10)
+        {
+            maxHealth = 10;
+        }
+
         if (health > 5)
         {
             hasPlayedBD = false;

@@ -113,7 +113,15 @@ public class HealthLeg2 : MonoBehaviour
             StartCoroutine(ClimbDamage());
         }
         #endregion
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
 
+        if (health <= 10)
+        {
+            maxHealth = 10;
+        }
 
         if (health > 5)
         {

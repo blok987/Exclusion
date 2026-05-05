@@ -38,6 +38,14 @@ public class WalkScript : MonoBehaviour
     public AudioClip Step3;
     public AudioClip Step4;
 
+    public AudioClip Climb1;
+    public AudioClip Climb2;
+    public AudioClip Climb3;
+    public AudioClip Climb4;
+
+    public AudioClip Jump;
+    public AudioClip JumpLand;
+
     public Vector2 PlayerDirection;
     //Offsets for the raycasts to check for ground and climbable walls
     public Vector2 GroundOffset;
@@ -78,6 +86,7 @@ public class WalkScript : MonoBehaviour
     public Checkpoint checkpoint;
 
     private int RandomFootstep;
+    private int RandomClimb;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -104,11 +113,19 @@ public class WalkScript : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        //References for the audio clips for the player, used for degredation and footsteps
+        //References for the audio clips for the player
         Step1 = Resources.Load<AudioClip>("Audio/SFX/step1");
         Step2 = Resources.Load<AudioClip>("Audio/SFX/step2");
         Step3 = Resources.Load<AudioClip>("Audio/SFX/step3");
         Step4 = Resources.Load<AudioClip>("Audio/SFX/step4");
+
+        Climb1 = Resources.Load<AudioClip>("Audio/SFX/Ladder1");
+        Climb2 = Resources.Load<AudioClip>("Audio/SFX/Ladder2");
+        Climb3 = Resources.Load<AudioClip>("Audio/SFX/Ladder3");
+        Climb4 = Resources.Load<AudioClip>("Audio/SFX/Ladder4");
+
+        Jump = Resources.Load<AudioClip>("Audio/SFX/Jump");
+        JumpLand = Resources.Load<AudioClip>("Audio/SFX/JumpLand");
     }
 
     // Update is called once per frame
@@ -271,6 +288,8 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
+            audioSource.PlayOneShot(Jump);
+                
 
 
         }
@@ -278,7 +297,7 @@ public class WalkScript : MonoBehaviour
         if (!isGrounded())
         {
             PlayerAnim.SetBool("isJumping", true);
-
+            StartCoroutine(WaitToLand());
         }
         else if (isGrounded())
         {
@@ -501,6 +520,11 @@ public class WalkScript : MonoBehaviour
         LArmlength = 1f;
         RArmlength = 1f;
     }
+    private IEnumerator WaitToLand()
+    {
+        yield return new WaitUntil(() => isGrounded());
+        audioSource.PlayOneShot(JumpLand);
+    }
 
     private IEnumerator CancelClimbWithJump()
     {
@@ -547,6 +571,26 @@ public class WalkScript : MonoBehaviour
         audioSource.PlayOneShot(Step3);
     }
 
+    public void RandomClimbSound()
+    {
+        RandomClimb = Random.Range(1, 5);
+        if (RandomClimb == 1)
+        {
+            audioSource.PlayOneShot(Climb1);
+        }
+        else if (RandomClimb == 2)
+        {
+            audioSource.PlayOneShot(Climb2);
+        }
+        else if (RandomClimb == 3)
+        {
+            audioSource.PlayOneShot(Climb3);
+        }
+        else if (RandomClimb == 4)
+        {
+            audioSource.PlayOneShot(Climb4);
+        }
 
+    }
 
 }   

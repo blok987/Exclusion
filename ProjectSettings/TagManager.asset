@@ -55,8 +55,20 @@ TagManager:
   - name: 3Land
     uniqueID: 658069143
     locked: 0
-  - name: Player
+  - name: Back Arm
     uniqueID: 3375770545
+    locked: 0
+  - name: Back Leg
+    uniqueID: 3979334569
+    locked: 0
+  - name: Body
+    uniqueID: 844689575
+    locked: 0
+  - name: Front Leg
+    uniqueID: 2381629803
+    locked: 0
+  - name: Front Arm
+    uniqueID: 1619337159
     locked: 0
   - name: Ground
     uniqueID: 755475513

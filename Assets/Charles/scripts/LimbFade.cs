@@ -9,9 +9,11 @@ public class LimbFade : MonoBehaviour
     public HealthLeg1 hl1;
     public HealthLeg2 hl2;
     public GameObject player;
+    public GameObject child;
+    public GameObject child2;
     public GameObject limb;
-    public float currant;
-    private float health;
+    public float current;
+    public float health;
     private Image i;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +21,8 @@ public class LimbFade : MonoBehaviour
     {
         limb = this.gameObject;
         i= this.GetComponent<Image>();
+        player = GameObject.FindWithTag("Player");
+       
     }
 
     // Update is called once per frame
@@ -61,9 +65,12 @@ public class LimbFade : MonoBehaviour
     {
         
         
-        currant = health / 10f;
-        i.color = new Color(1, 1, 1, currant);
-       
+        current = health / 10f;
+        i.color = new Color(1, 1, 1, current);
+       if (current > 1)
+        {
+            i.color = new Color(1f, 0.843f, 0f, current);
+        }
 
     }
 }
