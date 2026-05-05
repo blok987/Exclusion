@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
-using Unity.VisualScripting;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
