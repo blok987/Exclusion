@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public float health;
     public float maxHealth = 10;
     private float damageForDeath;
+    private bool canPassiveHeal = true;
+    private bool canPassiveHealSLV = true;
 
     public GameObject DollHead;
     public GameObject DollChest;
@@ -15,6 +17,11 @@ public class Health : MonoBehaviour
     public GameObject DollWaist;
 
     public HealthBarBodyTest healthBar;
+    
+    public HealthArm1 healthArm1;
+    public HealthArm2 healthArm2;
+    public HealthLeg1 healthLeg1;
+    public HealthLeg2 healthLeg2;
 
     public Sprite DollHeadS;
     public Sprite DollChestS;
@@ -59,8 +66,14 @@ public class Health : MonoBehaviour
         DollMidsectionSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Midsection SLV");
         DollWaistSLV = Resources.Load<Sprite>("Limbs/SLVLimbs/Doll Waist SLV");
 
+        maxHealth = 10;
         health = maxHealth;
-      
+
+        healthArm1 = transform.Find("ArmCollision&Health").GetComponent<HealthArm1>();
+        healthArm2 = transform.Find("ArmCollision&Health").GetComponent<HealthArm2>();
+        healthLeg1 = transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
+        healthLeg2 = transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
+
     }
 
     // Update is called once per frame
@@ -110,10 +123,37 @@ public class Health : MonoBehaviour
             
         }
 
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (healthArm1.health > 5 & healthArm1.health <= 10 && healthArm2.health > 5 & healthArm2.health <= 10 & healthLeg1.health > 5 & healthLeg1.health <= 10 & healthLeg2.health > 5 & healthLeg2.health <= 10 && canPassiveHeal)
+        {
+            StartCoroutine(Heal());
+
+        }
+
+        if (healthArm1.health > 10 && healthArm2.health > 10 & healthLeg1.health > 10 & healthLeg2.health > 10 && canPassiveHealSLV)
+        {
+            maxHealth = 15;
+            StartCoroutine(HealSLV());
+                       
+        }
+        else if ( healthArm1.health <= 10 && healthArm2.health <= 10 && healthLeg1.health <= 10 && healthLeg2.health <= 10 & health <= 10)
+        {
+            maxHealth = 10;
+        }
+        else if (healthArm1.health <= 10 && health <= 10 || healthArm2.health <= 10 && health <= 10 || healthLeg1.health <= 10 && health <= 10 || healthLeg2.health <= 10 & health <= 10)
+        {
+            maxHealth = 10;
+        }
+
     }
 
     public void TakeDamage(float amount)
     {
+
         health -= amount;
         healthBar.UpdateHealth(amount);
         
@@ -127,13 +167,28 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //private IEnumerator WaitForDamage()
-    //{
-    //    canTakeDamage = false;
-    //    health -= 0.3f;
-    //    healthBar.UpdateHealth(0.3f);
-    //    yield return new WaitForSeconds(0.6f);
-    //    canTakeDamage = true;
 
-    //}
+    private IEnumerator Heal()
+    {
+        canPassiveHeal = false;
+        health += 0.35f;
+        healthBar.UpdateHealthHeal(0.45f);
+        yield return new WaitForSeconds(1);
+        Debug.Log("Healing");
+        canPassiveHeal = true;
+
+    }
+
+private IEnumerator HealSLV()
+    {
+        canPassiveHealSLV = false;
+        health += 0.35f;
+        healthBar.UpdateHealthHeal(0.35f);
+        yield return new WaitForSeconds(1);
+        Debug.Log("Healing");
+        canPassiveHealSLV = true;
+
+    }
 }
+
+

@@ -87,7 +87,7 @@ public class InventoryItemInstance : MonoBehaviour
    
        
     }
-
+    
     
 
     public void sell()

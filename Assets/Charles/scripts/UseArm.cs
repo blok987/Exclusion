@@ -32,50 +32,49 @@ public class UseArm : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         armcolisionhealth = Player.transform.Find("ArmCollision&Health").gameObject;
-        
+
         c = FindAnyObjectByType<Canvas>();
         Player = GameObject.FindWithTag("Player");
         arm1 = Player.transform.Find("Doll Forearm FRONT").gameObject;
         arm11 = Player.transform.Find("Doll Upper Arm FRONT").gameObject;
         arm2 = Player.transform.Find("Doll Forearm BACK").gameObject;
         arm22 = Player.transform.Find("Doll Upper Arm BACK").gameObject;
-        ul = GetComponent<UseLeg>();    
+        ul = GetComponent<UseLeg>();
         h2 = armcolisionhealth.GetComponent<HealthArm1>();
         h = armcolisionhealth.GetComponent<HealthArm2>();
         sr = GetComponent<Image>();
         s = sr.sprite;
-        if (s == g) { health = 10; }
-        if (s == b) { health = 5; }
-        if (s == vb) { health = 2; }
+
     }
     private void Update()
     {
         if (s == null || s != g || s != b || s != vb || s != vg)
             s = sr.sprite;
-           
-        if (s == g) 
-        { 
-            health = 9; 
-            healthmax = 10;
-        }
-        else if (s == b) 
-        { 
-            health = 5;
-            healthmax = 10;
-        }
-        else if (s == vb) 
-        { 
-            health = 2;
-            healthmax = 10;
-        }
-        else if (s == vg) 
-        { 
+        if (s == vg)
+        {
             health = 15;
             healthmax = 15;
         }
-
+        if (s == g)
+        {
+            health = 9;
+            healthmax = 10;
+        }
+        if (s == b)
+        {
+            health = 5;
+            healthmax = 10;
+        }
+        if (s == vb)
+        {
+            health = 2;
+            healthmax = 10;
+        }
 
     }
+
+
+    
     public void UseA()
     {
         if (arm11.activeSelf == false & arm22.activeSelf == false)
