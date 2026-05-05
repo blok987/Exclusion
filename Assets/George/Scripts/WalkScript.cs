@@ -108,6 +108,7 @@ public class WalkScript : MonoBehaviour
         LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
 
+        healthBody = gameObject.GetComponent<Health>();
         healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
         healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
 
@@ -288,8 +289,8 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
-            audioSource.PlayOneShot(Jump);
-                
+            AudioSource.PlayClipAtPoint(Jump, gameObject.transform.position);
+
 
 
         }
@@ -523,7 +524,7 @@ public class WalkScript : MonoBehaviour
     private IEnumerator WaitToLand()
     {
         yield return new WaitUntil(() => isGrounded());
-        audioSource.PlayOneShot(JumpLand);
+        AudioSource.PlayClipAtPoint(JumpLand, gameObject.transform.position, 0.5f);
     }
 
     private IEnumerator CancelClimbWithJump()
