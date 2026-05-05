@@ -6,7 +6,7 @@ public class TriggerShopOpen : MonoBehaviour
         
         public GameObject shopUI;
        
-        private void Awake()
+        private void Start()
         {
             shopScript = GameObject.Find("shop iu").GetComponent<OpenShop>();
             

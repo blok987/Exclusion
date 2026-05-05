@@ -56,8 +56,8 @@ public class BuyingLimbs : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         os = shopiu.GetComponent<OpenShop>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        money = GameObject.Find("Canvas/stuff background/stuff/money holder/Money");
-        moneytext = money.GetComponent<TMPro.TextMeshProUGUI>();
+        //money = GameObject.Find("Canvas/stuff background/stuff/money holder/Money");
+        //moneytext = money.GetComponent<TMPro.TextMeshProUGUI>();
         i = canvas.GetComponent<inventory>();
         sr = GetComponent<UnityEngine.UI.Image>();
         cs = sr.sprite;
@@ -70,12 +70,33 @@ public class BuyingLimbs : MonoBehaviour
         badlegs = os.badlegs;
         if (greatlegs == 0 && cs == vgl)
         {
-            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+           this.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
         if (greatarms == 0 && cs == vga)
         {
+           this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        if (goodarms == 0 && cs == ga)
+        {
             this.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
+        if (goodlegs == 0 && cs == gl)
+        {
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        if (badarms == 0 && cs == ba)
+        {
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        if (badlegs == 0 && cs == bl)
+        {
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        if (verybadarms == 0 && cs == vba)
+        {
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+
     }
 
     public void Buy()
@@ -85,7 +106,7 @@ public class BuyingLimbs : MonoBehaviour
             buyPrice = 15;
             if (cs == vga)
             {
-                
+               
                 if (greatarms > 0)
                 {
                     Instantiate(asp, player.transform.position, Quaternion.identity);

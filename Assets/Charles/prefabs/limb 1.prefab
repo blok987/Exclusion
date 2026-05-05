@@ -147,9 +147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopiu: {fileID: 0}
   os: {fileID: 0}
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 8f75822cafb73254f98cbd532ff61f33, type: 2}
   i: {fileID: 0}
   player: {fileID: 0}
+  money: {fileID: 0}
+  moneytext: {fileID: 0}
   asp: {fileID: 7505753121980178173, guid: 73176a6ca36875345a5164e38dbf0e7e, type: 3}
   ap: {fileID: 7505753121980178173, guid: b9abd101225b638408cb38cdc4294c98, type: 3}
   adp: {fileID: 7505753121980178173, guid: 0d1a79ccb52e5fe40a019e72ff74ff0a, type: 3}
