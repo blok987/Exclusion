@@ -81,13 +81,23 @@ public class HealthLeg1 : MonoBehaviour
         hitParticleL1 = GameObject.Find("bone_11").GetComponent<ParticleSystem>();
         hitParticleL2 = GameObject.Find("bone_12").GetComponent<ParticleSystem>();
         
-        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVLL1").GetComponent<ParticleSystem>();
-        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVLL2").GetComponent<ParticleSystem>();
+        //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVLL1").GetComponent<ParticleSystem>();
+        //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVLL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        if (health <= 10)
+        {
+            maxHealth = 10;
+        }
+
         if (health > 10)
         {
             hasPlayedSLV = false;

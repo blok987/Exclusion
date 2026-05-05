@@ -11,12 +11,15 @@ public class HealthBarBodyTest : MonoBehaviour
    
     [SerializeField] private Image healthFill;
     [SerializeField] private float fillSpeed;
+    
 
     private void Update()
     {
         maxHealth = health.maxHealth;
         currentHealth = health.health;
         UpdateHealthBar();
+
+        
     }
 
 
@@ -26,10 +29,17 @@ public class HealthBarBodyTest : MonoBehaviour
         UpdateHealthBar();
     }
 
+    public void UpdateHealthHeal(float amount)
+    {
+        currentHealth += amount;
+        UpdateHealthBar();
+    }
+
     private void UpdateHealthBar()
     {
         float targetFillAmount = currentHealth / maxHealth;
         //healthFill.fillAmount = targetFillAmount;
         healthFill.DOFillAmount(targetFillAmount, fillSpeed);
-    }
+    }    
+        
 }
