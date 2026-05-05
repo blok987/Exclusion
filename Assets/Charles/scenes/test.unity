@@ -600,9 +600,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c5036b36d2377ec4a8078260343c6af1, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 5766a1ae08d16fd4eb03e250b9745637, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1031,9 +1039,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e66d383f85d22fb4f97a628b2c579c43, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 48b2be70182ce7f4cb0e1f455351264c, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1481,9 +1497,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: adc5a83040e34fc4aa7e77af338c4483, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: b822ff64d43579c4ba81acd8fd0d35cf, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1884,6 +1908,12 @@ MonoBehaviour:
   Step2: {fileID: 0}
   Step3: {fileID: 0}
   Step4: {fileID: 0}
+  Climb1: {fileID: 0}
+  Climb2: {fileID: 0}
+  Climb3: {fileID: 0}
+  Climb4: {fileID: 0}
+  Jump: {fileID: 0}
+  JumpLand: {fileID: 0}
   PlayerDirection: {x: 0, y: 0}
   GroundOffset: {x: 0, y: 0}
   LOffset: {x: 0, y: 0}
@@ -1898,6 +1928,7 @@ MonoBehaviour:
   LArmlength: 0.5
   RArmlength: 0.5
   bounceHeight: 0
+  checkpoint: {fileID: 0}
 --- !u!114 &703617978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,6 +1948,10 @@ MonoBehaviour:
   DollMidsection: {fileID: 484821195}
   DollWaist: {fileID: 658113220}
   healthBar: {fileID: 744249547}
+  healthArm1: {fileID: 0}
+  healthArm2: {fileID: 0}
+  healthLeg1: {fileID: 0}
+  healthLeg2: {fileID: 0}
   DollHeadS: {fileID: 0}
   DollChestS: {fileID: 0}
   DollMidsectionS: {fileID: 0}
@@ -1962,6 +1997,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12529f7754fef104e9d5e7a0910e3f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &703617992
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703617976}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &727064056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inv: {fileID: 938116279}
-  shopiu: {fileID: 0}
+  shopiu: {fileID: 2052871292}
   pauseMenu: {fileID: 196142447}
 --- !u!114 &744249541
 MonoBehaviour:
@@ -2484,9 +2616,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1435609995}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 8a1491bf3af14c74282dd9049726b863, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7925542313668356670, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_Pivot.x
       value: 0.4
@@ -2845,6 +2985,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6659572026570973603, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 703617977}
+    - targetCorrespondingSourceObject: {fileID: 6659572026570973603, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 703617992}
   m_SourcePrefab: {fileID: 100100000, guid: bec11ef092c5def49acecaeeb04dada0, type: 3}
 --- !u!1 &788595158
 GameObject:
@@ -3098,9 +3241,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e66d383f85d22fb4f97a628b2c579c43, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: aad1991ab29854347af9e2ccb36226f9, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5596,6 +5747,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590690861}
   m_CullTransparentMesh: 1
+--- !u!1001 &1592740912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5930722154626600388, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_Name
+      value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208758187080905504, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5930722154626600388, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1936197863}
+    - targetCorrespondingSourceObject: {fileID: 5930722154626600388, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1936197866}
+  m_SourcePrefab: {fileID: 100100000, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
 --- !u!1001 &1628982015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6918,9 +7132,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d6be252f9f0909f4b842d0483bc5db9f, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: ce4f14e488fbe8d4086eb65eebb4c433, type: 2}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7395,7 +7617,7 @@ GameObject:
   - component: {fileID: 1871722731}
   - component: {fileID: 1871722733}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7545,6 +7767,71 @@ MonoBehaviour:
     m_Bits: 0
   CastOrigin: {x: 0, y: 0, z: 0}
   Size: {x: 0, y: 0}
+--- !u!1 &1936197862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5930722154626600388, guid: ac0245a7ab6ff2d40b1773c65d66a8a6, type: 3}
+  m_PrefabInstance: {fileID: 1592740912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1936197863
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936197862}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.55, y: 5.75}
+    newSize: {x: 5.55, y: 5.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.55, y: 5.75}
+  m_EdgeRadius: 0
+--- !u!114 &1936197866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936197862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd8c2f42d5056c4e8eb138c61a4efed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopScript: {fileID: 2052871296}
+  shopUI: {fileID: 2052871292}
 --- !u!1001 &1938399028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7783,7 +8070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2052871293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7874,6 +8161,7 @@ MonoBehaviour:
   greatleg: {fileID: 835630357}
   goodleg: {fileID: 1430263562}
   badleg: {fileID: 1655390597}
+  isopen: 0
 --- !u!1 &2089729879
 GameObject:
   m_ObjectHideFlags: 0
@@ -8301,9 +8589,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5bd5edf9201f82f41a6bcb1b528eebd8, type: 2}
     - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
-      propertyPath: itemData
+      propertyPath: money
       value: 
-      objectReference: {fileID: 11400000, guid: 8f75822cafb73254f98cbd532ff61f33, type: 2}
+      objectReference: {fileID: 970406529}
+    - target: {fileID: 7707864105561801855, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
+      propertyPath: moneytext
+      value: 
+      objectReference: {fileID: 1871722731}
     - target: {fileID: 7816478740418181756, guid: 0370d17a9835ffb41a817b32c0983549, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8536,3 +8828,4 @@ SceneRoots:
   - {fileID: 1116356298}
   - {fileID: 675352054}
   - {fileID: 777591444}
+  - {fileID: 1592740912}
