@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
 
         maxHealth = 10;
         health = maxHealth;
+        healthBar = GameObject.Find("Canvas").GetComponent<HealthBarBodyTest>();
 
         healthArm1 = transform.Find("ArmCollision&Health").GetComponent<HealthArm1>();
         healthArm2 = transform.Find("ArmCollision&Health").GetComponent<HealthArm2>();
@@ -174,7 +175,6 @@ public class Health : MonoBehaviour
         health += 0.35f;
         healthBar.UpdateHealthHeal(0.45f);
         yield return new WaitForSeconds(1);
-        Debug.Log("Healing");
         canPassiveHeal = true;
 
     }
@@ -185,7 +185,6 @@ private IEnumerator HealSLV()
         health += 0.35f;
         healthBar.UpdateHealthHeal(0.35f);
         yield return new WaitForSeconds(1);
-        Debug.Log("Healing");
         canPassiveHealSLV = true;
 
     }

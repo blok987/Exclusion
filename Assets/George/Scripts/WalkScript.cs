@@ -109,10 +109,12 @@ public class WalkScript : MonoBehaviour
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
 
         healthBody = gameObject.GetComponent<Health>();
+        
         healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
         healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
 
         audioSource = GetComponent<AudioSource>();
+
 
         //References for the audio clips for the player
         Step1 = Resources.Load<AudioClip>("Audio/SFX/step1");
