@@ -79,11 +79,11 @@ public class HealthArm2 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleR1 = GameObject.Find("bone_5").GetComponent<ParticleSystem>();
-        hitParticleR2 = GameObject.Find("bone_6").GetComponent<ParticleSystem>();
+        //hitParticleR1 = GameObject.Find("bone_5").GetComponent<ParticleSystem>();
+        //hitParticleR2 = GameObject.Find("bone_6").GetComponent<ParticleSystem>();
 
-        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRA1").GetComponent<ParticleSystem>();
-        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRA2").GetComponent<ParticleSystem>();
+        //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRA1").GetComponent<ParticleSystem>();
+        //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRA2").GetComponent<ParticleSystem>();
 
 
     }
@@ -128,8 +128,8 @@ public class HealthArm2 : MonoBehaviour
 
             if (hasPlayedSLV == false)
             {
-                hitParticleSLV1.Play();
-                hitParticleSLV2.Play();
+                //hitParticleSLV1.Play();
+                //hitParticleSLV2.Play();
                 //int randomCrackSLV = Random.Range(1, 3);
                 //switch (randomCrackSLV)
                 //{
@@ -152,8 +152,8 @@ public class HealthArm2 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                     
@@ -176,8 +176,8 @@ public class HealthArm2 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
                 {

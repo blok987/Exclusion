@@ -75,11 +75,11 @@ public class HealthLeg2 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleR1 = GameObject.Find("bone_9").GetComponent<ParticleSystem>();
-        hitParticleR2 = GameObject.Find("bone_10").GetComponent<ParticleSystem>();
+        //hitParticleR1 = GameObject.Find("bone_9").GetComponent<ParticleSystem>();
+        //hitParticleR2 = GameObject.Find("bone_10").GetComponent<ParticleSystem>();
 
-        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRL1").GetComponent<ParticleSystem>();
-        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRL2").GetComponent<ParticleSystem>();
+        //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRL1").GetComponent<ParticleSystem>();
+        //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -146,8 +146,8 @@ public class HealthLeg2 : MonoBehaviour
 
             if (hasPlayedSLV == false)
             {
-                hitParticleSLV1.Play();
-                hitParticleSLV2.Play();
+                //hitParticleSLV1.Play();
+                //hitParticleSLV2.Play();
                 //int randomCrackSLV = Random.Range(1, 3);
                 //switch (randomCrackSLV)
                 //{
@@ -170,8 +170,8 @@ public class HealthLeg2 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
@@ -193,8 +193,8 @@ public class HealthLeg2 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
                 {

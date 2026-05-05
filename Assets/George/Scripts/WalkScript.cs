@@ -125,7 +125,7 @@ public class WalkScript : MonoBehaviour
         Climb4 = Resources.Load<AudioClip>("Audio/SFX/Ladder4");
 
         Jump = Resources.Load<AudioClip>("Audio/SFX/Jump");
-        JumpLand = Resources.Load<AudioClip>("Audio/SFX/JumpLand");
+        JumpLand = Resources.Load<AudioClip>("Audio/SFX/Land");
     }
 
     // Update is called once per frame

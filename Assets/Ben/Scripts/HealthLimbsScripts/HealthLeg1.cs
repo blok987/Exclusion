@@ -78,8 +78,8 @@ public class HealthLeg1 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleL1 = GameObject.Find("bone_11").GetComponent<ParticleSystem>();
-        hitParticleL2 = GameObject.Find("bone_12").GetComponent<ParticleSystem>();
+        //hitParticleL1 = GameObject.Find("bone_11").GetComponent<ParticleSystem>();
+        //hitParticleL2 = GameObject.Find("bone_12").GetComponent<ParticleSystem>();
         
         //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVLL1").GetComponent<ParticleSystem>();
         //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVLL2").GetComponent<ParticleSystem>();
@@ -124,8 +124,8 @@ public class HealthLeg1 : MonoBehaviour
 
                 if (hasPlayedSLV == false)
                 {
-                    hitParticleSLV1.Play();
-                    hitParticleSLV2.Play();
+                    //hitParticleSLV1.Play();
+                    //hitParticleSLV2.Play();
                     //int randomCrackSLV = Random.Range(1, 3);
                     //switch (randomCrackSLV)
                     //{
@@ -149,8 +149,8 @@ public class HealthLeg1 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                hitParticleL1.Play();
-                hitParticleL2.Play();
+                //hitParticleL1.Play();
+                //hitParticleL2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
