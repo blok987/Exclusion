@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
-using Unity.VisualScripting;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class WalkScript : MonoBehaviour
@@ -82,8 +80,8 @@ public class WalkScript : MonoBehaviour
     private Health healthBody;
     private HealthLeg1 healthLeg1; 
     private HealthLeg2 healthLeg2;
-
-    public Checkpoint checkpoint;
+    private HealthArm1 healthArm1;
+    private HealthArm2 healthArm2;
 
     private int RandomFootstep;
     private int RandomClimb;
@@ -110,8 +108,11 @@ public class WalkScript : MonoBehaviour
 
         healthBody = gameObject.GetComponent<Health>();
         
+        healthArm1 = gameObject.transform.Find("ArmCollision&Health").GetComponent<HealthArm1>();
+        healthArm2 = gameObject.transform.Find("ArmCollision&Health").GetComponent<HealthArm2>();
         healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
         healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
+
 
         audioSource = GetComponent<AudioSource>();
 
@@ -136,7 +137,7 @@ public class WalkScript : MonoBehaviour
     {
         if (healthBody.health == 0)
         {
-            //transform.position = checkpoint.CurrentPoint;
+            Perish();
         }
         #region Player Movement Handling
 
@@ -594,6 +595,22 @@ public class WalkScript : MonoBehaviour
             audioSource.PlayOneShot(Climb4);
         }
 
+    }
+
+    private void Perish()
+    {
+        transform.position = Checkpoint.CurrentPoint;
+        healthBody.health = 10f;
+        healthLeg1.health = 10f;
+        healthLeg2.health = 10f;
+        healthArm1.health = 10f;
+        healthArm2.health = 10f;
+
+        healthBody.maxHealth = 10f;
+        healthLeg1.maxHealth = 10f;
+        healthLeg2.maxHealth = 10f;
+        healthArm1.maxHealth = 10f;
+        healthArm2.maxHealth = 10f;
     }
 
 }   
