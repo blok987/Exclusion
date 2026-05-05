@@ -19,6 +19,7 @@ public class HealthArm2 : MonoBehaviour
     public bool hasPlayedFD = false;
     public bool hasPlayedBD = false;
     public bool hasPlayedD = false;
+    public bool hasPlayedSLV = false;
 
     public float degredationRate = 0.09f;
 
@@ -45,6 +46,9 @@ public class HealthArm2 : MonoBehaviour
 
     private ParticleSystem hitParticleR1;
     private ParticleSystem hitParticleR2;
+
+    private ParticleSystem hitParticleSLV1;
+    private ParticleSystem hitParticleSLV2;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,8 +79,13 @@ public class HealthArm2 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleR1 = GameObject.Find("bone_5").GetComponent<ParticleSystem>();
-        hitParticleR2 = GameObject.Find("bone_6").GetComponent<ParticleSystem>();
+        //hitParticleR1 = GameObject.Find("bone_5").GetComponent<ParticleSystem>();
+        //hitParticleR2 = GameObject.Find("bone_6").GetComponent<ParticleSystem>();
+
+        //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRA1").GetComponent<ParticleSystem>();
+        //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRA2").GetComponent<ParticleSystem>();
+
+
     }
 
     // Update is called once per frame
@@ -110,11 +119,30 @@ public class HealthArm2 : MonoBehaviour
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArmSLV;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArmSLV;
+            hasPlayedSLV = false;
         }
         if (health > 5 && health <= 10)
         {
             DollForermR.GetComponent<SpriteRenderer>().sprite = RDollForeArm;
             DollUpperArmR.GetComponent<SpriteRenderer>().sprite = RDollUpperArm;
+
+            if (hasPlayedSLV == false)
+            {
+                //hitParticleSLV1.Play();
+                //hitParticleSLV2.Play();
+                //int randomCrackSLV = Random.Range(1, 3);
+                //switch (randomCrackSLV)
+                //{
+                //    case 1:
+                //        audioSource.PlayOneShot(creak1);
+                //        break;
+                //    case 2:
+                //        audioSource.PlayOneShot(creak2);
+                //        break;
+
+                //}
+                hasPlayedSLV = true;
+            }
         }
 
         if (health <= 5 && health > 2)
@@ -124,8 +152,8 @@ public class HealthArm2 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                     
@@ -148,8 +176,8 @@ public class HealthArm2 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
                 {

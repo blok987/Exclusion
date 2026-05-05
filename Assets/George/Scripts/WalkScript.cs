@@ -79,8 +79,11 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
+    private Health healthBody;
     private HealthLeg1 healthLeg1; 
     private HealthLeg2 healthLeg2;
+
+    public Checkpoint checkpoint;
 
     private int RandomFootstep;
     private int RandomClimb;
@@ -105,6 +108,7 @@ public class WalkScript : MonoBehaviour
         LegBACK = transform.Find("Doll Leg BACK").GetComponent<SpriteRenderer>();
         ThighBACK = transform.Find("Doll Thigh BACK").GetComponent<SpriteRenderer>();
 
+        healthBody = gameObject.GetComponent<Health>();
         healthLeg1 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg1>();
         healthLeg2 = gameObject.transform.Find("LegCollision&Health").GetComponent<HealthLeg2>();
 
@@ -122,13 +126,16 @@ public class WalkScript : MonoBehaviour
         Climb4 = Resources.Load<AudioClip>("Audio/SFX/Ladder4");
 
         Jump = Resources.Load<AudioClip>("Audio/SFX/Jump");
-        JumpLand = Resources.Load<AudioClip>("Audio/SFX/JumpLand");
+        JumpLand = Resources.Load<AudioClip>("Audio/SFX/Land");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (healthBody.health == 0)
+        {
+            //transform.position = checkpoint.CurrentPoint;
+        }
         #region Player Movement Handling
 
         //Player Gravity
@@ -282,8 +289,8 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
-            audioSource.PlayOneShot(Jump);
-                
+            AudioSource.PlayClipAtPoint(Jump, gameObject.transform.position);
+
 
 
         }
@@ -517,7 +524,7 @@ public class WalkScript : MonoBehaviour
     private IEnumerator WaitToLand()
     {
         yield return new WaitUntil(() => isGrounded());
-        audioSource.PlayOneShot(JumpLand);
+        AudioSource.PlayClipAtPoint(JumpLand, gameObject.transform.position, 0.5f);
     }
 
     private IEnumerator CancelClimbWithJump()

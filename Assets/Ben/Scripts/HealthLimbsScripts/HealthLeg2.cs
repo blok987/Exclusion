@@ -14,6 +14,7 @@ public class HealthLeg2 : MonoBehaviour
     public bool hasPlayedBD = false;
     public bool hasPlayedFD = false;
     public bool hasPlayedD = false;
+    public bool hasPlayedSLV = false;
 
     private WalkScript walkScript;
 
@@ -40,6 +41,9 @@ public class HealthLeg2 : MonoBehaviour
 
     private ParticleSystem hitParticleR1;
     private ParticleSystem hitParticleR2;
+
+    private ParticleSystem hitParticleSLV1;
+    private ParticleSystem hitParticleSLV2;
 
     public float degredationRate = 0.09f;
     public float runDegredationRate = 0.115f;
@@ -71,8 +75,11 @@ public class HealthLeg2 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleR1 = GameObject.Find("bone_9").GetComponent<ParticleSystem>();
-        hitParticleR2 = GameObject.Find("bone_10").GetComponent<ParticleSystem>();
+        //hitParticleR1 = GameObject.Find("bone_9").GetComponent<ParticleSystem>();
+        //hitParticleR2 = GameObject.Find("bone_10").GetComponent<ParticleSystem>();
+
+        //hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRL1").GetComponent<ParticleSystem>();
+        //hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -128,12 +135,32 @@ public class HealthLeg2 : MonoBehaviour
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegSLV;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighSLV;
+            hasPlayedSLV = false;
+
         }
 
         if (health > 5 && health <= 10)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLeg;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThigh;
+
+            if (hasPlayedSLV == false)
+            {
+                //hitParticleSLV1.Play();
+                //hitParticleSLV2.Play();
+                //int randomCrackSLV = Random.Range(1, 3);
+                //switch (randomCrackSLV)
+                //{
+                //    case 1:
+                //        audioSource.PlayOneShot(creak1);
+                //        break;
+                //    case 2:
+                //        audioSource.PlayOneShot(creak2);
+                //        break;
+
+                //}
+                hasPlayedSLV = true;
+            }
         }
 
         if (health <= 5 && health > 2)
@@ -143,8 +170,8 @@ public class HealthLeg2 : MonoBehaviour
 
             if (hasPlayedBD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
@@ -166,8 +193,8 @@ public class HealthLeg2 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                hitParticleR1.Play();
-                hitParticleR2.Play();
+                //hitParticleR1.Play();
+                //hitParticleR2.Play();
                 int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
                 {

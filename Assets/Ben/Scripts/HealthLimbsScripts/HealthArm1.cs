@@ -72,8 +72,8 @@ public class HealthArm1 : MonoBehaviour
         creak1 = Resources.Load<AudioClip>("Audio/SFX/Creak1");
         creak2 = Resources.Load<AudioClip>("Audio/SFX/Creak2");
 
-        hitParticleL1 = GameObject.Find("bone_7").GetComponent<ParticleSystem>();
-        hitParticleL2 = GameObject.Find("bone_8").GetComponent<ParticleSystem>();
+        //hitParticleL1 = GameObject.Find("bone_7").GetComponent<ParticleSystem>();
+        //hitParticleL2 = GameObject.Find("bone_8").GetComponent<ParticleSystem>();
 
     }
 
@@ -124,8 +124,8 @@ public class HealthArm1 : MonoBehaviour
             
             if (hasPlayedBD == false)
             {
-                hitParticleL1.Play();
-                hitParticleL2.Play();
+                //hitParticleL1.Play();
+                //hitParticleL2.Play();
                 int randomCrackBD = Random.Range(1, 2);
                 switch (randomCrackBD)
                 {
@@ -149,8 +149,8 @@ public class HealthArm1 : MonoBehaviour
 
             if (hasPlayedFD == false)
             {
-                hitParticleL1.Play();
-                hitParticleL2.Play();
+                //hitParticleL1.Play();
+                //hitParticleL2.Play();
                 int randomCrackFD = Random.Range(1, 2);
                 switch (randomCrackFD)
                 {
