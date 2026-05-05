@@ -70,11 +70,11 @@ public class BuyingLimbs : MonoBehaviour
         badlegs = os.badlegs;
         if (greatlegs == 0 && cs == vgl)
         {
-            this.gameObject.SetActive(false);
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
         if (greatarms == 0 && cs == vga)
         {
-            this.gameObject.SetActive(false);
+            this.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,6 +26,8 @@ public class OpenShop : MonoBehaviour
     public GameObject greatleg;
     public GameObject goodleg;
     public GameObject badleg;
+
+    public bool isopen;
    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,13 +53,19 @@ public class OpenShop : MonoBehaviour
     public void Openshop() 
     {
         shopUI.SetActive(true);
+        isopen = true;
         
     }
     public void Closeshop()
     { 
         shopUI.SetActive(false);
+        StartCoroutine(wait());
+            isopen = false;
     }
-    
+    public IEnumerator wait()
+    {
+        yield return new WaitForSeconds(5f);
+    }
     public void UpdateShopUI()
     {
 

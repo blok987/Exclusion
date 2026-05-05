@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-           // inv.SetActive(true);
+            inv.SetActive(true);
         }
     }
 }
