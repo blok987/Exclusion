@@ -13,7 +13,7 @@ public class BuyingLimbs : MonoBehaviour
     
     public GameObject player;
     public GameObject money;
-    public textmesh
+    //public textmesh
 
     public GameObject asp;
     public GameObject ap;
