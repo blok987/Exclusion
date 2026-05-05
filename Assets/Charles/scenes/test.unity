@@ -1928,7 +1928,6 @@ MonoBehaviour:
   LArmlength: 0.5
   RArmlength: 0.5
   bounceHeight: 0
-  checkpoint: {fileID: 0}
 --- !u!114 &703617978
 MonoBehaviour:
   m_ObjectHideFlags: 0

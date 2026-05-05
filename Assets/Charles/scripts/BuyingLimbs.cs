@@ -1,7 +1,5 @@
-using Microsoft.Unity.VisualStudio;
 using NUnit.Framework.Interfaces;
 using System;
-
 using UnityEngine;
 
 public class BuyingLimbs : MonoBehaviour
