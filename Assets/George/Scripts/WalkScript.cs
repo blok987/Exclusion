@@ -71,8 +71,11 @@ public class WalkScript : MonoBehaviour
 
     public float bounceHeight; // Force applied when hitting a spike
 
+    private Health healthBody;
     private HealthLeg1 healthLeg1; 
     private HealthLeg2 healthLeg2;
+
+    public Checkpoint checkpoint;
 
     private int RandomFootstep;
 
@@ -111,7 +114,10 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (healthBody.health == 0)
+        {
+            //transform.position = checkpoint.CurrentPoint;
+        }
         #region Player Movement Handling
 
         //Player Gravity

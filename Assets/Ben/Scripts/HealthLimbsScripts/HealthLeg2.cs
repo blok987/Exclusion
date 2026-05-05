@@ -14,6 +14,7 @@ public class HealthLeg2 : MonoBehaviour
     public bool hasPlayedBD = false;
     public bool hasPlayedFD = false;
     public bool hasPlayedD = false;
+    public bool hasPlayedSLV = false;
 
     private WalkScript walkScript;
 
@@ -40,6 +41,9 @@ public class HealthLeg2 : MonoBehaviour
 
     private ParticleSystem hitParticleR1;
     private ParticleSystem hitParticleR2;
+
+    private ParticleSystem hitParticleSLV1;
+    private ParticleSystem hitParticleSLV2;
 
     public float degredationRate = 0.09f;
     public float runDegredationRate = 0.115f;
@@ -73,6 +77,9 @@ public class HealthLeg2 : MonoBehaviour
 
         hitParticleR1 = GameObject.Find("bone_9").GetComponent<ParticleSystem>();
         hitParticleR2 = GameObject.Find("bone_10").GetComponent<ParticleSystem>();
+
+        hitParticleSLV1 = GameObject.Find("DegredationParticleSLVRL1").GetComponent<ParticleSystem>();
+        hitParticleSLV2 = GameObject.Find("DegredationParticleSLVRL2").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -120,12 +127,32 @@ public class HealthLeg2 : MonoBehaviour
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLegSLV;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThighSLV;
+            hasPlayedSLV = false;
+
         }
 
         if (health > 5 && health <= 10)
         {
             DollLegR.GetComponent<SpriteRenderer>().sprite = RDollLeg;
             DollLegThighR.GetComponent<SpriteRenderer>().sprite = RDollLegThigh;
+
+            if (hasPlayedSLV == false)
+            {
+                hitParticleSLV1.Play();
+                hitParticleSLV2.Play();
+                //int randomCrackSLV = Random.Range(1, 3);
+                //switch (randomCrackSLV)
+                //{
+                //    case 1:
+                //        audioSource.PlayOneShot(creak1);
+                //        break;
+                //    case 2:
+                //        audioSource.PlayOneShot(creak2);
+                //        break;
+
+                //}
+                hasPlayedSLV = true;
+            }
         }
 
         if (health <= 5 && health > 2)

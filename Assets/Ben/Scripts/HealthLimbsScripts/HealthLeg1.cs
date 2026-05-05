@@ -88,10 +88,6 @@ public class HealthLeg1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health > 10)
-        {
-            hasPlayedSLV = false;
-        }
 
         if (health > 5)
         {
@@ -105,6 +101,7 @@ public class HealthLeg1 : MonoBehaviour
         {
             DollLegL.GetComponent<SpriteRenderer>().sprite = LDollLegSLV;
             DollLegThighL.GetComponent<SpriteRenderer>().sprite = LDollLegThighSLV;
+            hasPlayedSLV = false;
         }
 
         if (health > 5 && health <= 10)
@@ -128,7 +125,7 @@ public class HealthLeg1 : MonoBehaviour
                         
                     //}
                     hasPlayedSLV = true;
-            }
+                }
         }
 
         //Shows degredation sprites when helath is half
