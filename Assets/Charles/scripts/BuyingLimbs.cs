@@ -1,7 +1,7 @@
-using Microsoft.Unity.VisualStudio.Editor;
+using Microsoft.Unity.VisualStudio;
 using NUnit.Framework.Interfaces;
 using System;
-using UnityEditor;
+
 using UnityEngine;
 
 public class BuyingLimbs : MonoBehaviour
@@ -104,7 +104,7 @@ public class BuyingLimbs : MonoBehaviour
         if (cs == vga || cs == vgl)
         {
             buyPrice = 15;
-            if (cs == vga)
+            if (cs == vga )
             {
                
                 if (greatarms > 0)
