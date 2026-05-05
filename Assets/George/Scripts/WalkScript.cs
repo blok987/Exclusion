@@ -43,6 +43,9 @@ public class WalkScript : MonoBehaviour
     public AudioClip Climb3;
     public AudioClip Climb4;
 
+    public AudioClip Jump;
+    public AudioClip JumpLand;
+
     public Vector2 PlayerDirection;
     //Offsets for the raycasts to check for ground and climbable walls
     public Vector2 GroundOffset;
@@ -117,6 +120,9 @@ public class WalkScript : MonoBehaviour
         Climb2 = Resources.Load<AudioClip>("Audio/SFX/Ladder2");
         Climb3 = Resources.Load<AudioClip>("Audio/SFX/Ladder3");
         Climb4 = Resources.Load<AudioClip>("Audio/SFX/Ladder4");
+
+        Jump = Resources.Load<AudioClip>("Audio/SFX/Jump");
+        JumpLand = Resources.Load<AudioClip>("Audio/SFX/JumpLand");
     }
 
     // Update is called once per frame
@@ -276,6 +282,8 @@ public class WalkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && isClimbing == false && isCrippled == false)
         {
             PlayerDirection.y += JumpStrength;
+            audioSource.PlayOneShot(Jump);
+                
 
 
         }
@@ -283,7 +291,7 @@ public class WalkScript : MonoBehaviour
         if (!isGrounded())
         {
             PlayerAnim.SetBool("isJumping", true);
-
+            StartCoroutine(WaitToLand());
         }
         else if (isGrounded())
         {
@@ -505,6 +513,11 @@ public class WalkScript : MonoBehaviour
         yield return new WaitUntil(() => isGrounded());
         LArmlength = 1f;
         RArmlength = 1f;
+    }
+    private IEnumerator WaitToLand()
+    {
+        yield return new WaitUntil(() => isGrounded());
+        audioSource.PlayOneShot(JumpLand);
     }
 
     private IEnumerator CancelClimbWithJump()
