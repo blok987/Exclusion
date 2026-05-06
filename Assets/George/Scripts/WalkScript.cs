@@ -135,6 +135,11 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Backslash))
+            {
+            Perish();
+            }
+
         if (healthBody.health == 0)
         {
             Perish();
@@ -148,6 +153,11 @@ public class WalkScript : MonoBehaviour
         if (isGrounded() && PlayerAnim.GetBool("isYeowch"))
         {
             PlayerAnim.SetBool("isYeowch", false);
+        }
+
+        if (isGrounded())
+        {
+            PlayerAnim.SetBool("isJumping", false);
         }
 
         //Controls the crippled anim of the player and the speed reduction when a leg's health reaches 0

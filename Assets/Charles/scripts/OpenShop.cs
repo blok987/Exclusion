@@ -59,13 +59,12 @@ public class OpenShop : MonoBehaviour
     public void Closeshop()
     { 
         shopUI.SetActive(false);
-        StartCoroutine(wait());
-            isopen = false;
+        isopen = false;
+
     }
-    public IEnumerator wait()
-    {
-        yield return new WaitForSeconds(5f);
-    }
+   
+        
+    
     public void UpdateShopUI()
     {
 
