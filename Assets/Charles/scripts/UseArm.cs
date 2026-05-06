@@ -19,7 +19,7 @@ public class UseArm : MonoBehaviour
     public int health = 10;
     public int healthmax;
     public Image sr;
-    public Sprite s;
+    public Image s;
     public Sprite vg;
     public Sprite g;
     public Sprite b;
@@ -28,13 +28,14 @@ public class UseArm : MonoBehaviour
     public bool prioritize1;
     public bool prioritize2;
     public UseLeg ul;
+    public InventoryItemInstance iii;
     public void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.Find("Player");
         armcolisionhealth = Player.transform.Find("ArmCollision&Health").gameObject;
 
         c = FindAnyObjectByType<Canvas>();
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.Find("Player");
         arm1 = Player.transform.Find("Doll Forearm FRONT").gameObject;
         arm11 = Player.transform.Find("Doll Upper Arm FRONT").gameObject;
         arm2 = Player.transform.Find("Doll Forearm BACK").gameObject;
@@ -42,30 +43,31 @@ public class UseArm : MonoBehaviour
         ul = GetComponent<UseLeg>();
         h2 = armcolisionhealth.GetComponent<HealthArm1>();
         h = armcolisionhealth.GetComponent<HealthArm2>();
+        
         sr = GetComponent<Image>();
-        s = sr.sprite;
+        s = sr;
 
     }
     private void Update()
     {
         if (s == null || s != g || s != b || s != vb || s != vg)
-            s = sr.sprite;
-        if (s == vg)
+            s = sr;
+        if (s.sprite == vg)
         {
             health = 15;
             healthmax = 15;
         }
-        if (s == g)
+        if (s.sprite == g)
         {
-            health = 9;
+            health = 10;
             healthmax = 10;
         }
-        if (s == b)
+        if (s.sprite == b)
         {
             health = 5;
             healthmax = 10;
         }
-        if (s == vb)
+        if (s.sprite == vb)
         {
             health = 2;
             healthmax = 10;

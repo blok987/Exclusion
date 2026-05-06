@@ -1,7 +1,7 @@
-using Unity.Burst.Intrinsics;
+
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.CoreUtils;
+
 
 public class UseLeg : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class UseLeg : MonoBehaviour
     public int health;
     public int healthmax;
     public Image sr;
-    public Sprite s;
+    public Image s;
     public Sprite vg;
     public Sprite g;
     public Sprite b;
@@ -30,11 +30,11 @@ public class UseLeg : MonoBehaviour
     public UseArm ua;
     public void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.Find("Player");
         legcolisionhealth = Player.transform.Find("LegCollision&Health").gameObject;
         
         c = FindAnyObjectByType<Canvas>();
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.Find("Player");
         leg1 = Player.transform.Find("Doll Leg FRONT").gameObject;
         leg11 = Player.transform.Find("Doll Thigh FRONT").gameObject;
         leg2 = Player.transform.Find("Doll Leg BACK").gameObject;
@@ -43,31 +43,31 @@ public class UseLeg : MonoBehaviour
         h = legcolisionhealth.GetComponent<HealthLeg2>();
         h2 = legcolisionhealth.GetComponent<HealthLeg1>();
         sr = GetComponent<Image>();
-        s = sr.sprite;
+        s = sr;
 
     }
     private void Update()
     {
         //|| s != vb
         if (s == null || s != g || s != b || s != vb || s != vg )
-            s = sr.sprite;
+            s = sr  ;
 
-        if (s == g)
+        if (s.sprite == g)
         {
             health = 10;
             healthmax = 10;
         }
-        else if (s == b)
+        else if (s.sprite == b)
         {
             health = 5;
             healthmax = 10;
         }
-        else if (s == vb)
+        else if (s.sprite == vb)
         {
             health = 2;
             healthmax = 10;
         }
-        else  if (s == vg)
+        else  if (s.sprite == vg)
         {
             health = 15;
             healthmax = 15;

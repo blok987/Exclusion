@@ -6,18 +6,12 @@ public class TriggerShopOpen : MonoBehaviour
         
         public GameObject shopUI;
        
-        private void Start()
-        {
-            shopScript = GameObject.Find("shop iu").GetComponent<OpenShop>();
-            
-            shopUI = GameObject.Find("shop iu");
-           
-        }
+       
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
+            if (other.gameObject.name == "Player")
+        {
                 if (shopScript.isopen == false)
                 {
                     shopScript.Openshop();
@@ -28,7 +22,7 @@ public class TriggerShopOpen : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.name == "Player")
         {
             if (shopScript.isopen == true)
             {

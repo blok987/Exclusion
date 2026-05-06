@@ -21,8 +21,7 @@ public class LimbFade : MonoBehaviour
     {
         limb = this.gameObject;
         i= this.GetComponent<Image>();
-        player = GameObject.FindWithTag("Player");
-       
+        player = GameObject.Find("Player");       
     }
 
     // Update is called once per frame
